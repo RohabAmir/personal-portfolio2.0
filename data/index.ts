@@ -208,7 +208,7 @@ export const navItems = [
     },
     {
       id: 2,
-      img: "/twit.svg",
+      img: "/leetcode.svg",
     },
     {
       id: 3,
