@@ -3,6 +3,7 @@ import MagicButton from './ui/MagicButton';
 import { FaLocationArrow } from 'react-icons/fa';
 import { socialMedia } from '@/data';
 
+
 const Footer = () => {
   return (
     <footer className='w-full  pb-10 mb-[100px] md:mb-5' id='contact'>
@@ -13,7 +14,7 @@ const Footer = () => {
             <p className='text-white-200 md:mt-10 my-5 text-center'>
                 Reach out to me today and let&lsquo;s discuss how I can help you achieve your goals.
             </p>
-            <a href='mailto:rohabamir2@gmail.com'>
+            <a href="/resume/Rohab-Aamir.pdf" download="Rohab-Aamir-Resume">
                 <MagicButton
                     title="Download Resume"
                     icon={<FaLocationArrow/>}
