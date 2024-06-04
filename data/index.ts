@@ -74,7 +74,7 @@ export const navItems = [
       id: 1,
       title: "3D Solar System Planets to Explore",
       des: "Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.",
-      img: "/p1.svg",
+      img: "/project-img1.png",
       iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
       link: "https://github.com/adrianhajdin?tab=repositories",
     },
@@ -107,33 +107,33 @@ export const navItems = [
   export const testimonials = [
     {
       quote:
-        "Collaborating with rohab was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
+        "Collaborating with Rohab was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
       name: "Michael Johnson",
       title: "Director of AlphaStream Technologies",
     },
     {
       quote:
-        "Collaborating with rohab was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-      name: "Michael Johnson",
-      title: "Director of AlphaStream Technologies",
+        "Working with Rohab has been a transformative experience for our company. His keen eye for design and exceptional coding skills brought our project to life. Our website is not only visually appealing but also highly functional, thanks to Rohab's meticulous attention to detail.",
+      name: "Shairzaman Furqan",
+      title: "CEO @Dispacth Aero",
     },
     {
       quote:
-        "Collaborating with rohab was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-      name: "Michael Johnson",
-      title: "Director of AlphaStream Technologies",
+        "Rohab's ability to translate complex requirements into seamless web experiences is unmatched. He delivered our project ahead of schedule and exceeded our expectations in terms of both aesthetics and performance. A true professional and a pleasure to work with!",
+      name: "Shannon Morales",
+      title: "CE0 @Tribaja",
     },
     {
       quote:
-        "Collaborating with rohab was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-      name: "Michael Johnson",
-      title: "Director of AlphaStream Technologies",
+        "As a startup, we needed a website that could make a strong first impression, and Rohab delivered just that. His creative insights and technical prowess helped us achieve a web presence that truly stands out. I highly recommend Rohab for any frontend development needs!",
+      name: "Eric Recker",
+      title: "CE0 @Botics",
     },
     {
       quote:
-        "Collaborating with rohab was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-      name: "Michael Johnson",
-      title: "Director of AlphaStream Technologies",
+        "Rohab is a wizard with frontend technologies. He revamped our website with a fresh, modern design that has significantly increased our user engagement. His proactive approach to solving problems and optimizing performance made the entire redesign process smooth and stress-free.",
+      name: "",
+      title: "",
     },
   ];
   
@@ -158,15 +158,15 @@ export const navItems = [
     },
     {
       id: 4,
-      name: "stream",
-      img: "/s.svg",
-      nameImg: "/streamName.svg",
+      name: "Aceternity",
+      img: "/Aceternity.svg",
+      nameImg: "/AceternityName.svg",
     },
     {
       id: 5,
-      name: "docker.",
-      img: "/dock.svg",
-      nameImg: "/dockerName.svg",
+      name: "Strapi.",
+      img: "/Strapi.svg",
+      nameImg: "/StrapiName.svg",
     },
   ];
   
@@ -204,14 +204,17 @@ export const navItems = [
   export const socialMedia = [
     {
       id: 1,
+      link:"https://github.com/RohabAmir",
       img: "/git.svg",
     },
     {
       id: 2,
+      link:"https://leetcode.com/u/rohabamir2/",
       img: "/leetcode.svg",
     },
-    {
+    { 
       id: 3,
+      link:"https://www.linkedin.com/in/rohab-aamir2/",
       img: "/link.svg",
     },
   ];
