@@ -27,7 +27,7 @@ const RecentProjects = () => {
                   alt={title}
                   className="z-10 absolute bottom-0 "
                   style={
-                    [0, 1, 4].includes(index) ? { maxWidth: "90%", transform: "skew(-10deg)" } : { maxWidth: "97%", transform: "skew(-10deg)"}
+                    [0,1,2,3,4].includes(index) ? { maxWidth: "90%", transform: "skew(-10deg)", height:"100%"} : { maxWidth: "92%", transform: "skew(-10deg)", height:"100%"}
                   }
                 />
               </div>
@@ -51,11 +51,10 @@ const RecentProjects = () => {
                     </div>
                   ))}
                 </div>
-
                 <div className="flex justify-center items-center">
-                  <p className="flex lg:text-xl md:text-xs text-sm text-purple">
+                  <a href={link} className="flex lg:text-xl md:text-xs text-sm text-purple" target="_blank" rel="noopener noreferrer">
                     Check Live Site
-                  </p>
+                  </a>
                   <FaLocationArrow className="ms-3" color="#CBACF9" />
                 </div>
               </div>
