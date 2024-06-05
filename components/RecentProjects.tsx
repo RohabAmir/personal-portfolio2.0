@@ -1,8 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import { projects } from "@/data";
 import { PinContainer } from "./ui/3d-pin";
 import { FaLocationArrow } from "react-icons/fa";
-
 
 const RecentProjects = () => {
   return (
@@ -12,7 +12,7 @@ const RecentProjects = () => {
         <span className="text-purple">recent projects</span>
       </h1>
       <div className="flex flex-wrap items-center justify-center p-4 mt-10 gap-x-24 gap-y-8 ">
-        {projects.map(({ id, title, des, img, iconLists, link }) => (
+        {projects.map(({ id, title, des, img, iconLists, link }, index) => (
           <div
             key={id}
             className=" sm:h-[41rem] h-[32rem] lg:min-h-[32.5rem] flex items-center justify-center sm:w-[570px] w-[80vw]"
@@ -22,10 +22,21 @@ const RecentProjects = () => {
                 <div className="relative w-full h-full overflow-hidden lg:rounded-3xl bg-[#13162d]">
                   <img src="/bg.png" alt="bg-img" />
                 </div>
-                <img src={img} alt={title} className="z-10 absolute bottom-0"/>
+                <img
+                  src={img}
+                  alt={title}
+                  className="z-10 absolute bottom-0 "
+                  style={
+                    [0, 1, 4].includes(index) ? { maxWidth: "90%", transform: "skew(-10deg)" } : { maxWidth: "97%", transform: "skew(-10deg)"}
+                  }
+                />
               </div>
-              <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1">{title}</h1>
-              <span className="lg:text-xl lg:font-normal font-light text-sm line-clamp-2">{des}</span>
+              <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1">
+                {title}
+              </h1>
+              <span className="lg:text-xl lg:font-normal font-light text-sm line-clamp-2">
+                {des}
+              </span>
               <div className="flex items-center justify-between mt-7 mb-3">
                 <div className="flex items-center">
                   {iconLists.map((icon, index) => (

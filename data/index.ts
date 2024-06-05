@@ -72,35 +72,51 @@ export const navItems = [
   export const projects = [
     {
       id: 1,
-      title: "3D Solar System Planets to Explore",
-      des: "Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.",
-      img: "/project-img1.png",
+      title: "Tribaja - A career platform website",
+      des: "Explore the wonders of our trusted career guide for life's career changes using React.js.",
+      img: "/project-img4.png",
       iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
-      link: "https://github.com/adrianhajdin?tab=repositories",
+      link: "https://tribaja.co/",
     },
     {
       id: 2,
-      title: "Yoom - Video Conferencing App",
+      title: "Botics - Video Conferencing App",
       des: "Simplify your video conferencing experience with Yoom. Seamlessly connect with colleagues and friends.",
-      img: "/p2.svg",
+      img: "/project-img22.png",
       iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
-      link: "https://github.com/adrianhajdin/zoom-clone",
+      link: "https://botics.dev",
     },
     {
       id: 3,
-      title: "AI Image SaaS - Canva Application",
+      title: "BlaxCorp",
       des: "A REAL Software-as-a-Service app with AI features and a payments and credits system using the latest tech stack.",
-      img: "/p3.svg",
+      img: "/project-img11.png",
       iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
-      link: "https://github.com/adrianhajdin/ai_saas_app",
+      link: "https://victorious-bay-0aa1c2903.5.azurestaticapps.net/",
     },
     {
       id: 4,
-      title: "Animated Apple Iphone 3D Website",
+      title: "Dispatch Aero",
       des: "Recreated the Apple iPhone 15 Pro website, combining GSAP animations and Three.js 3D effects..",
-      img: "/p4.svg",
+      img: "/project-img5.png",
       iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
-      link: "https://github.com/adrianhajdin/iphone",
+      link: "https://dispatchaero.com/",
+    },
+    {
+      id: 5,
+      title: "Nexa Packaging",
+      des: "Recreated the Apple iPhone 15 Pro website, combining GSAP animations and Three.js 3D effects..",
+      img: "/project-img6.png",
+      iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
+      link: "https://nexa-packaging.vercel.app/",
+    },
+    {
+      id: 6,
+      title: "My Personal Portfolio Website",
+      des: "Recreated the Apple iPhone 15 Pro website, combining GSAP animations and Three.js 3D effects..",
+      img: "/project-img7.png",
+      iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/Strapi.svg", "/Aceternity.svg"],
+      link: "https://rohabamir.netlify.app",
     },
   ];
   
@@ -132,8 +148,8 @@ export const navItems = [
     {
       quote:
         "Rohab is a wizard with frontend technologies. He revamped our website with a fresh, modern design that has significantly increased our user engagement. His proactive approach to solving problems and optimizing performance made the entire redesign process smooth and stress-free.",
-      name: "",
-      title: "",
+      name: "Guillermo",
+      title: "Director of Nexus Technologies",
     },
   ];
   
