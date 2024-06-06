@@ -92,7 +92,7 @@ export const navItems = [
       des: "Explore the wonders of our trusted career guide for life's career changes using React.js.",
       img: "/project-img11.png",
       iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
-      link: "https://tribaja.co/",
+      link: "https://app.tribaja.co/",
     },
     {
       id: 4,
