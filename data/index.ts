@@ -72,7 +72,7 @@ export const navItems = [
   export const projects = [
     {
       id: 1,
-      title: "BlaxCorp",
+      title: "- BlaxCorp",
       des: "A streamlined 5-step process ensuring robustic protection for every deal.",
       img: "/project-img4.png",
       iconLists: ["/re.svg", "/sass.png", "/ts.svg", "/AntDesign.svg", "/fm.svg"],
@@ -80,7 +80,7 @@ export const navItems = [
     },
     {
       id: 2,
-      title: "Botics",
+      title: "- Botics",
       des: "Our Saas platform makes adopting robotics & automatice easier and faster.",
       img: "/project-img22.png",
       iconLists: ["/re.svg", "/boostrap.svg", "/Js.svg", "/stream.svg", "/c.svg"],
@@ -88,7 +88,7 @@ export const navItems = [
     },
     {
       id: 3,
-      title: "Tribaja",
+      title: "- Tribaja",
       des: "Explore the wonders of our trusted career guide for life's career changes using React.js.",
       img: "/project-img11.png",
       iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
@@ -96,7 +96,7 @@ export const navItems = [
     },
     {
       id: 4,
-      title: "Dispatch Aero",
+      title: "- Dispatch Aero",
       des: "Made a beautiful professional website for a dispatching company based in Sheridan WY, USA.",
       img: "/project-img5.png",
       iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
@@ -104,7 +104,7 @@ export const navItems = [
     },
     {
       id: 5,
-      title: "Nexa Packaging",
+      title: "- Nexa Packaging",
       des: "Made a website from scratch to products for boxes packaging company using Next & MUI.",
       img: "/project-img6.png",
       iconLists: ["/next.svg", "/fm.svg", "/ts.svg", "/MUI.svg", "/Strapi.svg"],
@@ -112,7 +112,7 @@ export const navItems = [
     },
     {
       id: 6,
-      title: "My Personal Portfolio Website",
+      title: "- My Personal Portfolio Website",
       des: "Made a website illustrating my expertise as a FrontEnd Dev.",
       img: "/project-img7.png",
       iconLists: ["/re.svg", "/boostrap.svg", "/Js.svg", "/Strapi.svg", "/Aceternity.svg"],

@@ -1,8 +1,9 @@
-/* eslint-disable @next/next/no-img-element */
+"use client";
 import React from "react";
 import { projects } from "@/data";
 import { PinContainer } from "./ui/3d-pin";
 import { FaLocationArrow } from "react-icons/fa";
+import Image from "next/image";
 
 const RecentProjects = () => {
   return (
@@ -20,14 +21,17 @@ const RecentProjects = () => {
             <PinContainer title={link} href={link}>
               <div className="relative flex items-center justify-center overflow-hidden sm:w-[570px] w-[80vw] sm;h-[40vh] h-[30vh] mb-10">
                 <div className="relative w-full h-full overflow-hidden lg:rounded-3xl bg-[#13162d]">
-                  <img src="/bg.png" alt="bg-img" />
+                  <Image width={0} height={0} src="/bg.png" alt="bg-img" />
                 </div>
-                <img
+                <Image
+                  objectFit="contain"
                   src={img}
                   alt={title}
-                  className="z-10 absolute bottom-0 "
+                  width={500}
+                  height={300}
+                  className="z-10 absolute bottom-0 rounded-[4px] h-full "
                   style={
-                    [0,1,2,3,4].includes(index) ? { maxWidth: "90%", transform: "skew(-10deg)", height:"100%"} : { maxWidth: "92%", transform: "skew(-10deg)", height:"100%"}
+                    [0,1,2,3,4].includes(index) ? { maxWidth: "80%", transform: "skew(-10deg)"} : { maxWidth: "82%", transform: "skew(-10deg)",}
                   }
                 />
               </div>
@@ -47,7 +51,7 @@ const RecentProjects = () => {
                         transform: `translateX(-${5 * index * 2}px)`,
                       }}
                     >
-                      <img src={icon} alt="icon5" className="p-2" />
+                      <Image width={100} height={100} src={icon} alt="icon5" className="p-2" />
                     </div>
                   ))}
                 </div>
