@@ -23,8 +23,8 @@ const MagicButton = ({
         className="absolute inset-[-1000%] "
         style={{
           backgroundImage: 'conic-gradient(from 90deg at 50% 50%, #E2CBFF 0%, #393BB2 50%, #E2CBFF 100%)',
-          animation: 'spin 2s linear infinite',
-          WebkitAnimation: 'spin 2s linear infinite', // for Safari
+          animation: 'spin 3s linear infinite',
+          WebkitAnimation: 'spin 3s linear infinite', // for Safari
         }}
       />
       <span 
