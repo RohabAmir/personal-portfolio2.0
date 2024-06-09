@@ -19,20 +19,23 @@ const RecentProjects = () => {
             className=" sm:h-[41rem] h-[32rem] lg:min-h-[32.5rem] flex items-center justify-center sm:w-[570px] w-[80vw]"
           >
             <PinContainer title={link} href={link}>
-              <div className="relative flex items-center justify-center overflow-hidden sm:w-[570px] w-[80vw] sm;h-[40vh] h-[30vh] mb-10">
+              <div className="relative flex items-center justify-center overflow-hidden sm:w-[570px] w-[80vw] sm:h-[30vh] h-[20vh] xs:h-[10vh] mb-10">
                 <div className="relative w-full h-full overflow-hidden lg:rounded-3xl bg-[#13162d]">
                   <Image width={0} height={0} src="/bg.png" alt="bg-img" />
                 </div>
                 <Image
-                  objectFit="contain"
                   src={img}
                   alt={title}
                   width={500}
                   height={300}
-                  className="z-10 absolute bottom-0 rounded-[4px] h-full "
-                  style={
-                    [0,1,2,3,4].includes(index) ? { maxWidth: "80%", transform: "skew(-10deg)"} : { maxWidth: "82%", transform: "skew(-10deg)",}
-                  }
+                  className={`z-10 absolute bottom-0 rounded-[4px] h-full ${
+                    [0, 1, 2, 3, 4].includes(index)
+                      ? "max-w-[80%]"
+                      : "max-w-[82%]"
+                  } sm:object-fill object-contain`}
+                  style={{
+                    transform: "skew(-10deg)",
+                  }}
                 />
               </div>
               <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1">
@@ -51,12 +54,23 @@ const RecentProjects = () => {
                         transform: `translateX(-${5 * index * 2}px)`,
                       }}
                     >
-                      <Image width={100} height={100} src={icon} alt="icon5" className="p-2" />
+                      <Image
+                        width={100}
+                        height={100}
+                        src={icon}
+                        alt="icon5"
+                        className="p-2"
+                      />
                     </div>
                   ))}
                 </div>
                 <div className="flex justify-center items-center">
-                  <a href={link} className="flex lg:text-xl md:text-xs text-sm text-purple" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={link}
+                    className="flex lg:text-xl md:text-xs text-sm text-purple text-nowrap"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     Check Live Site
                   </a>
                   <FaLocationArrow className="ms-3" color="#CBACF9" />

@@ -13,7 +13,7 @@ const Footer = () => {
                 Ready to take <span className='text-purple'>your</span> digital presence to the next level?
             </h1>
             <p className='text-white-200 md:mt-10 my-5 text-center'>
-                Reach out to me today and let&lsquo;s discuss how I can help you achieve your goals.
+                Reach out to me today and I hope I can help you out in your talent hunt.
             </p>
             <a href="/resume/Rohab-Aamir.pdf" download="Rohab-Aamir-Resume">
                 <MagicButton
