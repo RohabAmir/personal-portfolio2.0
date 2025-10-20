@@ -8,9 +8,9 @@ import Image from "next/image";
 const RecentProjects = () => {
   return (
     <div className="py-20" id="projects">
-      <h1 className="heading">
+      <h1 className="heading dark:text-white text-slate-800">
         A small selection of{" "}
-        <span className="text-purple">recent projects</span>
+        <span className="dark:text-purple text-[#9a5df5]">recent projects</span>
       </h1>
       <div className="flex flex-wrap items-center justify-center p-4 mt-10 gap-x-24 gap-y-8 ">
         {projects.map(({ id, title, des, img, iconLists, link }, index) => (
@@ -20,7 +20,7 @@ const RecentProjects = () => {
           >
             <PinContainer title={link} href={link}>
               <div className="relative flex items-center justify-center overflow-hidden sm:w-[570px] w-[80vw] sm:h-[30vh] h-[20vh] xs:h-[10vh] mb-10">
-                <div className="relative w-full h-full overflow-hidden lg:rounded-3xl bg-[#13162d]">
+                <div className="relative w-full h-full overflow-hidden lg:rounded-3xl dark:bg-[rgb(4,7,29)] bg-[#13162d]">
                   <Image width={0} height={0} src="/bg.png" alt="bg-img" />
                 </div>
                 <Image
@@ -49,7 +49,7 @@ const RecentProjects = () => {
                   {iconLists.map((icon, index) => (
                     <div
                       key={index}
-                      className="border border-white/[.2] rounded-full bg-black lg:w-10 lg:h-10 w-8 h-8 flex justify-center items-center"
+                      className="border dark:border-white/[.2] border-white rounded-full dark:bg-black bg-[#252A5A] lg:w-10 lg:h-10 w-8 h-8 flex justify-center items-center"
                       style={{
                         transform: `translateX(-${5 * index * 2}px)`,
                       }}
@@ -67,13 +67,13 @@ const RecentProjects = () => {
                 <div className="flex justify-center items-center">
                   <a
                     href={link}
-                    className="flex lg:text-xl md:text-xs text-sm text-purple text-nowrap"
+                    className="flex lg:text-xl md:text-xs text-sm dark:text-purple text-[#9a5df5] text-nowrap"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     Check Live Site
                   </a>
-                  <FaLocationArrow className="ms-3" color="#CBACF9" />
+                  <FaLocationArrow className="ms-3 dark:text-purple text-[#9a5df5]" />
                 </div>
               </div>
             </PinContainer>

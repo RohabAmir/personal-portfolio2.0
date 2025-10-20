@@ -47,7 +47,7 @@ export function Button({
         <MovingBorder duration={duration} rx="30%" ry="30%">
           <div
             className={cn(
-              "h-20 w-20 opacity-[0.8] bg-[radial-gradient(var(--sky-500)_40%,transparent_60%)]",
+              "h-20 w-40 opacity-[0.9] bg-[radial-gradient(var(--purple)_40%,transparent_60%)]",
               borderClassName
             )}
           />
@@ -56,13 +56,13 @@ export function Button({
 
       <div
         className={cn(
-          "relative bg-slate-900/[0.8] border border-slate-800  text-white flex items-center justify-center w-full h-full text-sm antialiased",
+          "relative dark:bg-slate-900/[0.8] bg-white/30 border dark:border-slate-800 border-[#252A5A] dark:text-white text-slate-800 flex items-center justify-center w-full h-full text-sm antialiased",
           className
         )}
         style={{
           borderRadius: `calc(${borderRadius} * 0.96)`,
           backdropFilter: 'blur(24px)',
-          WebkitBackdropFilter: 'blur(24px)', // for Safari
+          WebkitBackdropFilter: 'blur(24px)',
         }}
       >
         {children}

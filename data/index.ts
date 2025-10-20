@@ -189,15 +189,15 @@ export const navItems = [
   export const workExperience = [
     {
       id: 1,
-      title: "Junior Software Engineer",
-      desc: "Assisted in the development for Punjab Board of Technical Education website using React.js, enhancing interactivity.",
+      title: "Junior React.js Developer",
+      desc: "I gained immense knowledge by covering React bootcamp course and helped the dev team on their running project.",
       className: "md:col-span-2",
       thumbnail: "/exp1.svg",
     },
     {
       id: 2,
-      title: "ReactJs Intern - Folium AI",
-      desc: "I gained immense knowledge by covering React bootcamp course and helped the dev team on their running project.",
+      title: "Associate Software Engineer",
+      desc: "Assisted in the development of a web-based platform using Next Js & React js.",
       className: "md:col-span-2", 
       thumbnail: "/exp2.svg",
     },
@@ -210,8 +210,8 @@ export const navItems = [
     },
     {
       id: 4,
-      title: "Associate Software Engineer",
-      desc: "Developed and maintained user-facing features using modern frontend technologies.",
+      title: "Senior Frontend Developer",
+      desc: "Developed and maintained user-facing features using modern frontend technologies and libraries",
       className: "md:col-span-2",
       thumbnail: "/exp4.svg",
     },

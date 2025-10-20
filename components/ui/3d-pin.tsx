@@ -48,9 +48,9 @@ export const PinContainer = ({
           style={{
             transform: transform,
           }}
-          className="absolute left-1/2 p-4 top-1/2  flex justify-start items-start  rounded-2xl  shadow-[0_8px_16px_rgb(0_0_0/0.4)] border border-white/[0.1] group-hover/pin:border-white/[0.2] transition duration-700 overflow-hidden"
+          className="absolute left-1/2 p-4 top-1/2  flex justify-start items-start  rounded-2xl  shadow-[0_8px_16px_rgb(0_0_0/0.4)] border dark:border-white/[0.1] border-[#293063]/60 dark:group-hover/pin:border-white/[0.2] group-hover/pin:border-purple transition duration-700 overflow-hidden dark:bg-black-200 bg-white"
         >
-          <div className={cn(" relative z-50 ", className)}>{children}</div>
+          <div className={cn(" relative z-50 dark:text-white text-slate-800", className)}>{children}</div>
         </div>
       </div>
       <PinPerspective title={title} href={href} />

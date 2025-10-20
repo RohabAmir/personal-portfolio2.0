@@ -8,9 +8,9 @@ import Image from "next/image";
 const Clients = () => {
   return (
     <section id="testimonials" className="py-20">
-      <h1 className="heading">
+      <h1 className="heading dark:text-white text-slate-800">
         Kind words from
-        <span className="text-purple"> satisfied clients</span>
+        <span className="dark:text-purple text-[#9a5df5]"> satisfied clients</span>
       </h1>
 
       <div className="flex flex-col items-center max-lg:mt-10">
@@ -24,15 +24,18 @@ const Clients = () => {
           />
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-4 md:gap-16 max-lg:mt-10">
+        <div className="flex flex-wrap items-center justify-center gap-4 md:gap-12 max-lg:mt-10">
           {companies.map((company) => (
-              <div key={company.id} className="flex md:max-w-60 max-w-32 gap-2">
+              <div 
+                key={company.id} 
+                className="flex items-center justify-center gap-2  w-40 h-16 md:w-52 md:h-20 rounded-xl dark:bg-transparent bg-[#1a2255] border dark:border-transparent border-[#2a3570] transition-all duration-300"
+              >
                 <Image
                   width={0}
                   height={0}
                   src={company.img}
                   alt={company.name}
-                  className="md:w-10 w-5"
+                  className="md:w-10 w-6 h-auto object-contain"
                   
                 />
                 <Image
@@ -40,7 +43,7 @@ const Clients = () => {
                   src={company.nameImg}
                   alt={company.name}
                   width={company.id === 4 || company.id === 5 ? 100 : 150}
-                  className="md:w-24 w-20"
+                  className="md:w-24 w-20 h-auto object-contain"
                 />
               </div>
           ))}

@@ -20,13 +20,13 @@ const MagicButton = ({
       }}
     >
       <span 
-        className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]"
+        className="absolute inset-[-1000%] dark:animate-[spin_1s_linear_infinite] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)] "
       />
       <span 
-        className={`inline-flex h-full w-full cursor-pointer items-center justify-center rounded-lg bg-slate-950 px-7 text-sm font-medium text-white gap-2 ${position === 'left' ? 'flex-row-reverse' : ''}`}
+        className={`inline-flex h-full w-full cursor-pointer items-center justify-center rounded-lg dark:bg-slate-950  px-7 text-sm font-medium text-white gap-2 ${position === 'left' ? 'flex-row-reverse' : ''}`}
         style={{
           backdropFilter: 'blur(16px)',
-          WebkitBackdropFilter: 'blur(16px)', // for Safari
+          WebkitBackdropFilter: 'blur(16px)',
         }}
       >
         {position === "left" && icon}

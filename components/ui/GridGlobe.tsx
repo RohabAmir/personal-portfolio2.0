@@ -11,6 +11,7 @@ const GridGlobe = () => {
   const globeConfig = {
     pointSize: 4,
     globeColor: "#062056",
+    lightGlobeColor: "#252a5a",
     showAtmosphere: true,
     atmosphereColor: "#FFFFFF",
     atmosphereAltitude: 0.1,
