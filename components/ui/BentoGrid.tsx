@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
 import Lottie from "react-lottie";
@@ -7,6 +8,7 @@ import GridGlobe from "./GridGlobe";
 import animationData from "@/data/confetti.json";
 import MagicButton from "./MagicButton";
 import Image from "next/image";
+import OrbitingSkillsCompact from "../OrbitingSkillsCompact";
 
 export const BentoGrid = ({
   className,
@@ -36,6 +38,7 @@ export const BentoGridItem = ({
   imgClassName,
   titleClassName,
   spareImg,
+  isOrbitingSkills,
 }: {
   className?: string;
   id: number;
@@ -45,6 +48,7 @@ export const BentoGridItem = ({
   imgClassName?: string;
   titleClassName?: string;
   spareImg?: string;
+  isOrbitingSkills?: boolean;
 }) => {
   const leftLists = ["ReactJS", "NextJS", "Typescript"];
   const rightLists = ["JavaScript", "VueJS", "NuxtJS"];
@@ -74,7 +78,7 @@ export const BentoGridItem = ({
       )}
     >
       {/* add img divs */}
-      <div className={`${id === 6 && "flex justify-center"} h-full`}>
+      <div className={`${id === 7 && "flex justify-center"} h-full`}>
         <div className="w-full h-full absolute">
           {img && (
             <Image
@@ -87,7 +91,7 @@ export const BentoGridItem = ({
           )}
         </div>
         <div
-          className={`absolute right-0 -bottom-5 ${
+          className={`absolute right-0 lg:bottom-0 -bottom-20 ${
             id === 5 && "w-full opacity-80"
           } `}
         >
@@ -101,7 +105,7 @@ export const BentoGridItem = ({
             />
           )}
         </div>
-        {id === 6 && (
+        {id === 7 && (
           <BackgroundGradientAnimation>
             <div className="absolute z-50 inset-0 flex items-center justify-center text-white font-bold px-4 pointer-events-none text-3xl text-center md:text-4xl lg:text-7xl"></div>
           </BackgroundGradientAnimation>
@@ -117,7 +121,7 @@ export const BentoGridItem = ({
             {description}
           </div>
           <div
-            className={`font-sans text-lg lg:text-3xl max-w-96 font-bold z-10 dark:text-white text-white`}
+            className={`font-sans text-lg mr-6 lg:text-3xl max-w-96 font-bold z-10 dark:text-white text-white`}
           >
             {title}
           </div>
@@ -155,7 +159,14 @@ export const BentoGridItem = ({
               </div>
             </div>
           )}
-          {id === 6 && (
+
+          {/* Orbiting Skills */}
+          {isOrbitingSkills && id === 4 && (
+            <div className="absolute inset-0 lg:top-1/2 top-[70%] left-[70%]  -translate-x-1/2 -translate-y-1/2 flex items-center justify-center h-full">
+              <OrbitingSkillsCompact />
+            </div>
+          )}
+          {id === 7 && (
             <div className="mt-5 relative">
               <div
                 className={`absolute -bottom-5 right-0 ${
