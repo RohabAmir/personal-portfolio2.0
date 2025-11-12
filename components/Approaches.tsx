@@ -59,7 +59,8 @@ const Approach = () => {
   return (
     <section className="w-full py-20">
       <h1 className="heading dark:text-white text-slate-800">
-        My <span className="dark:text-purple text-[#9a5df5]">approach</span>
+        My{" "}
+        <span className="dark:text-purple text-[#9a5df5]">workflow process</span>
       </h1>
       <div className="my-20 flex flex-col lg:flex-row items-center justify-center w-full gap-4">
         {cards.map((card, index) => (

@@ -9,14 +9,14 @@ const RecentProjects = () => {
   return (
     <div className="py-20" id="projects">
       <h1 className="heading dark:text-white text-slate-800">
-        A small selection of{" "}
-        <span className="dark:text-purple text-[#9a5df5]">recent projects</span>
+        Highlighting my recent{" "}
+        <span className="dark:text-purple text-[#9a5df5]">success stories</span>
       </h1>
       <div className="flex flex-wrap items-center justify-center p-4 mt-10 gap-x-24 gap-y-8 ">
         {projects.map(({ id, title, des, img, iconLists, link }, index) => (
           <div
             key={id}
-            className=" sm:h-[41rem] h-[32rem] lg:min-h-[32.5rem] flex items-center justify-center sm:w-[570px] w-[80vw]"
+            className=" sm:h-[41rem] h-[28rem] lg:min-h-[32.5rem] flex items-center justify-center sm:w-[570px] w-[80vw]"
           >
             <PinContainer title={link} href={link}>
               <div className="relative flex items-center justify-center overflow-hidden sm:w-[570px] w-[80vw] sm:h-[30vh] h-[20vh] xs:h-[10vh] mb-10">

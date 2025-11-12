@@ -5,6 +5,7 @@ import Experience from "@/components/Experience";
 import Footer from "@/components/Footer";
 import Grid from "@/components/Grid";
 import Hero from "@/components/Hero";
+import ProfessionalExperience from "@/components/ProfessionalExperience";
 import RecentProjects from "@/components/RecentProjects";
 import { FloatingNav } from "@/components/ui/FloatingNav";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
@@ -21,6 +22,7 @@ export default function Home() {
         <RecentProjects/>
         <Clients/>
         <Experience/>
+        <ProfessionalExperience/>
         <Approaches/>
         <Footer/>
       </div>

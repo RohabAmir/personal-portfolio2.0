@@ -2,6 +2,7 @@ export const navItems = [
   { name: "About", link: "#about" },
   { name: "Projects", link: "#projects" },
   { name: "Testimonials", link: "#testimonials" },
+  { name: "Experience", link: "#professional-experience" },
   { name: "Contact", link: "#contact" },
 ];
 
@@ -141,15 +142,15 @@ export const projects = [
 export const testimonials = [
   {
     quote:
-      "Collaborating with Rohab was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
+      "Collaborating with Rohab was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Rohab's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Rohab is the ideal partner.",
+    name: "Alaa Farhat",
+    title: "CEO & Co-Founder @Jigsaw Solutions",
   },
   {
     quote:
       "Working with Rohab has been a transformative experience for our company. His keen eye for design and exceptional coding skills brought our project to life. Our website is not only visually appealing but also highly functional, thanks to Rohab's meticulous attention to detail.",
-    name: "Shairzaman Furqan",
-    title: "CEO @Dispacth Aero",
+    name: "Eman Ayyad",
+    title: "Development Director @Jigsaw Solutions",
   },
   {
     quote:
@@ -160,14 +161,14 @@ export const testimonials = [
   {
     quote:
       "As a startup, we needed a website that could make a strong first impression, and Rohab delivered just that. His creative insights and technical prowess helped us achieve a web presence that truly stands out. I highly recommend Rohab for any frontend development needs!",
-    name: "Eric Recker",
-    title: "CE0 @Botics",
+    name: "Mona Bin Shalhoub",
+    title: "Digital Solutions Analyst @Dan - PIF Company",
   },
   {
     quote:
       "Rohab is a wizard with frontend technologies. He revamped our website with a fresh, modern design that has significantly increased our user engagement. His proactive approach to solving problems and optimizing performance made the entire redesign process smooth and stress-free.",
-    name: "Guillermo",
-    title: "Director of Nexus Technologies",
+    name: "Abdulrahman Abaalkhail",
+    title: "Chief Executive Officer @Dan - PIF Company",
   },
 ];
 
@@ -215,21 +216,21 @@ export const workExperience = [
   {
     id: 2,
     title: "Associate Software Engineer",
-    desc: "Assisted in the development of a web-based platform using Next Js & React js.",
+    desc: "Assisted in the development of a web-based platform using JS frameworks like Next js & React js.",
     className: "md:col-span-2",
     thumbnail: "/exp2.svg",
   },
   {
     id: 3,
-    title: "Freelance Web App Dev Project",
-    desc: "Led the development of a website for a client based in USA for his dipatching company , from sratch to the full fledge product.",
+    title: "Software Engineer",
+    desc: "As a software engineer, I have worked on a variety of projects, from small to large scale, and have gained a lot of experience in the process.",
     className: "md:col-span-2",
     thumbnail: "/exp3.svg",
   },
   {
     id: 4,
-    title: "Senior Frontend Developer",
-    desc: "Developed and maintained user-facing features using modern frontend technologies and libraries",
+    title: "Senior Software Engineer",
+    desc: "Developed and maintained production-ready applications using modern technologies and libraries.",
     className: "md:col-span-2",
     thumbnail: "/exp4.svg",
   },

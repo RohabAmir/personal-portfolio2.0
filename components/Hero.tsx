@@ -23,7 +23,7 @@ const Hero = () => {
         <Spotlight className="top-28 left-80 h-[80vh] w-[50vw]" fill="blue" />
       </div>
 
-      <div className="h-screen w-full dark:bg-black  bg-white dark:bg-grid-white/[0.1] bg-grid-black/[0.08]  flex items-center justify-center absolute top-0 left-0 ">
+      <div className="h-screen w-full dark:bg-black  bg-white dark:bg-grid-white/[0.08] bg-grid-black/[0.08]  flex items-center justify-center absolute top-0 left-0 ">
         <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_5%,black)]"></div>
       </div>
 
@@ -37,10 +37,10 @@ const Hero = () => {
             words="Transforming Concepts into Seamless User Experiences"
             className="text-center text-[40px] md:text-5xl lg:text-6xl"
           />
-          <p className=" dark:text-white-200 text-slate-800 text-center font-medium font-mono md:tracking-widest lg:mb-4 mb-14 text-sm md:text-lg lg:text-xl ">
+          <p className=" dark:text-white text-slate-800 text-center font-[400] font-mono md:tracking-widest lg:mb-4 mb-14 text-sm md:text-lg lg:text-lg w-[360px] md:w-full">
             Highly skilled Software Engineer with 3+ years of experience
             specializing in frontend development, leveraging{" "}
-            <span className="dark:text-purple text-[#9a5df5] font-bold">
+            <span className="dark:text-purple text-[#9a5df5] font-semibold">
               React, Next.js, JavaScript and TypeScript {" "}
             </span>
             to build high-performance, scalable web applications.Adept at
