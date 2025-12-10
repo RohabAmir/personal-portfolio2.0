@@ -3,6 +3,7 @@ import React from "react";
 import { projects } from "@/data";
 import { PinContainer } from "./ui/3d-pin";
 import { FaLocationArrow } from "react-icons/fa";
+import { FaShare } from "react-icons/fa";
 import Image from "next/image";
 
 const RecentProjects = () => {
@@ -33,13 +34,10 @@ const RecentProjects = () => {
                       ? "max-w-[80%]"
                       : "max-w-[82%]"
                   } sm:object-fill object-contain`}
-                  style={{
-                    transform: "skew(-10deg)",
-                  }}
                 />
               </div>
-              <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1">
-                {title}
+              <h1 className="font-bold flex items-center lg:text-2xl md:text-xl text-base line-clamp-1">
+                <FaShare className="mr-2 dark:text-purple text-[#9a5df5]" /> {title}
               </h1>
               <span className="lg:text-xl lg:font-normal font-light text-sm line-clamp-2">
                 {des}

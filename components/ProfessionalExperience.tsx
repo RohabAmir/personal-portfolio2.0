@@ -108,9 +108,9 @@ interface ProfessionalTimelineProps {
 const timelineData: TimelineItemData[] = [
   {
     id: "prof-exp-1",
-    title: "Senior Frontend Developer",
-    type: "Trustangle Riyad Ltd.",
-    duration: "09.2024 — Present",
+    title: "Senior Software Engineer",
+    type: "Nextbridge Ltd.",
+    duration: "10.2025 — Present",
     icon: Code,
     responsibilities: [
       "Lead development of production-ready React applications with TypeScript.",
@@ -123,9 +123,9 @@ const timelineData: TimelineItemData[] = [
   },
   {
     id: "prof-exp-2",
-    title: "Associate Software Engineer",
-    type: "Folium AI",
-    duration: "01.2023 — 09.2024",
+    title: "Software Engineer",
+    type: "Trustangle Riyad Ltd.",
+    duration: "09.2024 — 10.2025",
     icon: Code,
     responsibilities: [
       "Collaborated with UI/UX designers to translate 300+ pixel perfect figma designs web application wire-frames to code.",
@@ -137,9 +137,9 @@ const timelineData: TimelineItemData[] = [
   },
   {
     id: "prof-exp-3",
-    title: "Junior React.js Developer",
+    title: "Associate Software Engineer",
     type: "Folium AI",
-    duration: "09.2022 — 12.2022",
+    duration: "06.2023 — 09.2024",
     icon: Code,
     responsibilities: [
       "Developed responsive web applications using React and Vanilla JavaScript.",

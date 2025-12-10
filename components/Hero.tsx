@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGeneratorEffect";
@@ -8,7 +8,13 @@ import { FaLocationArrow } from "react-icons/fa";
 
 const Hero = () => {
   const { theme } = useTheme();
-  const isDark = theme === "dark";
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isDark = mounted ? theme === "dark" : true;
   return (
     <div className="pb-20 pt-36">
       <div>
@@ -20,7 +26,7 @@ const Hero = () => {
           className="top-10 left-full h-[80vh] w-[50vw]"
           fill="purple"
         />
-        <Spotlight className="top-28 left-80 h-[80vh] w-[50vw]" fill="blue" />
+        <Spotlight className="top-28 left-80 h-[80vh] w-[50vw]" fill="#8845ec" />
       </div>
 
       <div className="h-screen w-full dark:bg-black  bg-white dark:bg-grid-white/[0.08] bg-grid-black/[0.08]  flex items-center justify-center absolute top-0 left-0 ">
