@@ -8,7 +8,7 @@ import Image from 'next/image';
 const Footer = () => {
   return (
     <footer className='w-full pb-10  relative px-4 sm:px-6' id='contact'>
-      <div className="h-screen w-screen absolute left-1/2 -translate-x-1/2 dark:bg-black bg-white dark:bg-grid-white/[0.08] bg-grid-black/[0.08]">
+      <div className="h-screen w-screen absolute left-1/2 -translate-x-1/2 dark:bg-black bg-white dark:bg-grid-white/10 bg-grid-black/[0.08]">
         <div className="absolute pointer-events-none inset-0 dark:bg-black-100 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
       </div>
       
