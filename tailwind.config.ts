@@ -146,12 +146,28 @@ const config = {
             transform: "translate(calc(-50% - 0.5rem))",
           },
         },
+        "pulse-ring": {
+          "0%": {
+            transform: "scale(1)",
+            opacity: "0.75",
+          },
+          "100%": {
+            transform: "scale(2.75)",
+            opacity: "0",
+          },
+        },
+        blink: {
+          "0%, 49%": { opacity: "1" },
+          "50%, 100%": { opacity: "0" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         spotlight: "spotlight 2s ease .75s 1 forwards",
         shimmer: "shimmer 2s linear infinite",
+        "pulse-ring": "pulse-ring 1.5s cubic-bezier(0, 0, 0.2, 1) infinite",
+        blink: "blink 1s step-end infinite",
         first: "moveVertical 30s ease infinite",
         second: "moveInCircle 20s reverse infinite",
         third: "moveInCircle 40s linear infinite",
