@@ -49,16 +49,14 @@ const Hero = () => {
         style={{ opacity, scale, filter }}
         className="relative h-full w-full"
       >
-        <div>
-          <div
-            className="absolute -top-28 h-[80vh] w-[100vw] pointer-events-none z-[2]"
-            style={{ transform: "scaleX(-1)" }}
-          >
-            <Spotlight
-              className="top-0 left-0"
-              fill={isDark ? "white" : "purple"}
-            />
-          </div>
+        <div
+          className="absolute -top-28 h-[80vh] w-[100vw] pointer-events-none z-[2] hidden lg:block"
+          style={{ transform: "scaleX(-1)" }}
+        >
+          <Spotlight
+            className="top-0 left-0"
+            fill={isDark ? "white" : "purple"}
+          />
         </div>
 
         <div className="absolute inset-0 w-full dark:bg-black bg-white dark:bg-grid-white/10 bg-grid-black/[0.08] flex items-center justify-center">
@@ -104,7 +102,7 @@ const Hero = () => {
                 />
               </div>
 
-              <div className="order-2 mt-7 sm:mt-4  flex flex-col items-start text-left lg:col-start-1 lg:row-start-2 lg:order-none">
+              <div className="order-2 mt-4 flex flex-col items-start text-left lg:col-start-1 lg:row-start-2 lg:order-none">
                 <h2 className="text-base sm:text-lg md:text-3xl font-semibold dark:text-white text-slate-800 tracking-tight">
                   Rohab Aamir{" "}
                   <span className="text-slate-400 dark:text-white/40">—</span>{" "}
@@ -119,6 +117,16 @@ const Hero = () => {
               </div>
 
               <div className="relative mt-6 sm:mt-0 order-3 flex items-center justify-center self-center lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:order-none">
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute -top-[24vh] left-1/2 -z-10 h-[80vh] w-[100vw] lg:hidden"
+                  style={{ transform: "translateX(-50%) scaleX(-1)" }}
+                >
+                  <Spotlight
+                    className="top-0 left-0"
+                    fill={isDark ? "white" : "purple"}
+                  />
+                </div>
                 <div className="relative h-40 w-40 sm:h-48 sm:w-48 md:h-52 md:w-52 lg:h-56 lg:w-56 xl:h-72 xl:w-72 overflow-hidden rounded-full border border-black/10 shadow-[0_0_0_30px_rgba(255,255,255,0.06)]">
                   <Image
                     src="/myProfile-hd.webp"
@@ -134,7 +142,7 @@ const Hero = () => {
             </div>
 
             <div className="flex w-full flex-col items-start justify-center">
-              <p className="mt-14 text-left text-xl font-medium leading-snug text-slate-900 sm:text-2xl md:text-3xl lg:tracking-wider tracking-normal dark:text-white">
+              <p className="mt-12 sm:mt-14 sm text-left text-xl font-medium leading-snug text-slate-900 sm:text-2xl md:text-3xl lg:tracking-wider tracking-normal dark:text-white">
                 I build fast, business-ready systems powered by{" "}
                 <span className="dark:text-purple text-[#9a5df5]">AI.</span>
                 <span

@@ -142,7 +142,7 @@ export const FloatingNav = ({
           ease: "easeInOut",
         }}
         className={cn(
-          "fixed top-4 inset-x-3 z-[5000]",
+          "fixed top-3 sm:top-4 inset-x-3 z-[5000]",
           "sm:inset-x-0 sm:mx-auto sm:w-full sm:max-w-7xl px-0 sm:px-8",
           className,
         )}
