@@ -5,7 +5,7 @@ import { BentoGrid, BentoGridItem } from "./ui/BentoGrid";
 const Grid = () => {
   return (
     <section id="about">
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-5 sm:px-1 pb-16 sm:pb-20">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-5 sm:px-1 mt-0 xl:-mt-5 2xl:-mt-2.5 3xl:-mt-5 pb-16 sm:pb-20">
         <div className="relative">
           <div
             className="relative rounded-2xl sm:rounded-3xl p-px"

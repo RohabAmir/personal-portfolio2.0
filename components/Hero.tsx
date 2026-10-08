@@ -75,7 +75,7 @@ const Hero = () => {
         />
 
         <div className="relative z-10 mx-auto flex h-full w-full max-w-7xl items-center justify-center px-5 sm:px-8">
-          <div className="w-full max-w-[89vw] md:max-w-3xl lg:max-w-4xl xl:max-w-7xl flex flex-col items-center lg:items-start pt-32 pb-16">
+          <div className="w-full max-w-[89vw] md:max-w-3xl lg:max-w-4xl xl:max-w-7xl flex flex-col items-center lg:items-start pt-32 2xl:pt-40 3xl:pt-28 pb-16">
             <div className="mb-7 mt-7 sm:mt-0 sm:mb-10 flex w-full flex-col items-start justify-start gap-2 self-start sm:flex-row sm:flex-wrap">
               <span
                 className="inline-flex shrink-0 items-center gap-2 rounded-full border border-slate-300/70 dark:border-white/20 bg-white/60 dark:bg-white/[0.04] backdrop-blur-sm px-3 py-1"
