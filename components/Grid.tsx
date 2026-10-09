@@ -8,7 +8,7 @@ const Grid = () => {
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 sm:px-1 mt-0 xl:-mt-5 2xl:-mt-2.5 3xl:-mt-5 pb-16 sm:pb-20">
         <div className="relative">
           <div
-            className="relative rounded-2xl sm:rounded-3xl p-px"
+            className="relative rounded-3xl sm:rounded-3xl p-px"
             style={{
               background:
                 "linear-gradient(to bottom, rgba(214,188,246,0.75) 0%, rgba(203,172,249,0.55) 20%, rgba(154,93,245,0.4) 55%, rgba(7,7,45,0.28) 100%)",
@@ -40,7 +40,7 @@ const Grid = () => {
                 }}
               />
 
-              <BentoGrid className="relative w-full p-7">
+              <BentoGrid className="relative w-full p-4 sm:p-7">
                 {gridItems.map((item: any, i) => (
                   <BentoGridItem
                     id={item.id}

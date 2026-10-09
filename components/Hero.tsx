@@ -50,7 +50,7 @@ const Hero = () => {
         className="relative h-full w-full"
       >
         <div
-          className="absolute -top-28 h-[80vh] w-[100vw] pointer-events-none z-[2] hidden lg:block"
+          className="absolute -top-24 h-[80vh] w-[100vw] pointer-events-none z-[2] hidden lg:block"
           style={{ transform: "scaleX(-1)" }}
         >
           <Spotlight
