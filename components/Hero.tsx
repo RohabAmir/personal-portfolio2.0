@@ -43,7 +43,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="sticky top-0 z-0 h-[100svh] min-h-[660px] w-full overflow-hidden"
+      className="sticky top-0 z-0 h-[100svh] min-h-[600px] sm:min-h-[660px] w-full overflow-hidden"
     >
       <motion.div
         style={{ opacity, scale, filter }}
@@ -73,8 +73,8 @@ const Hero = () => {
         />
 
         <div className="relative z-10 mx-auto flex h-full w-full max-w-7xl items-center justify-center px-5 sm:px-8">
-          <div className="w-full max-w-[89vw] md:max-w-3xl lg:max-w-4xl xl:max-w-7xl flex flex-col items-center lg:items-start pt-32 2xl:pt-40 3xl:pt-28 pb-16">
-            <div className="mb-7 mt-7 sm:mt-0 sm:mb-10 flex w-full flex-col items-start justify-start gap-2 self-start sm:flex-row sm:flex-wrap">
+          <div className="w-full max-w-[89vw] md:max-w-3xl lg:max-w-4xl xl:max-w-7xl flex flex-col items-center lg:items-start pt-24 sm:pt-32 2xl:pt-40 3xl:pt-28 pb-8 sm:pb-16">
+            <div className="mb-4 sm:mb-10 flex w-full flex-col items-start justify-start gap-2 self-start sm:flex-row sm:flex-wrap">
               <span
                 className="inline-flex shrink-0 items-center gap-2 rounded-full border border-slate-300/70 dark:border-white/20 bg-white/60 dark:bg-white/[0.04] backdrop-blur-sm px-3 py-1"
                 aria-label="Available for work"
@@ -89,7 +89,7 @@ const Hero = () => {
               </span>
             </div>
 
-            <div className="w-full grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_auto] lg:grid-rows-[auto_auto] gap-y-4 sm:gap-y-8 lg:gap-x-10 lg:gap-y-7 items-center">
+            <div className="w-full grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_auto] lg:grid-rows-[auto_auto] gap-y-3 sm:gap-y-8 lg:gap-x-10 lg:gap-y-7 items-center">
               <div className="order-1 text-left lg:col-start-1 lg:row-start-1 lg:order-none">
                 <TextGenerateEffect
                   words="Transforming Concepts into Seamless User Experiences Powered by AI"
@@ -102,7 +102,7 @@ const Hero = () => {
                 />
               </div>
 
-              <div className="order-2 mt-4 flex flex-col items-start text-left lg:col-start-1 lg:row-start-2 lg:order-none">
+              <div className="order-2 mt-1 sm:mt-4 flex flex-col items-start text-left lg:col-start-1 lg:row-start-2 lg:order-none">
                 <h2 className="text-base sm:text-lg md:text-3xl font-semibold dark:text-white text-slate-800 tracking-tight">
                   Rohab Aamir{" "}
                   <span className="text-slate-400 dark:text-white/40">—</span>{" "}
@@ -110,13 +110,13 @@ const Hero = () => {
                     Software Engineer
                   </span>
                 </h2>
-                <p className="text-muted-foreground font-[400] font-system-ui text-sm leading-relaxed max-w-[22rem] sm:max-w-md md:max-w-lg mt-4">
+                <p className="text-muted-foreground font-[400] font-system-ui text-sm leading-relaxed max-w-[22rem] sm:max-w-md md:max-w-lg mt-2 sm:mt-4">
                   I help small businesses launch complete digital systems —
                   frontend, backend, deployment, and AI automation, end to end.
                 </p>
               </div>
 
-              <div className="relative mt-6 sm:mt-0 order-3 flex items-center justify-center self-center lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:order-none">
+              <div className="relative mt-1 sm:mt-0 order-3 flex items-center justify-center self-center lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:order-none">
                 <div
                   aria-hidden
                   className="pointer-events-none absolute -top-[24vh] left-1/2 -z-10 h-[80vh] w-[100vw] lg:hidden"
@@ -127,14 +127,14 @@ const Hero = () => {
                     fill={isDark ? "white" : "purple"}
                   />
                 </div>
-                <div className="relative h-40 w-40 sm:h-48 sm:w-48 md:h-52 md:w-52 lg:h-56 lg:w-56 xl:h-72 xl:w-72 overflow-hidden rounded-full border border-black/10 shadow-[0_0_0_30px_rgba(255,255,255,0.06)]">
+                <div className="relative h-32 w-32 xs:h-36 xs:w-36 sm:h-48 sm:w-48 md:h-52 md:w-52 lg:h-56 lg:w-56 xl:h-72 xl:w-72 overflow-hidden rounded-full border border-black/10 shadow-[0_0_0_30px_rgba(255,255,255,0.06)]">
                   <Image
                     src="/myProfile-hd.webp"
                     alt="Rohab Aamir"
                     width={640}
                     height={640}
                     priority
-                    sizes="(max-width: 640px) 160px, (max-width: 768px) 192px, (max-width: 1024px) 208px, (max-width: 1280px) 224px, 288px"
+                    sizes="(max-width: 640px) 128px, (max-width: 768px) 144px, (max-width: 1024px) 208px, (max-width: 1280px) 224px, 288px"
                     className="h-full w-full object-cover object-center rounded-full"
                   />
                 </div>
@@ -142,7 +142,7 @@ const Hero = () => {
             </div>
 
             <div className="flex w-full flex-col items-start justify-center">
-              <p className="mt-12 sm:mt-14 sm text-left text-xl font-medium leading-snug text-slate-900 sm:text-2xl md:text-3xl lg:tracking-wider tracking-normal dark:text-white">
+              <p className="mt-5 sm:mt-14 text-left text-xl font-medium leading-snug text-slate-900 sm:text-2xl md:text-3xl lg:tracking-wider tracking-normal dark:text-white">
                 I build fast, business-ready systems powered by{" "}
                 <span className="dark:text-purple text-[#9a5df5]">AI.</span>
                 <span
@@ -155,7 +155,7 @@ const Hero = () => {
                   title="View my work"
                   icon={<FaLocationArrow />}
                   position="right"
-                  otherClasses="!mt-5 sm:!mt-6 md:!mt-12 !w-44 sm:!w-48 md:!w-56"
+                  otherClasses="!mt-4 sm:!mt-6 md:!mt-12 !w-44 sm:!w-48 md:!w-56"
                 />
               </a>
             </div>

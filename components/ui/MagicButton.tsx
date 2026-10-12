@@ -24,7 +24,7 @@ const MagicButton = ({
         className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]"
       />
       <span 
-        className={`inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full dark:bg-slate-950 bg-[#EDE2FB] px-5 sm:px-0 ntext-sm font-medium dark:text-white text-slate-900 gap-2 ${position === 'left' ? 'flex-row-reverse' : ''}`}
+        className={`inline-flex h-full w-full text-sm sm:text-base cursor-pointer items-center justify-center rounded-full dark:bg-slate-950 bg-[#EDE2FB] px-5 sm:px-0 ntext-sm font-medium dark:text-white text-slate-900 gap-2 ${position === 'left' ? 'flex-row-reverse' : ''}`}
         style={{
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
