@@ -146,7 +146,7 @@ const Hero = () => {
                 I build fast, business-ready systems powered by{" "}
                 <span className="dark:text-purple text-[#9a5df5]">AI.</span>
                 <span
-                  className="ml-3 inline-block h-[2rem] w-[3px] translate-y-[0.1em] bg-[#9a5df5] dark:bg-purple animate-blink"
+                  className="ml-3 inline-block h-[1.5rem] sm:h-[2rem] w-[3px] translate-y-[0.1em] bg-[#9a5df5] dark:bg-purple animate-blink"
                   aria-hidden
                 />
               </p>

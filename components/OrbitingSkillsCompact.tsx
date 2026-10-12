@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState, memo } from "react";
+import React, { useEffect, useRef, useState, memo } from "react";
 
 type IconType = "mongodb" | "typescript" | "javascript" | "react" | "node" | "nextjs";
 type GlowColor = "cyan" | "purple";
@@ -12,16 +12,12 @@ interface SkillConfig {
   id: string;
   orbitRadius: number;
   size: number;
+  /** radians per second (original behaviour, used by the JS renderer) */
   speed: number;
-  iconType: IconType;
   phaseShift: number;
+  iconType: IconType;
   glowColor: GlowColor;
   label: string;
-}
-
-interface OrbitingSkillProps {
-  config: SkillConfig;
-  angle: number;
 }
 
 interface GlowingOrbitPathProps {
@@ -132,109 +128,74 @@ SkillIcon.displayName = "SkillIcon";
 const skillsConfig: SkillConfig[] = [
   {
     id: "mongodb",
+    iconType: "mongodb",
     orbitRadius: 50,
     size: 24,
     speed: 1,
-    iconType: "mongodb",
     phaseShift: 0,
     glowColor: "cyan",
     label: "MongoDB",
   },
   {
     id: "typescript",
+    iconType: "typescript",
     orbitRadius: 50,
     size: 26,
     speed: 1,
-    iconType: "typescript",
     phaseShift: (2 * Math.PI) / 3,
     glowColor: "cyan",
     label: "TypeScript",
   },
   {
     id: "javascript",
+    iconType: "javascript",
     orbitRadius: 50,
     size: 24,
     speed: 1,
-    iconType: "javascript",
     phaseShift: (4 * Math.PI) / 3,
     glowColor: "cyan",
     label: "JavaScript",
   },
   {
     id: "react",
+    iconType: "react",
     orbitRadius: 90,
     size: 28,
     speed: -0.6,
-    iconType: "react",
     phaseShift: 0,
     glowColor: "purple",
     label: "React",
   },
   {
     id: "nextjs",
+    iconType: "nextjs",
     orbitRadius: 90,
     size: 26,
     speed: -0.6,
-    iconType: "nextjs",
     phaseShift: (2 * Math.PI) / 3,
     glowColor: "purple",
     label: "Next.js",
   },
   {
     id: "node",
+    iconType: "node",
     orbitRadius: 90,
     size: 24,
     speed: -0.6,
-    iconType: "node",
     phaseShift: (4 * Math.PI) / 3,
     glowColor: "purple",
     label: "Node.js",
   },
 ];
 
-const OrbitingSkill = memo(({ config, angle }: OrbitingSkillProps) => {
-  const [isHovered, setIsHovered] = useState(false);
-  const { orbitRadius, size, iconType, label } = config;
-
-  const x = Math.cos(angle) * orbitRadius;
-  const y = Math.sin(angle) * orbitRadius;
-
-  return (
-    <div
-      className="absolute top-1/2 left-1/2 transition-all duration-300 ease-out"
-      style={{
-        width: `${size}px`,
-        height: `${size}px`,
-        transform: `translate(calc(${x}px - 50%), calc(${y}px - 50%))`,
-        zIndex: isHovered ? 20 : 10,
-      }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <div
-        className={`
-          relative w-full h-full p-1 dark:bg-white/20 bg-white/90 backdrop-blur-sm
-          rounded-full flex items-center justify-center
-          transition-all duration-300 cursor-pointer border dark:border-gray-700 border-purple-200
-          ${isHovered ? "scale-125 shadow-2xl" : "shadow-md hover:shadow-lg"}
-        `}
-        style={{
-          boxShadow: isHovered
-            ? `0 0 20px ${iconComponents[iconType]?.color}40, 0 0 40px ${iconComponents[iconType]?.color}20`
-            : undefined,
-        }}
-      >
-        <SkillIcon type={iconType} />
-        {isHovered && (
-          <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 px-1.5 py-0.5 dark:bg-gray-900/95 bg-white/95 backdrop-blur-sm rounded text-[10px] dark:text-white text-slate-800 whitespace-nowrap pointer-events-none border dark:border-gray-700 border-purple-200 shadow-md z-50">
-            {label}
-          </div>
-        )}
-      </div>
-    </div>
-  );
-});
-OrbitingSkill.displayName = "OrbitingSkill";
+const orbitConfigs: Array<{
+  radius: number;
+  glowColor: GlowColor;
+  delay: number;
+}> = [
+  { radius: 50, glowColor: "cyan", delay: 0 },
+  { radius: 90, glowColor: "purple", delay: 1.5 },
+];
 
 const GlowingOrbitPath = memo(
   ({
@@ -289,7 +250,91 @@ const GlowingOrbitPath = memo(
 );
 GlowingOrbitPath.displayName = "GlowingOrbitPath";
 
-export default function OrbitingSkillsCompact() {
+/* ───────────────────────────────────────────────────────────────────────────
+ * Center hub — shared by both renderers
+ * ─────────────────────────────────────────────────────────────────────────── */
+const CenterHub = () => (
+  <div className="w-12 h-12 dark:bg-gradient-to-br dark:from-gray-700 dark:to-gray-900 bg-gradient-to-br from-purple-100 to-blue-100 rounded-full flex items-center justify-center z-10 relative shadow-xl border dark:border-gray-700 border-purple-200">
+    <div className="absolute inset-0 rounded-full dark:bg-cyan-500/30 bg-cyan-500/20 blur-lg animate-pulse"></div>
+    <div
+      className="absolute inset-0 rounded-full dark:bg-purple-500/20 bg-purple-500/15 blur-xl animate-pulse"
+      style={{ animationDelay: "1s" }}
+    ></div>
+    <div className="relative z-10">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="url(#gradient)"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <defs>
+          <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#06B6D4" />
+            <stop offset="100%" stopColor="#9333EA" />
+          </linearGradient>
+        </defs>
+        <polyline points="16 18 22 12 16 6"></polyline>
+        <polyline points="8 6 2 12 8 18"></polyline>
+      </svg>
+    </div>
+  </div>
+);
+
+/* ───────────────────────────────────────────────────────────────────────────
+ * RENDERER 1 — original JS-driven orbit (rAF + setState).
+ * Used on Android/desktop where it already performs fine. UNCHANGED.
+ * ─────────────────────────────────────────────────────────────────────────── */
+
+const JsOrbitingSkill = memo(({ config, angle }: { config: SkillConfig; angle: number }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const { orbitRadius, size, iconType, label } = config;
+
+  const x = Math.cos(angle) * orbitRadius;
+  const y = Math.sin(angle) * orbitRadius;
+
+  return (
+    <div
+      className="absolute top-1/2 left-1/2 transition-all duration-300 ease-out"
+      style={{
+        width: `${size}px`,
+        height: `${size}px`,
+        transform: `translate(calc(${x}px - 50%), calc(${y}px - 50%))`,
+        zIndex: isHovered ? 20 : 10,
+      }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div
+        className={`
+          relative w-full h-full p-1 dark:bg-white/20 bg-white/90 backdrop-blur-sm
+          rounded-full flex items-center justify-center
+          transition-all duration-300 cursor-pointer border dark:border-gray-700 border-purple-200
+          ${isHovered ? "scale-125 shadow-2xl" : "shadow-md hover:shadow-lg"}
+        `}
+        style={{
+          boxShadow: isHovered
+            ? `0 0 20px ${iconComponents[iconType]?.color}40, 0 0 40px ${iconComponents[iconType]?.color}20`
+            : undefined,
+        }}
+      >
+        <SkillIcon type={iconType} />
+        {isHovered && (
+          <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 px-1.5 py-0.5 dark:bg-gray-900/95 bg-white/95 backdrop-blur-sm rounded text-[10px] dark:text-white text-slate-800 whitespace-nowrap pointer-events-none border dark:border-gray-700 border-purple-200 shadow-md z-50">
+            {label}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+});
+JsOrbitingSkill.displayName = "JsOrbitingSkill";
+
+function JsOrbit() {
   const [time, setTime] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
@@ -311,50 +356,13 @@ export default function OrbitingSkillsCompact() {
     return () => cancelAnimationFrame(animationFrameId);
   }, [isPaused]);
 
-  const orbitConfigs: Array<{
-    radius: number;
-    glowColor: GlowColor;
-    delay: number;
-  }> = [
-    { radius: 50, glowColor: "cyan", delay: 0 },
-    { radius: 90, glowColor: "purple", delay: 1.5 },
-  ];
-
   return (
     <div
       className="relative w-[calc(100vw-40px)] h-[calc(100vw-40px)] md:w-[450px] md:h-[450px] flex items-center justify-center"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <div className="w-12 h-12 dark:bg-gradient-to-br dark:from-gray-700 dark:to-gray-900 bg-gradient-to-br from-purple-100 to-blue-100 rounded-full flex items-center justify-center z-10 relative shadow-xl border dark:border-gray-700 border-purple-200">
-        <div className="absolute inset-0 rounded-full dark:bg-cyan-500/30 bg-cyan-500/20 blur-lg animate-pulse"></div>
-        <div
-          className="absolute inset-0 rounded-full dark:bg-purple-500/20 bg-purple-500/15 blur-xl animate-pulse"
-          style={{ animationDelay: "1s" }}
-        ></div>
-        <div className="relative z-10">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="url(#gradient)"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <defs>
-              <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#06B6D4" />
-                <stop offset="100%" stopColor="#9333EA" />
-              </linearGradient>
-            </defs>
-            <polyline points="16 18 22 12 16 6"></polyline>
-            <polyline points="8 6 2 12 8 18"></polyline>
-          </svg>
-        </div>
-      </div>
+      <CenterHub />
 
       {orbitConfigs.map((config) => (
         <GlowingOrbitPath
@@ -367,8 +375,189 @@ export default function OrbitingSkillsCompact() {
 
       {skillsConfig.map((config) => {
         const angle = time * config.speed + (config.phaseShift || 0);
-        return <OrbitingSkill key={config.id} config={config} angle={angle} />;
+        return <JsOrbitingSkill key={config.id} config={config} angle={angle} />;
       })}
     </div>
   );
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+ * RENDERER 2 — iOS-only CSS-compositor orbit.
+ * No rAF, no setState-per-frame, no backdrop-blur on moving elements.
+ * Everything animates via transform keyframes on the GPU, so iOS Safari
+ * can't jerk. Visually identical: same radii, speeds, phases, upright icons.
+ * ─────────────────────────────────────────────────────────────────────────── */
+
+const IosOrbitingSkill = memo(({ config }: { config: SkillConfig }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const { size, iconType, label } = config;
+
+  return (
+    <div
+      className="pointer-events-auto relative cursor-pointer"
+      style={{
+        width: `${size}px`,
+        height: `${size}px`,
+        zIndex: isHovered ? 20 : 10,
+      }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div
+        className={`
+          relative w-full h-full p-1 dark:bg-[#252a48]/90 bg-white/95
+          rounded-full flex items-center justify-center
+          transition-all duration-300 cursor-pointer border dark:border-gray-700 border-purple-200
+          ${isHovered ? "scale-125 shadow-2xl" : "shadow-md"}
+        `}
+        style={{
+          boxShadow: isHovered
+            ? `0 0 20px ${iconComponents[iconType]?.color}40, 0 0 40px ${iconComponents[iconType]?.color}20`
+            : undefined,
+        }}
+      >
+        <SkillIcon type={iconType} />
+        {isHovered && (
+          <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 px-1.5 py-0.5 dark:bg-gray-900/95 bg-white/95 rounded text-[10px] dark:text-white text-slate-800 whitespace-nowrap pointer-events-none border dark:border-gray-700 border-purple-200 shadow-md z-50">
+            {label}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+});
+IosOrbitingSkill.displayName = "IosOrbitingSkill";
+
+function CssOrbit() {
+  const [isPaused, setIsPaused] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
+
+  // Pause the orbit entirely when the card is off-screen — no battery/perf
+  // cost while the user is elsewhere on the page.
+  useEffect(() => {
+    const el = rootRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsPaused(!entry.isIntersecting),
+      { threshold: 0 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const playState = isPaused ? "paused" : "running";
+
+  // Derive per-ring animation params from the original speeds (radians/sec):
+  //   duration = 2π / |speed|, direction = sign(speed)
+  const ringRadii = Array.from(new Set(skillsConfig.map((s) => s.orbitRadius)));
+
+  return (
+    <div
+      ref={rootRef}
+      className="relative w-[calc(100vw-40px)] h-[calc(100vw-40px)] md:w-[450px] md:h-[450px] flex items-center justify-center"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      <CenterHub />
+
+      {orbitConfigs.map((config) => (
+        <GlowingOrbitPath
+          key={`path-${config.radius}`}
+          radius={config.radius}
+          glowColor={config.glowColor}
+          animationDelay={config.delay}
+        />
+      ))}
+
+      {ringRadii.map((radius) => {
+        const ringSkills = skillsConfig.filter((s) => s.orbitRadius === radius);
+        const speed = ringSkills[0].speed;
+        const duration = (2 * Math.PI) / Math.abs(speed);
+        const reverse = speed < 0;
+        const ringAnimation = `orbit-spin ${duration.toFixed(3)}s linear infinite${
+          reverse ? " reverse" : ""
+        }`;
+        const counterAnimation = `orbit-spin ${duration.toFixed(3)}s linear infinite${
+          reverse ? "" : " reverse"
+        }`;
+
+        return (
+          <div
+            key={`ring-${radius}`}
+            className="absolute inset-0 flex items-center justify-center pointer-events-none"
+          >
+            {/* rotating ring — pure CSS transform animation (compositor-driven) */}
+            <div
+              className="relative"
+              style={{
+                width: `${radius * 2}px`,
+                height: `${radius * 2}px`,
+                animation: ringAnimation,
+                animationPlayState: playState,
+                willChange: "transform",
+              }}
+            >
+              {ringSkills.map((config) => {
+                const angleDeg = (config.phaseShift * 180) / Math.PI;
+                return (
+                  // static arm: places the icon on the circle at angleDeg
+                  <div
+                    key={config.id}
+                    className="absolute top-1/2 left-1/2"
+                    style={{
+                      transform: `rotate(${angleDeg}deg) translateX(${radius}px) rotate(${-angleDeg}deg)`,
+                    }}
+                  >
+                    {/* centers the chip on the arm endpoint */}
+                    <div className="-translate-x-1/2 -translate-y-1/2">
+                      {/* counter-rotation keeps the icon upright while the
+                          ring spins (opposite direction of the ring) */}
+                      <div
+                        style={{
+                          animation: counterAnimation,
+                          animationPlayState: playState,
+                          willChange: "transform",
+                        }}
+                      >
+                        <IosOrbitingSkill config={config} />
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+ * Entry point — device-scoped renderer selection.
+ *
+ * The jerking only happens on iOS Safari (rAF-driven React re-renders +
+ * backdrop-blur on moving elements are far more expensive there than on
+ * Android/desktop Chrome). So:
+ *   • iOS (iPhone/iPad, incl. iPadOS masquerading as Mac) → CSS compositor
+ *     renderer — smooth by construction.
+ *   • Android + desktop → ORIGINAL JS renderer, completely untouched.
+ * ─────────────────────────────────────────────────────────────────────────── */
+export default function OrbitingSkillsCompact() {
+  // Server render + first client paint use the JS renderer (identical markup
+  // to before, so no hydration mismatch). After mount, Apple touch devices
+  // switch to the CSS-compositor renderer.
+  const [useCompositorRenderer, setUseCompositorRenderer] = useState(false);
+
+  useEffect(() => {
+    const ua = navigator.userAgent;
+    const isAppleTouch =
+      /iPad|iPhone|iPod/.test(ua) ||
+      (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+    if (isAppleTouch) setUseCompositorRenderer(true);
+  }, []);
+
+  if (useCompositorRenderer) return <CssOrbit />;
+  return <JsOrbit />;
 }

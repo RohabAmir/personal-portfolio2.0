@@ -84,6 +84,17 @@
     @apply font-bold text-3xl sm:text-4xl md:text-5xl text-center;
   }
 
+  /* Orbit animation for skill icons — transform-only so it runs entirely on
+     the GPU compositor (iOS Safari stays smooth; no main-thread repaints) */
+  @keyframes orbit-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
   .black-gradient {
     background: linear-gradient(90deg, #161a31 0%, #06091f 100%);
   }
