@@ -147,7 +147,7 @@ export const FloatingNav = ({
           className,
         )}
       >
-        <div className="flex items-center justify-between gap-2 sm:gap-3 rounded-full border border-slate-300/60 dark:border-white/[0.14] bg-white/85 dark:bg-[#0b0e14]/90 backdrop-blur-xl py-2.5 px-4 shadow-[0_10px_40px_-12px_rgba(0,0,0,0.35)]">
+        <div className="flex items-center justify-between gap-2 sm:gap-3 rounded-full border border-slate-300/50 dark:border-white/[0.12] bg-white/55 dark:bg-[#000319]/50 backdrop-blur-2xl py-2.5 px-4 shadow-[0_10px_40px_-12px_rgba(0,0,0,0.25)] transition-colors duration-300">
           <Link
             href="#home"
             onClick={() => setMenuOpen(false)}

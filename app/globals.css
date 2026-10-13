@@ -81,7 +81,10 @@
 
 @layer utilities {
   .heading {
-    @apply font-bold text-3xl sm:text-4xl md:text-5xl text-center;
+    @apply font-bold text-3xl sm:text-4xl md:text-6xl text-center;
+  }
+  .heading-2 {
+    @apply font-bold text-3xl sm:text-4xl md:text-7xl lg:text-[7rem] text-center;
   }
 
   /* Orbit animation for skill icons — transform-only so it runs entirely on
@@ -106,6 +109,38 @@
 
   .no-scrollbar::-webkit-scrollbar {
     display: none;
+  }
+
+  /* Subtle "vibrate" played once when a pill button is hovered */
+  .btn-wiggle:hover {
+    animation: btn-wiggle 0.45s ease-in-out;
+  }
+
+  .btn-wiggle:focus-visible {
+    animation: btn-wiggle 0.45s ease-in-out;
+  }
+
+  @keyframes btn-wiggle {
+    0%,
+    100% {
+      transform: rotate(0deg) translateY(0);
+    }
+    25% {
+      transform: rotate(-2deg) translateY(-1px);
+    }
+    50% {
+      transform: rotate(2deg) translateY(1px);
+    }
+    75% {
+      transform: rotate(-1deg) translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn-wiggle:hover,
+    .btn-wiggle:focus-visible {
+      animation: none;
+    }
   }
 }
 

@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState, memo } from "react";
 
-type IconType = "mongodb" | "typescript" | "javascript" | "react" | "node" | "nextjs";
+type IconType = "mongodb" | "typescript" | "javascript" | "react" | "node" | "nextjs" | "vuejs";
 type GlowColor = "cyan" | "purple";
 
 interface SkillIconProps {
@@ -106,6 +106,21 @@ const iconComponents: Record<
     ),
     color: "#000000",
   },
+  vuejs: {
+    component: () => (
+      <svg viewBox="0 0 256 221" className="w-full h-full">
+        <path
+          fill="#35495E"
+          d="M204.8 0H256L128 220.8 0 0h97.92L128 51.2 157.44 0h47.36Z"
+        />
+        <path
+          fill="#42B883"
+          d="M0 0l128 220.8L256 0h-51.2L128 132.48 50.56 0H0Z"
+        />
+      </svg>
+    ),
+    color: "#42B883",
+  },
   node: {
     component: () => (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
@@ -172,7 +187,7 @@ const skillsConfig: SkillConfig[] = [
     orbitRadius: 90,
     size: 26,
     speed: -0.6,
-    phaseShift: (2 * Math.PI) / 3,
+    phaseShift: Math.PI / 2,
     glowColor: "purple",
     label: "Next.js",
   },
@@ -182,9 +197,19 @@ const skillsConfig: SkillConfig[] = [
     orbitRadius: 90,
     size: 24,
     speed: -0.6,
-    phaseShift: (4 * Math.PI) / 3,
+    phaseShift: Math.PI,
     glowColor: "purple",
     label: "Node.js",
+  },
+  {
+    id: "vuejs",
+    iconType: "vuejs",
+    orbitRadius: 90,
+    size: 26,
+    speed: -0.6,
+    phaseShift: (3 * Math.PI) / 2,
+    glowColor: "purple",
+    label: "Vue.js",
   },
 ];
 

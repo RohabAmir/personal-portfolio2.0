@@ -15,7 +15,6 @@ const MagicButton = ({
       className={`relative inline-flex h-12 w-full overflow-hidden rounded-full p-[1px] focus:outline-none md:w-60 md:mt-10 ${otherClasses}`}
       onClick={handleClick} 
       style={{
-        // Fallback for iOS where conic-gradient might not be supported
         background: 'radial-gradient(circle, #E2CBFF, #393BB2)'
       }}
       

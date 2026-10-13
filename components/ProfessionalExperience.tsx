@@ -124,7 +124,7 @@ const timelineData: TimelineItemData[] = [
   {
     id: "prof-exp-2",
     title: "Software Engineer",
-    type: "Trustangle Riyad Ltd.",
+    type: "Trustangle.",
     duration: "09.2024 — 10.2025",
     icon: Code,
     responsibilities: [
@@ -138,7 +138,7 @@ const timelineData: TimelineItemData[] = [
   {
     id: "prof-exp-3",
     title: "Associate Software Engineer",
-    type: "Folium AI",
+    type: "Folium Technologies",
     duration: "06.2023 — 09.2024",
     icon: Code,
     responsibilities: [
@@ -325,7 +325,7 @@ const ProfessionalExperience = () => {
         My{" "}
         <span className="dark:text-purple text-[#9a5df5]">Professional Experience</span>
       </h1>
-      <p className="text-slate-600 dark:text-white-100 text-center font-medium font-urbanist md:tracking-widest lg:mb-4 mb-14 text-sm md:text-lg lg:text-lg ">
+      <p className="text-slate-600 dark:text-white-100 text-center font-medium  md:tracking-widest lg:mb-4 mb-14 text-sm md:text-lg lg:text-lg ">
         A comprehensive overview of my career journey and professional achievements.
       </p>
     </div>

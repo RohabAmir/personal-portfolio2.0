@@ -12,6 +12,7 @@ import {
 import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGeneratorEffect";
 import MagicButton from "./ui/MagicButton";
+import AnimatedButton from "./ui/AnimatedButton";
 import { FaLocationArrow } from "react-icons/fa";
 
 const Hero = () => {
@@ -43,7 +44,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="sticky top-0 z-0 h-[100svh] min-h-[600px] sm:min-h-[660px] w-full overflow-hidden"
+      className="sticky top-0 z-0 h-[100svh] min-h-[600px] sm:min-h-[660px] w-full overflow-hidden bg-white dark:bg-black-100"
     >
       <motion.div
         style={{ opacity, scale, filter }}
@@ -59,7 +60,7 @@ const Hero = () => {
           />
         </div>
 
-        <div className="absolute inset-0 w-full dark:bg-black bg-white dark:bg-grid-white/10 bg-grid-black/[0.08] flex items-center justify-center">
+        <div className="absolute inset-0 w-full dark:bg-black bg-white dark:bg-grid-white/[0.08] bg-grid-black/[0.08] flex items-center justify-center">
           <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_5%,black)]" />
         </div>
 
@@ -150,14 +151,23 @@ const Hero = () => {
                   aria-hidden
                 />
               </p>
-              <a href="#projects" className="self-start">
-                <MagicButton
-                  title="View my work"
-                  icon={<FaLocationArrow />}
-                  position="right"
-                  otherClasses="!mt-4 sm:!mt-6 md:!mt-12 !w-44 sm:!w-48 md:!w-56"
+              <div className="mt-4 sm:mt-6 md:mt-12 flex flex-col items-stretch gap-3 min-[361px]:flex-row min-[361px]:flex-wrap min-[361px]:items-center sm:gap-4 w-full">
+                <a href="#projects">
+                  <MagicButton
+                    title="View my work"
+                    icon={<FaLocationArrow />}
+                    position="right"
+                    otherClasses="!mt-0 min-[361px]:!w-40 sm:!w-44 md:!w-52"
+                  />
+                </a>
+                <AnimatedButton
+                  title="Start a project"
+                  href="#contact"
+                  variant="outline"
+                  showArrow={false}
+                  className="w-full min-[361px]:!w-40 sm:!w-44 md:!w-52"
                 />
-              </a>
+              </div>
             </div>
           </div>
         </div>
