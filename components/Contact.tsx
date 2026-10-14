@@ -24,7 +24,7 @@ const contactCards = [
 
 const Contact = () => {
   return (
-    <section id="contact" className="relative w-full py-20 sm:py-28 px-4 sm:px-0">
+    <section id="contact" className="relative w-full pt-0 sm:pt-28 pb-20 sm:pb-28 px-0">
       <div className="max-w-7xl mx-auto flex items-center flex-col">
         <h2 className="heading-2 dark:text-white text-slate-800 text-center leading-tight">
           Let&apos;s build
