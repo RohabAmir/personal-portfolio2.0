@@ -1,4 +1,3 @@
-
 import React from "react";
 
 import { companies, testimonials } from "@/data";
@@ -15,7 +14,7 @@ const Clients = () => {
 
       <div className="flex flex-col items-center max-lg:mt-10">
         <div
-          className="h-[50vh] md:h-[30rem] rounded-md flex flex-col antialiased  items-center justify-center relative overflow-hidden"
+          className="h-[50vh] md:h-[30rem] rounded-md flex flex-col antialiased items-center justify-center relative overflow-hidden"
         >
           <InfiniteMovingCards
             items={testimonials}
@@ -24,28 +23,29 @@ const Clients = () => {
           />
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-4 md:gap-12 max-lg:mt-10">
+        <div className="flex flex-wrap items-center justify-center gap-0 sm:gap-4 md:gap-12 max-lg:mt-10">
           {companies.map((company) => (
-              <div 
-                key={company.id} 
-                className="flex items-center justify-center gap-2  w-40 h-16 md:w-52 md:h-20 rounded-xl dark:bg-transparent bg-[#1a2255] border dark:border-transparent border-[#2a3570] transition-all duration-300"
-              >
+            <div
+              key={company.id}
+              className="group flex items-center justify-center gap-2 w-40 h-16 md:w-52 md:h-20 rounded-xl dark:bg-transparent bg-[#1a2255] border dark:border-transparent border-[#2a3570] transition-all duration-300 hover:-translate-y-1"
+            >
+              <Image
+                width={0}
+                height={0}
+                src={company.img}
+                alt={company.name}
+                className={`${company.iconClassName} h-auto object-contain`}
+              />
+              {company.nameImg && (
                 <Image
-                  width={0}
                   height={0}
-                  src={company.img}
-                  alt={company.name}
-                  className="md:w-10 w-6 h-auto object-contain"
-                  
-                />
-                <Image
-                  height={0}
+                  width={company.nameWidth}
                   src={company.nameImg}
-                  alt={company.name}
-                  width={company.id === 4 || company.id === 5 ? 100 : 150}
-                  className="md:w-24 w-20 h-auto object-contain"
+                  alt={`${company.name} wordmark`}
+                  className={`${company.nameClassName} h-auto object-contain`}
                 />
-              </div>
+              )}
+            </div>
           ))}
         </div>
       </div>
@@ -53,4 +53,4 @@ const Clients = () => {
   );
 };
 
-export default Clients
+export default Clients;

@@ -1,0 +1,22 @@
+<svg width="135" height="140" viewBox="0 0 135 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="fm-pink" x1="32" y1="0" x2="32" y2="140" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#DE0088"/>
+      <stop offset="1" stop-color="#CC06C6"/>
+    </linearGradient>
+    <linearGradient id="fm-purple" x1="67" y1="0" x2="67" y2="140" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8001F7"/>
+      <stop offset="1" stop-color="#3709EC"/>
+    </linearGradient>
+    <linearGradient id="fm-blue" x1="120" y1="70" x2="120" y2="133" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#149AFA"/>
+      <stop offset="1" stop-color="#0C63DC"/>
+    </linearGradient>
+  </defs>
+  <!-- left ribbon of the M -->
+  <path d="M0 0L65 70L0 140Z" fill="url(#fm-pink)"/>
+  <!-- right ribbon of the M -->
+  <path d="M134 0L37 105L68 140L135 64L135 0Z" fill="url(#fm-purple)"/>
+  <!-- blue folded tip -->
+  <path d="M135 70L105 101L135 133Z" fill="url(#fm-blue)"/>
+</svg>
