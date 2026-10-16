@@ -1,6 +1,7 @@
 "use client";
 
 import React, { memo, useCallback, useState } from "react";
+import Image from "next/image";
 
 const ChevronDown = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
@@ -19,7 +20,7 @@ const ChevronDown = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-const Code = (props: React.SVGProps<SVGSVGElement>) => (
+const ExternalLink = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     {...props}
     xmlns="http://www.w3.org/2000/svg"
@@ -31,30 +32,11 @@ const Code = (props: React.SVGProps<SVGSVGElement>) => (
     strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
+    aria-hidden
   >
-    <path d="m16 18 6-6-6-6" />
-    <path d="m8 6-6 6 6 6" />
-  </svg>
-);
-
-const Palette = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg
-    {...props}
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <circle cx="13.5" cy="6.5" r=".5" fill="currentColor" />
-    <circle cx="17.5" cy="10.5" r=".5" fill="currentColor" />
-    <circle cx="8.5" cy="7.5" r=".5" fill="currentColor" />
-    <circle cx="6.5" cy="12.5" r=".5" fill="currentColor" />
-    <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z" />
+    <path d="M15 3h6v6" />
+    <path d="M10 14 21 3" />
+    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
   </svg>
 );
 
@@ -85,14 +67,18 @@ const Badge = ({
   );
 };
 
-type IconType = React.ComponentType<React.SVGProps<SVGSVGElement>>;
-
 interface TimelineItemData {
   id: string;
-  title: string;
-  type: string;
-  duration: string;
-  icon: IconType;
+  role: string;
+  company: string;
+  employmentType: string;
+  workMode: string;
+  dateRange: string;
+  durationTotal: string;
+  location: string;
+  website: string;
+  logo: string;
+  current?: boolean;
   responsibilities: string[];
   skills: string[];
 }
@@ -108,46 +94,143 @@ interface ProfessionalTimelineProps {
 const timelineData: TimelineItemData[] = [
   {
     id: "prof-exp-1",
-    title: "Senior Software Engineer",
-    type: "Nextbridge Ltd.",
-    duration: "10.2025 — Present",
-    icon: Code,
+    role: "Senior Software Engineer",
+    company: "Nextbridge Ltd.",
+    employmentType: "Full-time",
+    workMode: "On-site",
+    dateRange: "Nov 2025 — Present",
+    durationTotal: "11 mos",
+    location: "Lahore, Punjab, Pakistan",
+    website: "https://nextbridge.com",
+    logo: "/logos/nextbridge.png",
+    current: true,
     responsibilities: [
-      "Lead development of production-ready React applications with TypeScript.",
-      "Architect scalable frontend solutions using Next.js / Nuxt.js and modern tooling.",
+      "Designed scalable Node.js and MongoDB structures powering high-traffic, production-grade platforms.",
+      "Built for ADRES (Advanced Real Estate Services), managing their lease and PMA services end to end — from service initiation to checkout.",
+      "Converted a legacy, fully manual property services builder into an intelligent, automated platform using AI automation.",
       "Led the launching of a project with 35% increase in user adoption and user engagement.",
-      "Mentor junior developers and conduct code reviews.",
-      "Collaborate with design and backend teams to deliver high-quality products.",
     ],
-    skills: ["React", "Vue.js", "Nuxt.js", "Next.js", "TS", "Tailwind CSS", "Shadcn UI", "React Query"],
+    skills: [
+      "React",
+      "Node",
+      "MongoDB",
+      "JavaScript",
+      "Redux",
+      "Tailwind CSS",
+      "Material UI",
+      "AI Automation",
+    ],
   },
   {
     id: "prof-exp-2",
-    title: "Software Engineer",
-    type: "Trustangle.",
-    duration: "09.2024 — 10.2025",
-    icon: Code,
+    role: "Frontend Developer",
+    company: "Trustangle",
+    employmentType: "Contract",
+    workMode: "Remote",
+    dateRange: "Nov 2024 — Jun 2025",
+    durationTotal: "8 mos",
+    location: "Riyadh, Saudi Arabia",
+    website: "https://trustangle.com",
+    logo: "/logos/trustangle.png",
     responsibilities: [
-      "Collaborated with UI/UX designers to translate 300+ pixel perfect figma designs web application wire-frames to code.",
-      "Created Test-Driven websites by writing 38+ tests which includes Unit, Cypress and Integration testing using JavaScript Testing Frameworks.",
-      "Lead the development with cross-functional team for simple, scalable, and powerful architecture for building production-ready applications.",
-      "Implemented RTL and LTR layouts for multilingual applications.",
+      "Architect scalable frontend solutions using Next.js / Nuxt.js and modern tooling.",
+      "Developed two production Saudi tourism websites end to end, translating pixel-perfect Figma designs into fast, responsive, multilingual (RTL/LTR) web experiences.",
+      "Built a Headless CMS dashboard product that manages the entire content, SEO, blogs, and theming of the company's tourism websites from a single platform.",
+      "Implemented role-based user permissions, two-factor (2FA) authentication, and activity logs to secure and audit every operation across the dashboard.",
     ],
-    skills: ["React", "Next.js", "TypeScript", "JavaScript", "Material UI", "Redux", "RTK Query"],
+    skills: [
+      "Vue.js",
+      'Nuxt.js',
+      "Next.js",
+      "TypeScript",
+      "Headless CMS",
+      "Chakra UI",
+      "TanStack Query",
+    ],
   },
   {
     id: "prof-exp-3",
-    title: "Associate Software Engineer",
-    type: "Folium Technologies",
-    duration: "06.2023 — 09.2024",
-    icon: Code,
+    role: "Software Engineer",
+    company: "Logical Creations",
+    employmentType: "Full-time",
+    workMode: "On-site",
+    dateRange: "Sep 2024 — Nov 2025",
+    durationTotal: "1 yr 3 mos",
+    location: "Lahore, Punjab, Pakistan",
+    website: "https://logicalcreations.net",
+    logo: "/logos/logical-creations.png",
     responsibilities: [
-      "Developed responsive web applications using React and Vanilla JavaScript.",
-      "Implemented pixel-perfect designs from Figma mockups.",
-      "Optimized application performance and user experience.",
-      "Collaborated in an agile development environment.",
+      "Collaborated with UI/UX designers to translate 300+ pixel perfect figma designs web application wire-frames to code.",
+      "Developed the Golf Saudi platform from scratch with a cross-functional team, featuring six integrated pillars, online booking, and a CMS dashboard with analytics.",
+      "Lead the development with cross-functional team for simple, scalable, and powerful architecture for building production-ready applications.",
+      "Implemented RTL and LTR layouts for multilingual applications.",
     ],
-    skills: ["React", "JavaScript", "CSS", "SASS", "HTML", "Bootstrap", "Responsive Designs"],
+    skills: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "JavaScript",
+      "Tailwind CSS",
+      "Shadcn UI",
+      "TanStack Query",
+    ],
+  },
+  {
+    id: "prof-exp-4",
+    role: "Associate Software Engineer",
+    company: "Folium Technologies",
+    employmentType: "Full-time",
+    workMode: "On-site",
+    dateRange: "Aug 2023 — Sep 2024",
+    durationTotal: "1 yr 2 mos",
+    location: "Lahore, Punjab, Pakistan",
+    website: "https://folium.ai",
+    logo: "/logos/folium.png",
+    responsibilities: [
+      "Developed responsive web applications using React and Next.js.",
+      "Implemented pixel-perfect designs from Figma mockups.",
+      "Led a launch that boosted user adoption and engagement by 35% by integrating Onfido SDK (digital verification) and PubNub (real-time communication).",
+      "Optimized application performance and user experience.",
+      "Developed 38+ Unit, Integration, and Cypress tests with Jest and Vitest for test-driven web development.",
+    ],
+    skills: [
+      "React/Next",
+      "JavaScript",
+      "CSS/SASS",
+      "UI Technologies",
+      "Third Party SDKS",
+      "JS Testing Frameworks",
+      "Responsive Designs",
+    ],
+  },
+  {
+    id: "prof-exp-5",
+    role: "IT Engineer Intern",
+    company: "NAVTTC",
+    employmentType: "Internship",
+    workMode: "On-site",
+    dateRange: "Jun 2022 — Jul 2023",
+    durationTotal: "1 yr 2 mos",
+    location: "Islamabad, Pakistan",
+    website: "https://navttc.gov.pk",
+    logo: "/logos/navttc.png",
+    responsibilities: [
+      "Served as an IT branch resource under a federal government internship program (BPS-16) at the Ministry of Federal Education & Professional Training.",
+      "Worked alongside the in-house IT team to implement and verify amendments to the official NAVTTC website, ensuring responsive and cross-browser consistent delivery.",
+      "Gained hands-on experience with public-sector IT workflows — requirement gathering, change documentation, and coordinating with multiple departments for site updates.",
+    ],
+    skills: [
+      "Vanilla JS",
+      "jQuery",
+      "HTML",
+      "Bootstrap",
+      "SQL",
+      "Web Debugging",
+      "Responsive Design",
+      "Documentation",
+      "Communication",
+      "Team Collaboration",
+    ],
   },
 ];
 
@@ -198,9 +281,9 @@ const TimelineItem = memo(function TimelineItem({
   expanded,
   onToggle,
 }: TimelineItemProps) {
-  const Icon = item.icon;
   const headerId = `timeline-header-${item.id}`;
   const contentId = `timeline-content-${item.id}`;
+  const textIndent = "ml-[52px] sm:ml-[64px]";
 
   return (
     <div className="relative group">
@@ -219,52 +302,77 @@ const TimelineItem = memo(function TimelineItem({
           ${expanded ? "shadow-sm" : "shadow-none hover:shadow-sm"}
         `}
         >
-          <button
-            id={headerId}
-            className="w-full text-left p-4 sm:p-6 group/button cursor-pointer hover:bg-slate-50/50 dark:hover:bg-black-100/50 transition-colors duration-200 rounded-t-lg"
-            onClick={() => onToggle(item.id)}
-            aria-expanded={expanded}
-            aria-controls={contentId}
-          >
-            <div className="flex items-start justify-between gap-4">
-              <div className="space-y-2 flex-1 min-w-0">
-                <div className="flex items-center gap-3 flex-wrap">
-                  <div className="p-2 bg-slate-100 dark:bg-slate-900 rounded-md flex-shrink-0">
-                    <Icon className="w-4 h-4 text-slate-600 dark:text-purple" />
-                  </div>
-                  <h3 className="text-sm sm:text-base font-semibold text-slate-900 dark:text-white">
-                    {item.title}
+          <div className="p-4 sm:p-5 sm:px-6">
+            <div className="flex items-start justify-between gap-3">
+              <button
+                id={headerId}
+                type="button"
+                onClick={() => onToggle(item.id)}
+                aria-expanded={expanded}
+                aria-controls={contentId}
+                className="flex flex-1 min-w-0 items-center gap-3 sm:gap-4 text-left cursor-pointer group/button"
+              >
+                <Image
+                  src={item.logo}
+                  alt={`${item.company} logo`}
+                  width={48}
+                  height={48}
+                  className="h-10 w-10 sm:h-12 sm:w-12 shrink-0 rounded-lg object-contain bg-white border border-slate-200 dark:border-white/10 p-0.5"
+                />
+                <div className="min-w-0 space-y-1">
+                  <h3 className="text-sm sm:text-base font-semibold text-[#9a5df5] dark:text-purple truncate">
+                    {item.role}
                   </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 dark:text-neutral-300 truncate">
+                    <span className="font-medium">{item.company}</span>
+                    <span className="text-slate-400 dark:text-neutral-500">
+                      {" "}
+                      · {item.employmentType} · {item.workMode}
+                    </span>
+                  </p>
+                  <p className="text-xs text-slate-500 dark:text-neutral-400">
+                    {item.dateRange} · {item.durationTotal}
+                  </p>
                 </div>
+              </button>
 
-                <div className="flex items-center dark:text-purple text-[#9a5df5] gap-3 ml-0 sm:ml-11 flex-wrap">
-                  <Badge variant="outline" className="text-xs">
-                    {item.type}
-                  </Badge>
-                  <span className="text-xs text-slate-500 dark:text-white-100">
-                    {item.duration}
-                  </span>
-                </div>
-              </div>
-
-              <div
+              <button
+                type="button"
+                onClick={() => onToggle(item.id)}
+                aria-label={expanded ? "Collapse details" : "Expand details"}
+                aria-expanded={expanded}
+                aria-controls={contentId}
                 className={`
-                text-slate-400 dark:text-slate-600 
-                transition-transform duration-200 flex-shrink-0
-                ${expanded ? "rotate-180" : ""}
-              `}
+                  shrink-0 mt-1 p-1.5 rounded-full text-slate-400 dark:text-slate-600
+                  hover:bg-slate-100 hover:text-slate-600
+                  dark:hover:bg-white/[0.06] dark:hover:text-slate-300
+                  transition-all duration-200 cursor-pointer
+                  ${expanded ? "rotate-180" : ""}
+                `}
               >
                 <ChevronDown className="w-4 h-4" />
-              </div>
+              </button>
             </div>
-          </button>
+
+            {/* location + company website link (LinkedIn-style) */}
+            <a
+              href={item.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`group/link mt-2 inline-flex max-w-full items-center gap-1.5 text-xs text-slate-500 dark:text-neutral-400 hover:text-[#9a5df5] dark:hover:text-purple transition-colors duration-200 ${textIndent}`}
+              title={`Visit ${item.company} website`}
+            >
+              <span className="truncate">{item.location}</span>
+              <ExternalLink className="w-3 h-3 shrink-0 text-[#9a5df5] dark:text-purple" />
+            </a>
+          </div>
 
           {expanded && (
             <div
               id={contentId}
               role="region"
               aria-labelledby={headerId}
-              className="px-4 sm:px-6 pb-4 sm:pb-6 border-t border-slate-100 dark:border-slate-900"
+              className="px-4 sm:px-6 pb-4 sm:pb-6 border-t border-slate-100 dark:border-slate-700"
             >
               <TimelineItemContent item={item} />
             </div>
@@ -279,9 +387,10 @@ TimelineItem.displayName = "TimelineItem";
 export function ProfessionalTimeline({
   data,
   defaultExpandedIds,
-  expandMode = "multi",
+  expandMode = "single",
 }: ProfessionalTimelineProps) {
-  const initial = defaultExpandedIds ?? data.map((item) => item.id);
+  const initial =
+    defaultExpandedIds ?? data.filter((item) => item.current).map((i) => i.id);
   const [expanded, setExpanded] = useState<Set<string>>(() => new Set(initial));
 
   const onToggle = useCallback(
@@ -299,7 +408,7 @@ export function ProfessionalTimeline({
         return next;
       });
     },
-    [expandMode]
+    [expandMode],
   );
 
   return (
@@ -320,21 +429,23 @@ export function ProfessionalTimeline({
 const ProfessionalExperience = () => {
   return (
     <div className="py-20" id="professional-experience">
-    <div className="flex flex-col items-center justify-center gap-6">
-    <h1 className="heading dark:text-white text-slate-800">
-        My{" "}
-        <span className="dark:text-purple text-[#9a5df5]">Professional Experience</span>
-      </h1>
-      <p className="text-slate-600 dark:text-white-100 text-center font-medium  md:tracking-widest lg:mb-4 mb-14 text-sm md:text-lg lg:text-lg ">
-        A comprehensive overview of my career journey and professional achievements.
-      </p>
-    </div>
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
-        <ProfessionalTimeline data={timelineData} expandMode="multi" />
+      <div className="flex flex-col items-center justify-center gap-6">
+        <h1 className="heading dark:text-white text-slate-800">
+          My Professional{" "} 
+          <span className="dark:text-purple text-[#9a5df5]">
+            Experience
+          </span>
+        </h1>
+        <p className="dark:text-white-200 text-slate-600 mt-4 text-center text-sm sm:text-base leading-relaxed">
+          A comprehensive overview of my career journey and professional
+          achievements.
+        </p>
+      </div>
+      <div className="max-w-3xl mx-auto px-0 sm:px-6 lg:px-8 mt-10">
+        <ProfessionalTimeline data={timelineData} expandMode="single" />
       </div>
     </div>
   );
 };
 
 export default ProfessionalExperience;
-
