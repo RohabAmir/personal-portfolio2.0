@@ -252,30 +252,26 @@ export const companies = [
 export const workExperience = [
   {
     id: 1,
-    title: "Junior React.js Developer",
-    desc: "I gained immense knowledge by covering React bootcamp course and helped the dev team on their running project.",
-    className: "md:col-span-2",
+    title: "Frontend Developer Lead",
+    desc: "Completed an intensive React bootcamp and led frontend development on the team's live project, translating designs into production-ready UI.",
     thumbnail: "/exp1.svg",
   },
   {
     id: 2,
     title: "Associate Software Engineer",
-    desc: "Assisted in the development of a web-based platform using JS frameworks like Next js & React js.",
-    className: "md:col-span-2",
+    desc: "Contributed to a web-based platform using Next.js and React, implementing features and resolving issues across the stack.",
     thumbnail: "/exp2.svg",
   },
   {
     id: 3,
     title: "Software Engineer",
-    desc: "As a software engineer, I have worked on a variety of projects, from small to large scale, and have gained a lot of experience in the process.",
-    className: "md:col-span-2",
+    desc: "Delivered features across small- and large-scale projects, owning development from implementation to production release.",
     thumbnail: "/exp3.svg",
   },
   {
     id: 4,
     title: "Senior Software Engineer",
-    desc: "Developed and maintained production-ready applications using modern technologies and libraries.",
-    className: "md:col-span-2",
+    desc: "Architect and maintain production-ready applications with modern technologies while mentoring developers and driving code quality.",
     thumbnail: "/exp4.svg",
   },
 ];

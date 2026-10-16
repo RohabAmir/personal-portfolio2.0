@@ -106,7 +106,7 @@ const timelineData: TimelineItemData[] = [
     current: true,
     responsibilities: [
       "Designed scalable Node.js and MongoDB structures powering high-traffic, production-grade platforms.",
-      "Built for ADRES (Advanced Real Estate Services), managing their lease and PMA services end to end — from service initiation to checkout.",
+      "Built for ADREC (Abu Dhabi Real Estate Centre), managing their lease and PMA services end to end — from service initiation to checkout.",
       "Converted a legacy, fully manual property services builder into an intelligent, automated platform using AI automation.",
       "Led the launching of a project with 35% increase in user adoption and user engagement.",
     ],
