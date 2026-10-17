@@ -21,7 +21,7 @@ const Footer = () => {
             hunt.
           </p>
           <a
-            href="/resume/Rohab-Aamir-v-2.pdf"
+            href="/resume/Rohab-Aamir.pdf"
             download="Rohab-Aamir-Resume"
             className="w-full sm:w-auto px-0" 
           >
