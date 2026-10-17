@@ -1,0 +1,132 @@
+"use client";
+
+import React from "react";
+import Image from "next/image";
+import { techStackRows, TechStackItem } from "@/data";
+
+const BrandIcon = ({ item }: { item: TechStackItem }) => {
+  if (item.tint) {
+    return (
+      <span
+        aria-hidden="true"
+        className="w-6 h-6 md:w-8 md:h-8 shrink-0 transition-transform duration-300 group-hover:scale-110"
+        style={{
+          backgroundColor: item.tint,
+          maskImage: `url(${item.img})`,
+          maskRepeat: "no-repeat",
+          maskSize: "contain",
+          maskPosition: "center",
+          WebkitMaskImage: `url(${item.img})`,
+          WebkitMaskRepeat: "no-repeat",
+          WebkitMaskSize: "contain",
+          WebkitMaskPosition: "center",
+        }}
+      />
+    );
+  }
+
+  return (
+    <Image
+      src={item.img}
+      alt=""
+      width={28}
+      height={28}
+      className="w-6 h-6 md:w-8 md:h-8 object-contain shrink-0 transition-transform duration-300 group-hover:scale-110"
+    />
+  );
+};
+
+const MarqueeRow = ({
+  items,
+  direction,
+  duration,
+}: {
+  items: TechStackItem[];
+  direction: "left" | "right";
+  duration: number;
+}) => {
+  const doubled = [...items, ...items];
+
+  return (
+    <div
+      className="group relative w-full overflow-hidden"
+      style={{
+        maskImage:
+          "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+        WebkitMaskImage:
+          "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+      }}
+    >
+      <div
+        className="flex w-max items-center py-2 marquee-track group-hover:[animation-play-state:paused]"
+        style={{
+          animation: `tech-marquee-${direction} ${duration}s linear infinite`,
+        }}
+      >
+        {doubled.map((item, idx) => (
+          <div
+            key={`${item.name}-${idx}`}
+            className="group/pill mx-2.5 flex items-center gap-3 whitespace-nowrap rounded-lg border border-[#1b3a54] bg-[#0b2035]/80 px-6 py-3.5 transition-all duration-300 hover:-translate-y-1 hover:border-[#2b5c85] hover:bg-[#102c47]"
+          >
+            <BrandIcon item={item} />
+            <span className="text-sm md:text-base font-medium text-[#cfe0ef]">
+              {item.name}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const TechStack = () => {
+  return (
+    <section id="tech-stack" className="pb-0 sm:pb-20">
+      <div className="relative overflow-hidden px-4 py-16 md:px-10 md:py-20">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 60% 40% at 50% 0%, rgb(142 31 158 / 25%), transparent 70%)",
+          }}
+        />
+
+        <div className="relative flex flex-col items-center text-center">
+          <h1 className="heading dark:text-white text-slate-800">
+            Connects to my entire{" "}
+            <span className="dark:text-purple text-[#9a5df5]">tech stack</span>
+          </h1>
+          <p className="mt-8 dark:text-white-200 text-slate-600 text-sm sm:text-base leading-relaxed">
+            Tools, frameworks, APIs, and platforms I use to design, build, and
+            ship production-ready applications.
+          </p>
+        </div>
+
+        <div className="relative mt-12 flex flex-col gap-3">
+          <MarqueeRow items={techStackRows[0]} direction="left" duration={45} />
+          <MarqueeRow
+            items={techStackRows[1]}
+            direction="right"
+            duration={55}
+          />
+          <MarqueeRow items={techStackRows[2]} direction="left" duration={50} />
+        </div>
+      </div>
+
+      <style>{`
+        @keyframes tech-marquee-left {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+        @keyframes tech-marquee-right {
+          from { transform: translateX(-50%); }
+          to { transform: translateX(0); }
+        }
+      `}</style>
+    </section>
+  );
+};
+
+export default TechStack;
+

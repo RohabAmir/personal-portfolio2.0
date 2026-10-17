@@ -429,14 +429,14 @@ export function ProfessionalTimeline({
 const ProfessionalExperience = () => {
   return (
     <div className="py-20" id="professional-experience">
-      <div className="flex flex-col items-center justify-center gap-6">
+      <div className="flex flex-col items-center justify-center">
         <h1 className="heading dark:text-white text-slate-800">
           My Professional{" "} 
           <span className="dark:text-purple text-[#9a5df5]">
             Experience
           </span>
         </h1>
-        <p className="dark:text-white-200 text-slate-600 mt-4 text-center text-sm sm:text-base leading-relaxed">
+        <p className="dark:text-white-200 text-slate-600 mt-8 text-center text-sm sm:text-base leading-relaxed">
           A comprehensive overview of my career journey and professional
           achievements.
         </p>

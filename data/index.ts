@@ -293,3 +293,61 @@ export const socialMedia = [
     img: "/link.svg",
   },
 ];
+
+export type TechStackItem = {
+  name: string;
+  img: string;
+  tint?: string;
+  colored?: boolean;
+};
+
+export const techStackRows: TechStackItem[][] = [
+  [
+    { name: "Cursor", img: "/logos/tech/cursor.svg", tint: "#FFFFFF" },
+    { name: "Claude", img: "/logos/tech/claude.svg", tint: "#D97757" },
+    { name: "OpenAI", img: "/logos/tech/openai.svg", tint: "#FFFFFF" },
+    { name: "Gemini", img: "/logos/tech/gemini.svg", colored: true },
+    { name: "GLM", img: "/logos/tech/glm.svg", colored: true },
+    { name: "Grok", img: "/logos/tech/grok.svg", tint: "#FFFFFF" },
+    { name: "Kimi", img: "/logos/tech/kimi.svg", colored: true },
+    { name: "Figma", img: "/logos/tech/figma.svg", colored: true },
+    { name: "Tailwind", img: "/logos/tech/tailwindcss.svg", tint: "#06B6D4" },
+    { name: "Shadcn/ui", img: "/logos/tech/shadcnui.svg", tint: "#FFFFFF" },
+    { name: "Material UI", img: "/logos/tech/materialui.svg", tint: "#007FFF" },
+    { name: "Chakra UI", img: "/logos/tech/chakraui.svg", tint: "#319795" },
+    { name: "Kokonut UI", img: "/logos/tech/kokonutui.svg", colored: true },
+    { name: "SERA UI", img: "/logos/tech/seraui.svg", colored: true },
+  ],
+  [
+    { name: "AWS", img: "/logos/tech/amazonwebservices.svg", tint: "#FF9900" },
+    { name: "Azure", img: "/logos/tech/azure.svg", tint: "#0078D4" },
+    { name: "Supabase", img: "/logos/tech/supabase.svg", tint: "#3FCF8E" },
+    { name: "Firebase", img: "/logos/tech/firebase.svg", colored: true },
+    { name: "Git", img: "/logos/tech/git.svg", tint: "#F05032" },
+    { name: "Nginx", img: "/logos/tech/nginx.svg", tint: "#009639" },
+    { name: "Strapi", img: "/logos/tech/strapi.svg", tint: "#4945FF" },
+    { name: "Clerk", img: "/logos/tech/clerk.svg", tint: "#6C47FF" },
+    { name: "Auth0", img: "/logos/tech/auth0.svg", tint: "#EB5424" },
+    { name: "NextAuth", img: "/logos/tech/nextauth.png", colored: true },
+    { name: "Aceternity", img: "/Aceternity.svg", tint: "" },
+    { name: "GitHub", img: "/logos/tech/github.svg", tint: "#FFFFFF" },
+    { name: "GitLab", img: "/logos/tech/gitlab.svg", tint: "#FC6D26" },
+    { name: "Docker", img: "/logos/tech/docker.svg", tint: "#2496ED" },
+  ],
+  [
+    { name: "Redux", img: "/logos/tech/redux.svg", tint: "#764ABC" },
+    { name: "TanStack Query", img: "/logos/tech/tanstack.svg", tint: "#EF4154" },
+    { name: "Zod", img: "/logos/tech/zod.svg", tint: "#3E67B1" },
+    { name: "Jest", img: "/logos/tech/jest.svg", tint: "#C21325" },
+    { name: "Vitest", img: "/logos/tech/vitest.svg", tint: "#6E9F18" },
+    { name: "GSAP", img: "/logos/tech/gsap.svg", tint: "#0AE448" },
+    { name: "Framer Motion", img: "/framer-motion.svg", tint: "" },
+    { name: "Highcharts", img: "/logos/tech/highcharts.svg", colored: true },
+    { name: "WebSockets", img: "/logos/tech/websocket.svg", tint: '#1d9605' },
+    { name: "WebRTC", img: "/logos/tech/webrtc.svg", colored: true },
+    { name: "Cloudinary", img: "/cloud.svg", tint: "" },
+    { name: "React Hook Form", img: "/logos/tech/reacthookform.svg", colored: true },
+    { name: "Formik", img: "/logos/tech/formik.svg", tint: "#2563EB" },
+    { name: "AG Grid", img: "/logos/tech/aggrid.png", colored: true },
+  ],
+];
