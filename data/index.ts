@@ -317,6 +317,7 @@ export const techStackRows: TechStackItem[][] = [
     { name: "Chakra UI", img: "/logos/tech/chakraui.svg", tint: "#319795" },
     { name: "Kokonut UI", img: "/logos/tech/kokonutui.svg", colored: true },
     { name: "SERA UI", img: "/logos/tech/seraui.svg", colored: true },
+    { name: "Vercel", img: "/vercel.svg", tint: "" },
   ],
   [
     { name: "AWS", img: "/logos/tech/amazonwebservices.svg", tint: "#FF9900" },
@@ -333,6 +334,7 @@ export const techStackRows: TechStackItem[][] = [
     { name: "GitHub", img: "/logos/tech/github.svg", tint: "#FFFFFF" },
     { name: "GitLab", img: "/logos/tech/gitlab.svg", tint: "#FC6D26" },
     { name: "Docker", img: "/logos/tech/docker.svg", tint: "#2496ED" },
+    { name: "Cloudflare", img: "/logos/tech/cloudflare.svg", tint: "#F38020" },
   ],
   [
     { name: "Redux", img: "/logos/tech/redux.svg", tint: "#764ABC" },
@@ -342,6 +344,7 @@ export const techStackRows: TechStackItem[][] = [
     { name: "Vitest", img: "/logos/tech/vitest.svg", tint: "#6E9F18" },
     { name: "GSAP", img: "/logos/tech/gsap.svg", tint: "#0AE448" },
     { name: "Framer Motion", img: "/framer-motion.svg", tint: "" },
+    { name: "Motion", img: "/logos/tech/motion.svg", tint: "#FFFFFF" },
     { name: "Highcharts", img: "/logos/tech/highcharts.svg", colored: true },
     { name: "WebSockets", img: "/logos/tech/websocket.svg", tint: '#1d9605' },
     { name: "WebRTC", img: "/logos/tech/webrtc.svg", colored: true },

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { memo, useCallback, useState } from "react";
+import React, { memo, useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 
 const ChevronDown = (props: React.SVGProps<SVGSVGElement>) => (
@@ -75,6 +75,8 @@ interface TimelineItemData {
   workMode: string;
   dateRange: string;
   durationTotal: string;
+  startDate?: string;
+  endDate?: string;
   location: string;
   website: string;
   logo: string;
@@ -100,6 +102,7 @@ const timelineData: TimelineItemData[] = [
     workMode: "On-site",
     dateRange: "Nov 2025 — Present",
     durationTotal: "11 mos",
+    startDate: "2025-11-12",
     location: "Lahore, Punjab, Pakistan",
     website: "https://nextbridge.com",
     logo: "/logos/nextbridge.png",
@@ -127,8 +130,10 @@ const timelineData: TimelineItemData[] = [
     company: "Trustangle",
     employmentType: "Contract",
     workMode: "Remote",
-    dateRange: "Nov 2024 — Jun 2025",
+    dateRange: "Nov 2025 — Jun 2026",
     durationTotal: "8 mos",
+    startDate: "2025-11-05",
+    endDate: "2026-06-30",
     location: "Riyadh, Saudi Arabia",
     website: "https://trustangle.com",
     logo: "/logos/trustangle.png",
@@ -156,6 +161,8 @@ const timelineData: TimelineItemData[] = [
     workMode: "On-site",
     dateRange: "Sep 2024 — Nov 2025",
     durationTotal: "1 yr 3 mos",
+    startDate: "2024-09-01",
+    endDate: "2025-11-30",
     location: "Lahore, Punjab, Pakistan",
     website: "https://logicalcreations.net",
     logo: "/logos/logical-creations.png",
@@ -183,6 +190,8 @@ const timelineData: TimelineItemData[] = [
     workMode: "On-site",
     dateRange: "Aug 2023 — Sep 2024",
     durationTotal: "1 yr 2 mos",
+    startDate: "2023-08-01",
+    endDate: "2024-09-30",
     location: "Lahore, Punjab, Pakistan",
     website: "https://folium.ai",
     logo: "/logos/folium.png",
@@ -211,6 +220,8 @@ const timelineData: TimelineItemData[] = [
     workMode: "On-site",
     dateRange: "Jun 2022 — Jul 2023",
     durationTotal: "1 yr 2 mos",
+    startDate: "2022-06-01",
+    endDate: "2023-07-31",
     location: "Islamabad, Pakistan",
     website: "https://navttc.gov.pk",
     logo: "/logos/navttc.png",
@@ -233,6 +244,49 @@ const timelineData: TimelineItemData[] = [
     ],
   },
 ];
+
+const pluralizeMonths = (months: number) =>
+  months === 1 ? "1 mo" : `${months} mos`;
+
+const formatDuration = (startDate: string, endDate?: string): string => {
+  const start = new Date(`${startDate}T00:00:00`);
+  const end = endDate ? new Date(`${endDate}T00:00:00`) : new Date();
+  const effectiveEnd = endDate
+    ? new Date(end.getFullYear(), end.getMonth() + 1, 1)
+    : end;
+  const months = Math.max(
+    0,
+    (effectiveEnd.getFullYear() - start.getFullYear()) * 12 +
+      (effectiveEnd.getMonth() - start.getMonth()) -
+      (effectiveEnd.getDate() < start.getDate() ? 1 : 0),
+  );
+  if (months < 1) return "<1 mo";
+  if (months < 12) return pluralizeMonths(months);
+  const years = Math.floor(months / 12);
+  const rest = months % 12;
+  const yearLabel = years === 1 ? "1 yr" : `${years} yrs`;
+  return rest ? `${yearLabel} ${pluralizeMonths(rest)}` : yearLabel;
+};
+
+const DurationLabel = memo(function DurationLabel({
+  item,
+}: {
+  item: TimelineItemData;
+}) {
+  const [duration, setDuration] = useState(item.durationTotal);
+  const { startDate, endDate } = item;
+
+  useEffect(() => {
+    if (!startDate) return;
+    const update = () => setDuration(formatDuration(startDate, endDate));
+    update();
+    const id = setInterval(update, 60 * 60 * 1000);
+    return () => clearInterval(id);
+  }, [startDate, endDate]);
+
+  return <>{duration}</>;
+});
+DurationLabel.displayName = "DurationLabel";
 
 interface TimelineItemContentProps {
   item: TimelineItemData;
@@ -331,7 +385,7 @@ const TimelineItem = memo(function TimelineItem({
                     </span>
                   </p>
                   <p className="text-xs text-slate-500 dark:text-neutral-400">
-                    {item.dateRange} · {item.durationTotal}
+                    {item.dateRange} · <DurationLabel item={item} />
                   </p>
                 </div>
               </button>
