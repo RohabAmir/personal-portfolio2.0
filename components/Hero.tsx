@@ -44,7 +44,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="sticky top-0 z-0 h-[100svh] min-h-[600px] sm:min-h-[660px] w-full overflow-hidden bg-white dark:bg-black-100"
+      className="sticky top-0 z-0 h-[100svh] min-h-[600px] sm:min-h-[660px] w-full overflow-hidden bg-[#f6f4ef] dark:bg-black-100"
     >
       <motion.div
         style={{ opacity, scale, filter }}
@@ -60,7 +60,7 @@ const Hero = () => {
           />
         </div>
 
-        <div className="absolute inset-0 w-full dark:bg-black bg-white dark:bg-grid-white/[0.08] bg-grid-black/[0.08] flex items-center justify-center">
+        <div className="absolute inset-0 w-full dark:bg-black bg-[#f6f4ef] dark:bg-grid-white/[0.08] bg-grid-black/[0.08] flex items-center justify-center">
           <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_5%,black)]" />
         </div>
 
