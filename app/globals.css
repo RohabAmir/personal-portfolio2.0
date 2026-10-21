@@ -144,4 +144,23 @@
   }
 }
 
+/* Project media card — Ken Burns hover fallback (no video available) */
+.ken-burns {
+  transform: scale(1) translate(0, 0);
+  transition: transform 8s ease-out;
+  will-change: transform;
+}
+
+.group\/media:hover .ken-burns {
+  transform: scale(1.08) translate(-1.5%, -1.5%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ken-burns,
+  .group\/media:hover .ken-burns {
+    transform: none;
+    transition: none;
+  }
+}
+
 

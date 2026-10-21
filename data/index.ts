@@ -83,87 +83,195 @@ export const gridItems = [
   },
 ];
 
-export const projects = [
+export type Project = {
+  id: number;
+  title: string;
+  tagline: string;
+  description: string;
+  features: string[];
+  tech: string[];
+  ai: string[];
+  img: string;
+  video?: string;
+  link: string;
+};
+
+export const projects: Project[] = [
   {
     id: 1,
-    title: "Dan PIF Company",
-    des: "Saudia Government Project, (PIF) Company that aims to contribute to the development of the tourism sector.",
-    img: "/dan.png",
-    iconLists: ["/re.svg", "/sass.png", "/ts.svg", "/AntDesign.svg", "/fm.svg"],
-    link: "https://dan-website.jigsawtech.co/en",
-  },
-  {
-    id: 2,
-    title: "Tuaja Resorts",
-    des: "Tuaja Luxury Resorts, a platform for hospitality brand in Saudia Arabia.",
-    img: "/tuaja.png",
-    iconLists: ["/re.svg", "/boostrap.svg", "/Js.svg", "/stream.svg", "/c.svg"],
-    link: "https://tuaja.com",
-  },
-  {
-    id: 3,
-    title: "Jigsaw Website",
-    des: "Jigsaw Digital Solutions, a cloud based solution for ordering, delivery, payment and inventory management.",
-    img: "/jigsaw-website.jpg",
-    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
-    link: "https://www.jigsawme.io",
-  },
-  {
-    id: 4,
-    title: "Headless CMS Dashboard",
-    des: "A production ready Product for a company to control the CMS of any website with numerous features.",
-    img: "/jigsaw.jpg",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
-    link: "https://jigsaw-dashboard.jigsawtech.co/login",
-  },
-  {
-    id: 5,
-    title: "Wateen Website",
-    des: "Wateen Website, a website for AI-Powered Online Marketplace and Inventory Management PLatform.",
-    img: "/wateen.jpg",
-    iconLists: ["/next.svg", "/fm.svg", "/ts.svg", "/MUI.svg", "/Strapi.svg"],
+    title: "Wateen",
+    tagline: "AI-Powered Restaurant Operations Platform",
+    description:
+      "A bilingual AI-powered online marketplace and inventory management platform for F&B businesses in Saudi Arabia.",
+    features: [
+      "Led a cross-functional team to deliver a bilingual (EN/AR) restaurant operations platform for F&B businesses in Saudi Arabia",
+      "AI-powered marketplace with smart inventory and order management",
+      "Real-time operational dashboards for restaurants and suppliers",
+      "Fully responsive, accessible experience across all devices",
+    ],
+    tech: [
+      "Next.js v16",
+      "React v19",
+      "TypeScript v4.3",
+      "Redux Toolkit",
+      "Material UI",
+      "Formik",
+      'i18next',
+    ],
+    ai: ["GLM 5.3 Flash", "GPT-5.6"],
+    img: "/project-images/wateen-blueprint.webp",
+    video: "/project-videos/wateen.mp4",
     link: "https://wateen.ai/en",
   },
   {
-    id: 6,
-    title: "Reachware Plarform",
-    des: "Reachware, the #1 iPaaS in the Middle East that integrate all your business solutions into one Ecosystem.",
-    img: "/reachware.jpg",
-    iconLists: [
-      "/re.svg",
-      "/boostrap.svg",
-      "/Js.svg",
-      "/Strapi.svg",
-      "/Aceternity.svg",
+    id: 2,
+    title: "DARI",
+    tagline: "Abu Dhabi's Digital Real-Estate Ecosystem",
+    description:
+      "A production-ready marketplace and management platform to handle ongoing real-estate services — your one-stop solution for all real-estate needs in Abu Dhabi.",
+    features: [
+      "Converted a legacy, fully manual property-services builder into an intelligent, automated platform using AI automation",
+      "Interactive map-based property exploration with Google Maps integration",
+      "Role-aware forms and state management for complex service workflows",
+      "Built for government-backed client ADREC (Abu Dhabi Real Estate Centre)",
     ],
-    link: "https://reachware.com/",
+    tech: [
+      "React v16",
+      'JavaScript v17',
+      "Redux v5.0",
+      "Redux Thunk",
+      "React Hook Form",
+      "MUI Core",
+      "google-map-react",
+    ],
+    ai: ["Claude Opus 5.5", "Claude Sonnet 5"],
+    img: "/project-images/dari-blueprint.webp",
+    link: "https://www.dari.ae",
+  },
+  {
+    id: 3,
+    title: "AI-Powered Headless CMS",
+    tagline: "SaaS Content Management Dashboard",
+    description:
+      "An AI-powered headless CMS for a Saudi client, now running 4 live websites — pages and sections created and edited from one dashboard.",
+    features: [
+      "Python crawler turns any site's HTML sections into JSON content APIs",
+      "RBAC with 2FA, drag-and-drop section ordering, and full audit logs",
+      "SEO & blog management, lead and user management with super-admin controls",
+      "Rich-text editing and theming for any tourism website from a single platform",
+    ],
+    tech: [
+      "React v19",
+      "TypeScript v5.6",
+      "Python v3.12",
+      "Tailwind CSS v4.3",
+      "shadcn/ui",
+      "Kokonut UI",
+      "React Hook Form",
+      "Zod",
+      "TanStack Query",
+      "Motion v12",
+    ],
+    ai: ["Claude Sonnet 5.5"],
+    img: "/project-images/AI-Powered-Dashboard-blueprint.webp",
+    link: "https://jigsaw-dashboard.jigsawtech.co/login",
+  },
+  {
+    id: 4,
+    title: "Dan (PIF)",
+    tagline: "Saudi Government Tourism Project",
+    description:
+      "A Saudi government (PIF) project contributing to the development of the tourism sector, with a full website and admin panel.",
+    features: [
+      "Revamped and developed a Saudi tourism website + admin panel with 30+ landing pages from Figma wireframes",
+      "Multi-language toggle (English/Arabic) with full RTL support",
+      "Mapbox integration for dynamic location coordinates",
+      "X/Twitter API for social feeds and blog content managed via Admin Panel",
+    ],
+    tech: [
+      "Next.js v16",
+      "TypeScript v4.3",
+      "Tailwind CSS v4.0",
+      "Chakra UI",
+      "Motion v11.13",
+    ],
+    ai: ["Claude Opus 5", "Claude Sonnet 4.6"],
+    img: "/project-images/dan-blueprint.webp",
+    link: "https://dancompany.sa/ar",
+  },
+  {
+    id: 5,
+    title: "Jigsaw Digital Solutions",
+    tagline: "All-in-One Ordering, Payment & Delivery",
+    description:
+      "Your all-in-one cloud-based solution for ordering, payment, and delivery — a multilingual platform with a scalable admin panel.",
+    features: [
+      "Defined and implemented the technical architecture of a multilingual Next.js platform (App Router, SSR/ISR)",
+      "Rigorous SEO: structured data, canonical/hreflang, sitemaps",
+      "Scalable Admin Panel with secure, versioned APIs",
+      "Modular content workflows and social integrations",
+    ],
+    tech: ["Next.js v15", "TypeScript v4.3", "Tailwind CSS v4.0", "SSR/ISR"],
+    ai: ["Grok 4.6", "GLM 5.3 Flash"],
+    img: "/project-images/jigsaw-blueprint.webp",
+    link: "https://www.jigsawme.io",
+  },
+  {
+    id: 6,
+    title: "Sharemundo",
+    tagline: "Energy Consultant — Project Management Platform",
+    description:
+      "A dashboard for a Germany-based Project Management Platform (EC-PMP) — a complete ecosystem to boost your projects.",
+    features: [
+      "40+ landing and milestone screens built with pixel perfection and best practices for backend integration",
+      "Secure authentication and authorization using Auth0 with streamlined user management",
+      "Document and asset handling with AWS S3 and SharePoint",
+      "Deployed on Vercel with RESTful API integrations",
+    ],
+    tech: [
+      "Vue.js v3.5",
+      "Nuxt v3.6",
+      "TypeScript v5.6",
+      "AWS S3",
+      "SharePoint v2019",
+      "Vercel",
+    ],
+    ai: ["Gemini 4 Argon"],
+    img: "/project-images/shermundo-blueprint.webp",
+    link: "https://sharemundo.com/en/",
   },
   {
     id: 7,
-    title: "Sharemundo",
-    des: "Energy Consultant-Project Management Platform(EC-PMP) - A complete ecosystem to boost your projects!",
-    img: "/shermundo.png",
-    iconLists: [
-      "/re.svg",
-      "/boostrap.svg",
-      "/Js.svg",
-      "/Strapi.svg",
-      "/Aceternity.svg",
+    title: "Tuaja Resorts",
+    tagline: "Luxury Hospitality Platform",
+    description:
+      "A platform for a luxury hospitality brand in Saudi Arabia, developed end to end as one of two production Saudi tourism websites.",
+    features: [
+      "Luxury resorts platform developed end to end, from Figma designs to production",
+      "Multilingual RTL/LTR experience with a seamless booking journey",
+      "Pixel-perfect, fast and responsive web pages",
+      "Immersive visuals showcasing resort experiences and amenities",
     ],
-    link: "https://sharemundo.com/en/",
+    tech: ["Next.js v15", "TypeScript v4.3", "Tailwind CSS v4.0", "Motion v11.13"],
+    ai: ["Claude Opus 5", "GPT-5.6"],
+    img: "/project-images/tuaja-blueprint.webp",
+    link: "https://tuaja.com/en",
   },
   {
     id: 8,
     title: "Tribaja",
-    des: "Explore the wonders of our trusted career guide for life's career changes using React.js.",
-    img: "/tribaja.png",
-    iconLists: [
-      "/re.svg",
-      "/boostrap.svg",
-      "/Js.svg",
-      "/Strapi.svg",
-      "/Aceternity.svg",
+    tagline: "Talent Marketplace & Community",
+    description:
+      "A talent marketplace and community for undersupported tech talent, with a talent management portal and community platform.",
+    features: [
+      "Talent Management Portal dashboard with end-to-end responsiveness",
+      "Google & LinkedIn OAuth authentication",
+      "Efficient state management with Redux Toolkit and Redux-Saga",
+      "Community platform connecting underrepresented tech talent with employers",
     ],
+    tech: ["React v18", "TypeScript v4.3", "Sass v5.0", "Redux Toolkit v5.0", "Redux-Saga"],
+    ai: ["Claude Opus 4.5", "Claude Sonnet 4.6", "OpenAI"],
+    img: "/project-images/tribaja-blueprint.webp",
     link: "https://www.tribaja.co/",
   },
 ];
