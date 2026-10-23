@@ -285,7 +285,7 @@ export default function OrbitingSkills() {
   return (
     <section className="py-20 w-full" id="skills">
       <h1 className="heading dark:text-white text-slate-800">
-        My areas of <span className="dark:text-purple text-[#9a5df5]">interest</span>
+        My areas of <span className="dark:text-purple text-[#492C74]">interest</span>
       </h1>
       
       <div className="w-full flex items-center justify-center mt-16 px-4">

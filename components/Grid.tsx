@@ -10,16 +10,8 @@ const Grid = () => {
           <div
             className="relative rounded-3xl sm:rounded-3xl p-px"
             style={{
-              background:
-                "linear-gradient(to bottom, rgba(214,188,246,0.75) 0%, rgba(203,172,249,0.55) 20%, rgba(154,93,245,0.4) 55%, rgba(7,7,45,0.28) 100%)",
-              boxShadow: [
-                "0 -3px 120px -4px rgba(216,180,254,0.55)",
-                "-3px 0 22px -8px rgba(167,139,250,0.38)",
-                "3px 0 22px -8px rgba(167,139,250,0.38)",
-                "0 3px 10px -8px rgba(139,92,246,0.18)",
-                "0 0 70px -18px rgba(124,58,237,0.32)",
-                "0 30px 80px -20px rgba(0,0,0,0.7)",
-              ].join(", "),
+              background: "var(--bento-border-gradient)",
+              boxShadow: "var(--bento-box-shadow)",
             }}
           >
             <div className="relative rounded-[calc(1rem-1px)] sm:rounded-[calc(1.4rem-1px)] overflow-hidden">

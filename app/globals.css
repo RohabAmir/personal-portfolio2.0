@@ -4,8 +4,27 @@
 
 @layer base {
   :root {
-    --background: 220 25% 97%;
+    --background: 0 0% 100%;
     --foreground: 240 15% 15%;
+
+    /* Light-theme accent tokens */
+    --magic-btn-bg: #634196;
+
+    /* Monochrome brand-logo tint: black on light, white on dark */
+    --tint-contrast: #000000;
+
+    /* Bento (About) container — light: #634196 gradient border + soft shadow */
+    --bento-border-gradient: linear-gradient(
+      to bottom,
+      rgba(99, 65, 150, 0.55) 0%,
+      rgba(148, 113, 197, 0.38) 30%,
+      rgba(186, 160, 223, 0.38) 65%,
+      rgba(221, 200, 250, 0.38) 100%
+    );
+    --bento-box-shadow:
+      0 24px 120px -18px rgba(137, 97, 197, 0.22),
+      0 2px 12px -4px rgba(0, 0, 0, 0.08),
+      0 0 40px -18px rgba(99, 65, 150, 0.14);
 
     --card: 0 0% 100%;
     --card-foreground: 240 15% 15%;
@@ -37,6 +56,26 @@
 
   .dark {
     --background: 240 10% 3.9%;
+
+    /* Dark-theme accent tokens (unchanged) */
+    /* --magic-btn-bg: radial-gradient(circle, #E2CBFF, #393BB2); */
+
+    /* Monochrome brand-logo tint: black on light, white on dark */
+    --tint-contrast: #ffffff;
+    --bento-border-gradient: linear-gradient(
+      to bottom,
+      rgba(214, 188, 246, 0.75) 0%,
+      rgba(203, 172, 249, 0.55) 20%,
+      rgba(154, 93, 245, 0.4) 55%,
+      rgba(7, 7, 45, 0.28) 100%
+    );
+    --bento-box-shadow:
+      0 -3px 120px -4px rgba(216, 180, 254, 0.55),
+      -3px 0 22px -8px rgba(167, 139, 250, 0.38),
+      3px 0 22px -8px rgba(167, 139, 250, 0.38),
+      0 3px 10px -8px rgba(139, 92, 246, 0.18),
+      0 0 70px -18px rgba(124, 58, 237, 0.32),
+      0 30px 80px -20px rgba(0, 0, 0, 0.7);
     --foreground: 0 0% 98%;
 
     --card: 240 10% 3.9%;
@@ -87,8 +126,6 @@
     @apply font-bold text-3xl sm:text-4xl md:text-7xl lg:text-[7rem] text-center;
   }
 
-  /* Orbit animation for skill icons — transform-only so it runs entirely on
-     the GPU compositor (iOS Safari stays smooth; no main-thread repaints) */
   @keyframes orbit-spin {
     from {
       transform: rotate(0deg);

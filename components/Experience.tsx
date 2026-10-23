@@ -6,9 +6,9 @@ import Image from "next/image";
 const Experience = () => {
   return (
     <div id="experiences" className="py-20">
-      <h1 className="heading dark:text-white text-slate-800">
+      <h1 className="heading dark:text-white text-black">
         My career{" "}
-        <span className="dark:text-purple text-[#9a5df5]">titles</span>
+        <span className="dark:text-purple text-[#634196]">titles</span>
       </h1>
       <div className="w-full mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-5">
         {workExperience.map((card) => (
@@ -16,11 +16,11 @@ const Experience = () => {
             key={card.id}
             duration={10000 + card.id * 2000}
             borderRadius="1.5rem"
-            className="text-start border-[#252A5A] dark:border-slate-800"
+            className="text-start border-[#c6c3c4] dark:border-slate-800"
           >
             <div className="flex flex-col w-full h-full gap-4 p-5 sm:p-6 text-left">
               <div className="flex items-center gap-3 sm:gap-4">
-                <div className="shrink-0 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-xl bg-slate-100 dark:bg-white/[0.06] border border-slate-200 dark:border-white/10 overflow-hidden">
+                <div className="shrink-0 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-xl bg-[#F9FAFB] dark:bg-white/[0.06] border border-[#c6c3c4] dark:border-white/10 overflow-hidden">
                   <Image
                     width={0}
                     height={0}

@@ -41,12 +41,12 @@ function MediaCard({ project }: { project: Project }) {
 
   return (
     <div
-      className="group/media relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-[0_8px_30px_-12px_rgba(0,0,0,0.25)] dark:border-white/[0.08] dark:bg-[#080b22] dark:shadow-[0_8px_30px_-12px_rgba(0,0,0,0.7)]"
+      className="group/media relative overflow-hidden rounded-2xl border border-[#c6c3c4] bg-[#F9FAFB] shadow-[0_8px_30px_-12px_rgba(0,0,0,0.25)] dark:border-white/[0.08] dark:bg-[#080b22] dark:shadow-[0_8px_30px_-12px_rgba(0,0,0,0.7)]"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       {/* browser chrome bar */}
-      <div className="flex items-center gap-1.5 border-b border-slate-200/80 bg-slate-50 py-2.5 dark:border-white/[0.08] dark:bg-white/[0.03]">
+      <div className="flex items-center gap-1.5 border-b border-[#c6c3c4] bg-white py-2.5 dark:border-white/[0.08] dark:bg-white/[0.03]">
         <span className="ml-3 truncate font-mono text-[10px] uppercase tracking-widest text-slate-400 dark:text-neutral-500">
           {project.link.replace(/^https?:\/\/(www\.)?/, "")}
         </span>
@@ -104,11 +104,11 @@ function InfoPanel({ project }: { project: Project }) {
           {project.features.map((feature) => (
             <li
               key={feature}
-              className="flex items-start gap-2 text-[13px] leading-snug text-slate-700 dark:text-neutral-300"
+              className="flex items-start gap-2 text-[13px] leading-snug text-slate-800 dark:text-neutral-300"
             >
               <span
                 aria-hidden
-                className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#9a5df5] dark:bg-purple"
+                className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#634196] dark:bg-purple"
               />
               {feature}
             </li>
@@ -123,12 +123,10 @@ function InfoPanel({ project }: { project: Project }) {
         </p>
         <div className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-2 text-[13px] leading-relaxed text-slate-600 dark:text-neutral-400">
           <span>{project.tech.join(", ")}</span>
-          {/* {project.ai.length > 0 && project.tech.length > 0 && <span>,</span>} */}
           {project.ai.map((ai, aiIndex) => (
             <span key={ai} className="inline-flex items-center gap-2">
-              {/* {aiIndex > 0 && <span>,</span>} */}
               <span
-                className="rounded-full border border-[#9a5df5]/40 bg-[#9a5df5]/[0.08] px-2.5 py-0.5 text-[11px] font-semibold text-[#9a5df5] dark:border-purple/40 dark:bg-purple/[0.08] dark:text-purple"
+                className="rounded-full border border-[#634196]/40 bg-[#634196]/[0.08] px-2.5 py-0.5 text-[11px] font-semibold text-[#634196] dark:border-purple/40 dark:bg-purple/[0.08] dark:text-purple"
               >
                 {ai}
               </span>
@@ -183,9 +181,9 @@ const RecentProjects = () => {
 
   return (
     <section className="py-20" id="projects">
-      <h1 className="heading dark:text-white text-slate-800">
+      <h1 className="heading dark:text-white text-black">
         Highlighting my recent{" "}
-        <span className="dark:text-purple text-[#9a5df5]">success stories</span>
+        <span className="dark:text-purple text-[#634196]">success stories</span>
       </h1>
 
       <div className="relative mt-20">
@@ -211,7 +209,7 @@ const RecentProjects = () => {
             aria-label="Previous projects"
             onClick={() => goTo(page - 1)}
             disabled={page === 0}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-300/70 text-slate-600 transition-colors hover:border-[#9a5df5]/60 hover:text-[#9a5df5] disabled:cursor-not-allowed disabled:opacity-30 dark:border-white/[0.14] dark:text-neutral-300 dark:hover:border-purple/60 dark:hover:text-purple"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-[#c6c3c4] text-slate-600 transition-colors hover:border-[#634196]/60 hover:text-[#634196] disabled:cursor-not-allowed disabled:opacity-30 dark:border-white/[0.14] dark:text-neutral-300 dark:hover:border-purple/60 dark:hover:text-purple"
           >
             <FaChevronLeft className="h-3.5 w-3.5" />
           </button>
@@ -225,8 +223,8 @@ const RecentProjects = () => {
                 onClick={() => goTo(index)}
                 className={`h-2 rounded-full transition-all duration-300 ${
                   index === page
-                    ? "w-8 bg-[#9a5df5] dark:bg-purple"
-                    : "w-2 bg-slate-300 hover:bg-[#9a5df5]/50 dark:bg-white/25 dark:hover:bg-purple/50"
+                    ? "w-8 bg-[#634196] dark:bg-purple"
+                    : "w-2 bg-slate-300 hover:bg-[#634196]/50 dark:bg-white/25 dark:hover:bg-purple/50"
                 }`}
               />
             ))}
@@ -237,7 +235,7 @@ const RecentProjects = () => {
             aria-label="Next projects"
             onClick={() => goTo(page + 1)}
             disabled={page === slides.length - 1}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-300/70 text-slate-600 transition-colors hover:border-[#9a5df5]/60 hover:text-[#9a5df5] disabled:cursor-not-allowed disabled:opacity-30 dark:border-white/[0.14] dark:text-neutral-300 dark:hover:border-purple/60 dark:hover:text-purple"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-[#c6c3c4] text-slate-600 transition-colors hover:border-[#634196]/60 hover:text-[#634196] disabled:cursor-not-allowed disabled:opacity-30 dark:border-white/[0.14] dark:text-neutral-300 dark:hover:border-purple/60 dark:hover:text-purple"
           >
             <FaChevronRight className="h-3.5 w-3.5" />
           </button>

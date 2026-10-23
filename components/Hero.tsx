@@ -44,7 +44,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="sticky top-0 z-0 h-[100svh] min-h-[600px] sm:min-h-[660px] w-full overflow-hidden bg-[#f6f4ef] dark:bg-black-100"
+      className="sticky top-0 z-0 h-[100svh] min-h-[600px] sm:min-h-[660px] w-full overflow-hidden bg-[#F3F3F3] dark:bg-black-100"
     >
       <motion.div
         style={{ opacity, scale, filter }}
@@ -56,13 +56,12 @@ const Hero = () => {
         >
           <Spotlight
             className="top-0 left-0"
-            fill={isDark ? "white" : "purple"}
+            fill={isDark ? "white" : "white"}
           />
         </div>
 
-        <div className="absolute inset-0 w-full dark:bg-black bg-[#f6f4ef] dark:bg-grid-white/[0.08] bg-grid-black/[0.08] flex items-center justify-center">
-          <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_5%,black)]" />
-        </div>
+        <div className="pointer-events-none absolute inset-0 bg-[#F3F3F3] dark:bg-black [background-size:75px_75px] [background-image:linear-gradient(to_right,#e5e5e5_1px,transparent_1px),linear-gradient(to_bottom,#e5e5e5_1px,transparent_1px)] dark:[background-image:linear-gradient(to_right,#1a1a1a_1px,transparent_1px),linear-gradient(to_bottom,#1a1a1a_1px,transparent_1px)]" />
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-[#F3F3F3] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black-100" />
 
         <div
           aria-hidden
@@ -77,7 +76,7 @@ const Hero = () => {
           <div className="w-full max-w-[89vw] md:max-w-3xl lg:max-w-4xl xl:max-w-7xl flex flex-col items-center lg:items-start pt-24 sm:pt-32 2xl:pt-40 3xl:pt-28 pb-8 sm:pb-16">
             <div className="mb-4 sm:mb-10 flex w-full flex-col items-start justify-start gap-2 self-start sm:flex-row sm:flex-wrap">
               <span
-                className="inline-flex shrink-0 items-center gap-2 rounded-full border border-slate-300/70 dark:border-white/20 bg-white/60 dark:bg-white/[0.04] backdrop-blur-sm px-3 py-1"
+                className="inline-flex shrink-0 items-center gap-2 rounded-full border border-[#c6c3c4] dark:border-white/20 bg-white/60 dark:bg-white/[0.04] backdrop-blur-sm px-3 py-1"
                 aria-label="Available for work"
               >
                 <span className="relative flex h-2 w-2">
@@ -104,10 +103,10 @@ const Hero = () => {
               </div>
 
               <div className="order-2 mt-1 sm:mt-4 flex flex-col items-start text-left lg:col-start-1 lg:row-start-2 lg:order-none">
-                <h2 className="text-base sm:text-lg md:text-3xl font-semibold dark:text-white text-slate-800 tracking-tight">
+                <h2 className="text-base sm:text-lg md:text-3xl font-semibold dark:text-white text-black tracking-tight">
                   Rohab Aamir{" "}
                   <span className="text-slate-400 dark:text-white/40">—</span>{" "}
-                  <span className="dark:text-purple text-[#9a5df5]">
+                  <span className="dark:text-purple text-[#634196]">
                     Software Engineer
                   </span>
                 </h2>
@@ -125,7 +124,7 @@ const Hero = () => {
                 >
                   <Spotlight
                     className="top-0 left-0"
-                    fill={isDark ? "white" : "purple"}
+                    fill={isDark ? "white" : "white"}
                   />
                 </div>
                 <div className="relative h-32 w-32 xs:h-36 xs:w-36 sm:h-48 sm:w-48 md:h-52 md:w-52 lg:h-56 lg:w-56 xl:h-72 xl:w-72 overflow-hidden rounded-full border border-black/10 shadow-[0_0_0_30px_rgba(255,255,255,0.06)]">
@@ -143,11 +142,11 @@ const Hero = () => {
             </div>
 
             <div className="flex w-full flex-col items-start justify-center">
-              <p className="mt-5 sm:mt-14 text-left text-xl font-medium leading-snug text-slate-900 sm:text-2xl md:text-3xl lg:tracking-wider tracking-normal dark:text-white">
+              <p className="mt-5 sm:mt-14 text-left text-xl font-medium leading-snug text-black sm:text-2xl md:text-3xl lg:tracking-wider tracking-normal dark:text-white">
                 I build fast, business-ready systems powered by{" "}
-                <span className="dark:text-purple text-[#9a5df5]">AI.</span>
+                <span className="dark:text-purple text-[#634196]">AI.</span>
                 <span
-                  className="ml-3 inline-block h-[1.5rem] sm:h-[2rem] w-[3px] translate-y-[0.1em] bg-[#9a5df5] dark:bg-purple animate-blink"
+                  className="ml-3 inline-block h-[1.5rem] sm:h-[2rem] w-[3px] translate-y-[0.1em] bg-[#634196] dark:bg-purple animate-blink"
                   aria-hidden
                 />
               </p>

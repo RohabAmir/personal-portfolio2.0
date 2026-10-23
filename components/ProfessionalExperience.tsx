@@ -54,7 +54,7 @@ const Badge = ({
     secondary:
       "bg-slate-100 text-slate-900 hover:bg-slate-100/80 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-800/80",
     outline:
-      "border border-slate-200 bg-transparent hover:bg-slate-100 dark:border-slate-700 dark:hover:bg-slate-800",
+      "border border-[#c6c3c4] bg-transparent hover:bg-slate-100 dark:border-slate-700 dark:hover:bg-slate-800",
   };
 
   return (
@@ -303,7 +303,7 @@ const TimelineItemContent = memo(function TimelineItemContent({
             key={`${item.id}-resp-${idx}`}
             className="flex items-start gap-3 group"
           >
-            <div className="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 flex-shrink-0 group-hover:bg-[#9a5df5] dark:group-hover:bg-purple transition-colors duration-200 dark:bg-slate-500" />
+            <div className="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 flex-shrink-0 group-hover:bg-[#492C74] dark:group-hover:bg-purple transition-colors duration-200 dark:bg-slate-500" />
             <p className="text-sm text-slate-600 dark:text-white-100 leading-relaxed">
               {responsibility}
             </p>
@@ -311,7 +311,7 @@ const TimelineItemContent = memo(function TimelineItemContent({
         ))}
       </div>
 
-      <div className="flex flex-wrap gap-2 pt-2 border-t border-slate-200 dark:border-slate-800">
+      <div className="flex flex-wrap gap-2 pt-2 border-t border-[#c6c3c4] dark:border-slate-800">
         {item.skills.map((skill, skillIdx) => (
           <Badge key={`${item.id}-skill-${skillIdx}`} variant="secondary">
             {skill}
@@ -343,15 +343,15 @@ const TimelineItem = memo(function TimelineItem({
     <div className="relative group">
       <div className="absolute left-4 sm:left-6 top-14 bottom-0 w-[2px] bg-gradient-to-b from-slate-900 via-slate-500 to-transparent dark:from-white dark:via-slate-400 dark:to-transparent" />
 
-      <div className="absolute left-2 sm:left-4 top-6 w-4 h-4 bg-white dark:bg-black-100 border-2 border-slate-300 dark:border-slate-700 rounded-full flex items-center justify-center transform transition-all duration-200 z-10">
-        <div className="w-2 h-2 bg-[#9a5df5] dark:bg-purple rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+      <div className="absolute left-2 sm:left-4 top-6 w-4 h-4 bg-white dark:bg-black-100 border-2 border-[#c6c3c4] dark:border-slate-700 rounded-full flex items-center justify-center transform transition-all duration-200 z-10">
+        <div className="w-2 h-2 bg-[#634196] dark:bg-purple rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
       </div>
 
       <div className="ml-8 sm:ml-12 mb-8">
         <div
           className={`
           bg-white dark:bg-[rgb(4,7,29)]
-          rounded-lg border border-slate-200 dark:border-white/[0.2]
+          rounded-lg border border-[#c6c3c4] dark:border-white/[0.2]
           transition-all duration-200
           ${expanded ? "shadow-sm" : "shadow-none hover:shadow-sm"}
         `}
@@ -371,10 +371,10 @@ const TimelineItem = memo(function TimelineItem({
                   alt={`${item.company} logo`}
                   width={48}
                   height={48}
-                  className="h-10 w-10 sm:h-12 sm:w-12 shrink-0 rounded-lg object-contain bg-white border border-slate-200 dark:border-white/10 p-0.5"
+                  className="h-10 w-10 sm:h-12 sm:w-12 shrink-0 rounded-lg object-contain bg-white border border-[#c6c3c4] dark:border-white/10 p-0.5"
                 />
                 <div className="min-w-0 space-y-1">
-                  <h3 className="text-sm sm:text-base font-semibold text-[#9a5df5] dark:text-purple truncate">
+                  <h3 className="text-sm sm:text-base font-semibold text-[#634196] dark:text-purple truncate">
                     {item.role}
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-600 dark:text-neutral-300 truncate">
@@ -413,11 +413,11 @@ const TimelineItem = memo(function TimelineItem({
               href={item.website}
               target="_blank"
               rel="noopener noreferrer"
-              className={`group/link mt-2 inline-flex max-w-full items-center gap-1.5 text-xs text-slate-500 dark:text-neutral-400 hover:text-[#9a5df5] dark:hover:text-purple transition-colors duration-200 ${textIndent}`}
+              className={`group/link mt-2 inline-flex max-w-full items-center gap-1.5 text-xs text-slate-500 dark:text-neutral-400 hover:text-[#634196] dark:hover:text-purple transition-colors duration-200 ${textIndent}`}
               title={`Visit ${item.company} website`}
             >
               <span className="truncate">{item.location}</span>
-              <ExternalLink className="w-3 h-3 shrink-0 text-[#9a5df5] dark:text-purple" />
+              <ExternalLink className="w-3 h-3 shrink-0 text-[#634196] dark:text-purple" />
             </a>
           </div>
 
@@ -426,7 +426,7 @@ const TimelineItem = memo(function TimelineItem({
               id={contentId}
               role="region"
               aria-labelledby={headerId}
-              className="px-4 sm:px-6 pb-4 sm:pb-6 border-t border-slate-100 dark:border-slate-700"
+              className="px-4 sm:px-6 pb-4 sm:pb-6 border-t border-[#c6c3c4] dark:border-slate-700"
             >
               <TimelineItemContent item={item} />
             </div>
@@ -484,9 +484,9 @@ const ProfessionalExperience = () => {
   return (
     <div className="py-20" id="professional-experience">
       <div className="flex flex-col items-center justify-center">
-        <h1 className="heading dark:text-white text-slate-800">
+        <h1 className="heading dark:text-white text-black">
           My Professional{" "} 
-          <span className="dark:text-purple text-[#9a5df5]">
+          <span className="dark:text-purple text-[#634196]">
             Experience
           </span>
         </h1>

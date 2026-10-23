@@ -5,10 +5,6 @@ import { useEffect, useState } from "react";
 import { HiSun, HiMoon } from "react-icons/hi";
 import { cn } from "@/utils/cn";
 
-/**
- * Inline theme toggle designed to live inside the FloatingNav pill.
- * Renders a same-size placeholder until mounted to avoid layout shift.
- */
 export const ThemeToggle = ({ className }: { className?: string }) => {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
@@ -22,7 +18,7 @@ export const ThemeToggle = ({ className }: { className?: string }) => {
       <span
         aria-hidden
         className={cn(
-          "flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200/80 bg-white/70 sm:h-10 sm:w-10 dark:border-white/10 dark:bg-white/[0.06]",
+          "flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#c6c3c4] bg-white/70 sm:h-10 sm:w-10 dark:border-white/10 dark:bg-white/[0.06]",
           className,
         )}
       />
@@ -34,7 +30,7 @@ export const ThemeToggle = ({ className }: { className?: string }) => {
       type="button"
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       className={cn(
-        "relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200/80 bg-white/70 transition-all duration-300 hover:bg-slate-200/70 active:scale-95 sm:h-10 sm:w-10 dark:border-white/10 dark:bg-white/[0.06] dark:hover:bg-white/[0.12]",
+        "relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#c6c3c4] bg-white/70 transition-all duration-300 hover:bg-slate-200/70 active:scale-95 sm:h-10 sm:w-10 dark:border-white/10 dark:bg-white/[0.06] dark:hover:bg-white/[0.12]",
         className,
       )}
       aria-label="Toggle theme"

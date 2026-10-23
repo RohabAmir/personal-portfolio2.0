@@ -6,12 +6,13 @@ import { techStackRows, TechStackItem } from "@/data";
 
 const BrandIcon = ({ item }: { item: TechStackItem }) => {
   if (item.tint) {
+    const isWhiteTint = item.tint.trim().toLowerCase() === "#ffffff";
     return (
       <span
         aria-hidden="true"
         className="w-6 h-6 md:w-8 md:h-8 shrink-0"
         style={{
-          backgroundColor: item.tint,
+          backgroundColor: isWhiteTint ? "var(--tint-contrast)" : item.tint,
           maskImage: `url(${item.img})`,
           maskRepeat: "no-repeat",
           maskSize: "contain",
@@ -67,10 +68,10 @@ const MarqueeRow = ({
         {doubled.map((item, idx) => (
           <div
             key={`${item.name}-${idx}`}
-            className="mx-2.5 flex items-center gap-3 whitespace-nowrap rounded-lg border border-[#1b3a54] dark:bg-[rgb(4,7,29)] bg-[#0b2035]/80 px-6 py-3.5 transition-colors duration-300 hover:border-[#2b5c85] hover:bg-[#102c47]"
+            className="mx-2.5 flex items-center gap-3 whitespace-nowrap rounded-lg border dark:border-slate-800 border-[#1b3a54] dark:bg-[rgb(4,7,29)] bg-white px-6 py-3.5 transition-colors duration-300 hover:border-[#b3b0b1] hover:bg-[#F3F4F6] dark:hover:border-[#2b5c85] dark:hover:bg-[#102c47]"
           >
             <BrandIcon item={item} />
-            <span className="text-sm md:text-base font-medium text-[#cfe0ef]">
+            <span className="text-sm md:text-base font-medium text-black dark:text-white">
               {item.name}
             </span>
           </div>
@@ -89,14 +90,14 @@ const TechStack = () => {
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse 60% 40% at 50% 0%, rgb(142 31 158 / 25%), transparent 70%)",
+              "radial-gradient(ellipse 60% 40% at 50% 0%, rgb(142 31 158 / 25%), transparent 80%)",
           }}
         />
 
         <div className="relative flex flex-col items-center text-center">
-          <h1 className="heading dark:text-white text-slate-800">
+          <h1 className="heading dark:text-white text-slate-900">
             Connects to my entire{" "}
-            <span className="dark:text-purple text-[#9a5df5]">tech stack</span>
+            <span className="dark:text-purple text-[#634196]">tech stack</span>
           </h1>
           <p className="mt-8 dark:text-white-200 text-slate-600 text-sm sm:text-base leading-relaxed">
             Tools, frameworks, APIs, and platforms I use to design, build, and

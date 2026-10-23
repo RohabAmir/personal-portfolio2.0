@@ -15,15 +15,15 @@ const MagicButton = ({
       className={`relative inline-flex h-12 w-full overflow-hidden rounded-full p-[1px] focus:outline-none md:w-60 md:mt-10 ${otherClasses}`}
       onClick={handleClick} 
       style={{
-        background: 'radial-gradient(circle, #E2CBFF, #393BB2)'
+        background: 'var(--magic-btn-bg)'
       }}
       
     >
       <span 
-        className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]"
+        className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)] dark:block hidden"
       />
       <span 
-        className={`inline-flex h-full w-full text-sm sm:text-base cursor-pointer items-center justify-center rounded-full dark:bg-slate-950 bg-[#EDE2FB] px-5 sm:px-0 ntext-sm font-medium dark:text-white text-slate-900 gap-2 ${position === 'left' ? 'flex-row-reverse' : ''}`}
+        className={`inline-flex h-full w-full text-sm sm:text-base cursor-pointer items-center justify-center rounded-full dark:bg-slate-950 bg-[#634196] px-5 sm:px-0 ntext-sm font-medium dark:text-white text-white transition-colors duration-300 hover:bg-[#543680] dark:hover:bg-slate-900 gap-2 ${position === 'left' ? 'flex-row-reverse' : ''}`}
         style={{
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',

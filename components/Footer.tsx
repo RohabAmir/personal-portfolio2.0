@@ -7,13 +7,13 @@ import Image from "next/image";
 const Footer = () => {
   return (
     <footer className="w-full pb-10  relative px-4 sm:px-6" id="footer">
-      <div className="h-screen w-screen border-t-[#9a5df5] border-t-2 absolute left-1/2 -translate-x-1/2"></div>
+      <div className="h-screen w-screen border-t-[#634196] border-t-2 absolute left-1/2 -translate-x-1/2"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto">
         <div className="flex items-center flex-col px-0">
-          <h1 className="font-bold text-3xl sm:text-4xl md:text-6xl text-start sm:text-center  dark:text-white text-slate-800  lg:mt-12 mt-16 sm:mt-20 md:mt-24 px-0 whitespace-normal">
+          <h1 className="font-bold text-3xl sm:text-4xl md:text-6xl text-start sm:text-center  dark:text-white text-black  lg:mt-12 mt-16 sm:mt-20 md:mt-24 px-0 whitespace-normal">
             Ready to take{" "}
-            <span className="dark:text-purple text-[#9a5df5]">your</span>{" "}
+            <span className="dark:text-purple text-[#634196]">your</span>{" "}
             digital presence to the next level?
           </h1>
           <p className="dark:text-white-200 text-slate-700 md:mt-10 mt-6 mb-8 sm:mb-10 text-start sm:text-center text-sm sm:text-base max-w-full sm:max-w-[600px] leading-relaxed">
@@ -44,14 +44,14 @@ const Footer = () => {
                 href={info.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 sm:w-10 sm:h-10 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 dark:bg-black-200 bg-[#252A5A] rounded-lg border dark:border-black-300 border-white transition-transform hover:scale-110 active:scale-95"
+                className="w-12 h-12 sm:w-10 sm:h-10 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-transparent dark:bg-black-200 rounded-lg border border-[#c6c3c4] dark:border-black-300 transition-transform hover:scale-110 active:scale-95"
               >
                 <Image
                   src={info.img}
                   alt="social media icon"
                   width={20}
                   height={20}
-                  className="w-5 h-5 sm:w-[20px] sm:h-[20px]"
+                  className="w-5 h-5 sm:w-[20px] sm:h-[20px] invert dark:invert-0"
                 />
               </a>
             ))}

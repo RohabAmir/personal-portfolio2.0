@@ -147,7 +147,7 @@ export const FloatingNav = ({
           className,
         )}
       >
-        <div className="flex items-center justify-between gap-2 sm:gap-3 rounded-full border border-slate-300/50 dark:border-white/[0.12] bg-white/55 dark:bg-[#000319]/50 backdrop-blur-2xl py-2.5 px-4 shadow-[0_10px_40px_-12px_rgba(0,0,0,0.25)] transition-colors duration-300">
+        <div className="flex items-center justify-between gap-2 sm:gap-3 rounded-full border border-[#c6c3c4] dark:border-white/[0.12] bg-white dark:bg-[#000319]/50 backdrop-blur-2xl py-2.5 px-4 shadow-[0_10px_40px_-12px_rgba(0,0,0,0.25)] transition-colors duration-300">
           <Link
             href="#home"
             onClick={() => setMenuOpen(false)}
@@ -165,7 +165,7 @@ export const FloatingNav = ({
               />
             </span>
             <span className="hidden md:block font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-slate-500 dark:text-neutral-400">
-              Rohab<span className="text-[#9a5df5] dark:text-purple">.</span>
+              Rohab<span className="text-[#492C74] dark:text-purple">.</span>
             </span>
           </Link>
 
@@ -181,7 +181,7 @@ export const FloatingNav = ({
                   className={cn(
                     "relative flex shrink-0 items-center justify-center whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200",
                     isActive
-                      ? "rounded-full border border-slate-300 dark:border-white/35  bg-slate-100 text-slate-900 shadow-[inset_0_0_0_1px_rgba(2,6,23,0.06)] dark:bg-white/[0.09] dark:text-white"
+                      ? "rounded-full border border-[#c6c3c4] dark:border-white/35  bg-slate-100 text-slate-900 shadow-[inset_0_0_0_1px_rgba(2,6,23,0.06)] dark:bg-white/[0.09] dark:text-white"
                       : "text-slate-600 hover:bg-slate-100/70 hover:text-slate-900 dark:text-neutral-300 dark:hover:bg-white/[0.06] dark:hover:text-white",
                   )}
                 >
@@ -198,7 +198,7 @@ export const FloatingNav = ({
               onClick={() => setMenuOpen((open) => !open)}
               aria-label="Toggle navigation menu"
               aria-expanded={menuOpen}
-              className="relative flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-full border border-slate-200/80 bg-white/70 transition-all duration-300 hover:bg-slate-200/70 active:scale-95 md:hidden dark:border-white/10 dark:bg-white/[0.06] dark:hover:bg-white/[0.12]"
+              className="relative flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-full border border-[#c6c3c4] bg-white/70 transition-all duration-300 hover:bg-slate-200/70 active:scale-95 md:hidden dark:border-white/10 dark:bg-white/[0.06] dark:hover:bg-white/[0.12]"
             >
               <span className="relative block h-[14px] w-[18px]">
                 <span
@@ -231,7 +231,7 @@ export const FloatingNav = ({
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -10, scale: 0.98 }}
               transition={{ duration: 0.22, ease: "easeOut" }}
-              className="absolute inset-x-0 top-[calc(100%+0.65rem)] flex flex-col gap-1 rounded-[1.75rem] border border-slate-300/60 bg-white/95 p-2.5 shadow-[0_24px_60px_-16px_rgba(0,0,0,0.45)] backdrop-blur-xl md:hidden dark:border-white/[0.14] dark:bg-[#0b0e14]/95"
+              className="absolute inset-x-0 top-[calc(100%+0.65rem)] flex flex-col gap-1 rounded-[1.75rem] border border-[#c6c3c4] bg-white/95 p-2.5 shadow-[0_24px_60px_-16px_rgba(0,0,0,0.45)] backdrop-blur-xl md:hidden dark:border-white/[0.14] dark:bg-[#0b0e14]/95"
             >
               {navItems.map((navItem, idx) => {
                 const isActive = activeLink === navItem.link;
@@ -261,7 +261,7 @@ export const FloatingNav = ({
                       className={cn(
                         "h-1.5 w-1.5 rounded-full transition-colors duration-200",
                         isActive
-                          ? "bg-[#9a5df5]"
+                          ? "bg-[#492C74]"
                           : "bg-transparent group-hover:bg-slate-300 dark:group-hover:bg-white/20",
                       )}
                     />
