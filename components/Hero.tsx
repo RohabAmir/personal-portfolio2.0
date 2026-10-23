@@ -127,16 +127,32 @@ const Hero = () => {
                     fill={isDark ? "white" : "white"}
                   />
                 </div>
-                <div className="relative h-32 w-32 xs:h-36 xs:w-36 sm:h-48 sm:w-48 md:h-52 md:w-52 lg:h-56 lg:w-56 xl:h-72 xl:w-72 overflow-hidden rounded-full border border-black/10 shadow-[0_0_0_30px_rgba(255,255,255,0.06)]">
-                  <Image
-                    src="/myProfile-hd.webp"
-                    alt="Rohab Aamir"
-                    width={640}
-                    height={640}
-                    priority
-                    sizes="(max-width: 640px) 128px, (max-width: 768px) 144px, (max-width: 1024px) 208px, (max-width: 1280px) 224px, 288px"
-                    className="h-full w-full object-cover object-center rounded-full"
+                <div className="relative">
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute -inset-6 rounded-full bg-[#634196]/15 blur-2xl dark:hidden"
                   />
+
+                  <div className="relative h-32 w-32 xs:h-36 xs:w-36 sm:h-48 sm:w-48 md:h-52 md:w-52 lg:h-56 lg:w-56 xl:h-72 xl:w-72 overflow-hidden rounded-full border border-black/10 shadow-[0_0_0_30px_rgba(99,65,150,0.06),0_24px_60px_-15px_rgba(99,65,150,0.4)] dark:shadow-[0_0_0_30px_rgba(255,255,255,0.06)]">
+                    <Image
+                      src="/myProfile-light.webp"
+                      alt="Rohab Aamir"
+                      width={640}
+                      height={640}
+                      priority
+                      sizes="(max-width: 640px) 128px, (max-width: 768px) 144px, (max-width: 1024px) 208px, (max-width: 1280px) 224px, 288px"
+                      className="h-full w-full object-cover object-center rounded-full dark:hidden"
+                    />
+                    <Image
+                      src="/myProfile-hd.webp"
+                      alt="Rohab Aamir"
+                      width={640}
+                      height={640}
+                      priority
+                      sizes="(max-width: 640px) 128px, (max-width: 768px) 144px, (max-width: 1024px) 208px, (max-width: 1280px) 224px, 288px"
+                      className="hidden h-full w-full object-cover object-center rounded-full dark:block"
+                    />
+                  </div>
                 </div>
               </div>
             </div>

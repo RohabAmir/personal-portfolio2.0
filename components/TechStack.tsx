@@ -89,8 +89,7 @@ const TechStack = () => {
           aria-hidden="true"
           className="pointer-events-none absolute inset-0"
           style={{
-            background:
-              "radial-gradient(ellipse 60% 40% at 50% 0%, rgb(142 31 158 / 25%), transparent 80%)",
+            background: "var(--tech-stack-glow)",
           }}
         />
 
