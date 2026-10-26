@@ -18,10 +18,6 @@ const Grid = () => {
               <div
                 aria-hidden
                 className="pointer-events-none absolute top-0 inset-x-0 h-px"
-                // style={{
-                //   background:
-                //     "linear-gradient(90deg, transparent 5%, rgba(255,255,255,0.55) 35%, rgba(255,255,255,0.55) 65%, transparent 95%)",
-                // }}
               />
               <div
                 aria-hidden
