@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Rohab Aamir | Portfolio
 
-## Getting Started
+A modern, minimalist portfolio showcasing my work as a Software Engineer, building complete digital systems from frontend to backend, deployment, and AI automation.
 
-First, run the development server:
+🔗 **Live site:** [rohabamir.vercel.app](https://rohabamir.vercel.app/)
+
+## ✨ Features
+
+- Responsive, accessible design across all devices
+- Smooth animations and interactions
+- Project showcase with live previews
+- Client testimonials and career timeline
+- Interactive tech stack section
+- Contact section and downloadable resume
+- Optimized for performance and SEO
+
+## 🛠️ Tech Stack
+
+- **Framework:** Next.js, React, TypeScript
+- **Styling:** Tailwind CSS
+- **Animation:** Framer Motion, GSAP
+- **Deployment:** Vercel
+
+## 🚀 Getting Started
 
 ```bash
+git clone https://github.com/RohabAmir/<repo-name>.git
+cd <repo-name>
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view it.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📬 Contact
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Email: rohabamir2@gmail.com
+- LinkedIn: [rohab-aamir2](https://www.linkedin.com/in/rohab-aamir2/)
 
-## Learn More
+## 📄 License
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+MIT
