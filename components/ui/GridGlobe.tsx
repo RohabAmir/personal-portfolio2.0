@@ -7,19 +7,30 @@ const World = dynamic(() => import("./Globe").then((m) => m.World), {
   ssr: false,
 });
 
-const GridGlobe = () => {
+const GridGlobe = ({
+  dark = true,
+  className,
+  fadeClassName = "dark:to-black to-white",
+}: {
+  /** light variant: pale lavender sphere with purple land dots */
+  dark?: boolean;
+  /** override the outer positioning wrapper */
+  className?: string;
+  /** colour the bottom fade blends into (match the card background) */
+  fadeClassName?: string;
+}) => {
   const globeConfig = {
     pointSize: 4,
-    globeColor: "#062056",
+    globeColor: dark ? "#062056" : "#efe9fb",
     lightGlobeColor: "#252a5a",
     showAtmosphere: true,
-    atmosphereColor: "#FFFFFF",
+    atmosphereColor: dark ? "#FFFFFF" : "#a78bfa",
     atmosphereAltitude: 0.1,
-    emissive: "#062056",
+    emissive: dark ? "#062056" : "#ddd0f7",
     emissiveIntensity: 0.1,
     shininess: 0.9,
-    polygonColor: "rgba(255,255,255,0.7)",
-    ambientLight: "#38bdf8",
+    polygonColor: dark ? "rgba(255,255,255,0.7)" : "rgba(99,65,150,0.75)",
+    ambientLight: dark ? "#38bdf8" : "#c4b5fd",
     directionalLeftLight: "#ffffff",
     directionalTopLight: "#ffffff",
     pointLight: "#ffffff",
@@ -396,9 +407,16 @@ const GridGlobe = () => {
   ];
 
   return (
-    <div className="flex items-center justify-center absolute -left-5 top-36 md:top-40 w-full h-full">
+    <div
+      className={
+        className ??
+        "flex items-center justify-center absolute -left-5 top-36 md:top-40 w-full h-full"
+      }
+    >
       <div className="max-w-7xl mx-auto w-full relative overflow-hidden h-96 px-4">
-        <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent dark:to-black to-white z-40" />
+        <div
+          className={`absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent z-40 ${fadeClassName}`}
+        />
         <div className="absolute w-full h-72 md:h-full z-10">
           <World data={sampleArcs} globeConfig={globeConfig} />
         </div>

@@ -2,9 +2,10 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { FaChevronLeft, FaChevronRight, FaGithub, FaArrowRight, FaBolt } from "react-icons/fa";
 import { projects, type Project } from "@/data";
 import AnimatedButton from "./ui/AnimatedButton";
+import SketchHighlight from "./ui/SketchHighlight";
 
 
 function usePerView() {
@@ -41,7 +42,7 @@ function MediaCard({ project }: { project: Project }) {
 
   return (
     <div
-      className="group/media relative overflow-hidden rounded-2xl border border-[#c6c3c4] bg-[#F9FAFB] shadow-[0_8px_30px_-12px_rgba(0,0,0,0.25)] dark:border-white/[0.08] dark:bg-[#080b22] dark:shadow-[0_8px_30px_-12px_rgba(0,0,0,0.7)]"
+      className="group/media relative self-center overflow-hidden rounded-3xl border border-[#c6c3c4] bg-[#F9FAFB] shadow-[0_8px_30px_-12px_rgba(0,0,0,0.25)] dark:border-white/[0.08] dark:bg-[#080b22] dark:shadow-[0_8px_30px_-12px_rgba(0,0,0,0.7)]"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -53,13 +54,19 @@ function MediaCard({ project }: { project: Project }) {
       </div>
 
       {/* media area */}
-      <div className="relative aspect-[16/10] w-full overflow-hidden">
+      <div
+        className="relative aspect-[4/3] w-full overflow-hidden"
+        style={project.imgBg ? { backgroundColor: project.imgBg } : undefined}
+      >
         <Image
           src={project.img}
           alt={`${project.title} preview`}
           fill
-          sizes="(max-width: 768px) 92vw, (max-width: 1024px) 46vw, 32vw"
-          className="ken-burns h-full w-full object-cover object-top"
+          sizes="(max-width: 768px) 92vw, (max-width: 1024px) 46vw, 700px"
+          quality={90}
+          className={`ken-burns h-full w-full object-center ${
+            project.imgBg ? "object-contain" : "object-cover"
+          }`}
         />
         {project.video && (
           <video
@@ -69,7 +76,7 @@ function MediaCard({ project }: { project: Project }) {
             loop
             playsInline
             preload="metadata"
-            className="absolute inset-0 h-full w-full object-cover object-top opacity-0 transition-opacity duration-500 group-hover/media:opacity-100"
+            className="absolute inset-0 h-full w-full object-cover object-center opacity-0 transition-opacity duration-500 group-hover/media:opacity-100"
           />
         )}
         {/* subtle gradient for depth */}
@@ -88,7 +95,39 @@ function InfoPanel({ project }: { project: Project }) {
       <h3 className="text-xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-3xl">
         {project.title}
       </h3>
-      <p className="mt-1 text-xs font-medium uppercase tracking-wider text-slate-400 dark:text-neutral-500">
+      {/* Key facts — first thing the eye lands on */}
+      <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <div className="flex items-center gap-3 rounded-2xl bg-[#634196]/[0.08] px-4 py-3 dark:bg-purple/[0.10]">
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-[#634196] dark:text-purple">
+            <FaBolt aria-hidden className="h-7 w-7" />
+          </span>
+          <div className="leading-tight">
+            <p className="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+              {project.mvpHours}
+              <span className="ml-1 text-base font-bold text-[#634196] dark:text-purple">hours</span>
+            </p>
+            <p className="mt-0.5 text-[11px] font-medium uppercase tracking-wider text-slate-500 dark:text-neutral-400">
+              To a working MVP
+            </p>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-3 rounded-2xl bg-[#D97757]/[0.10] px-4 py-3 dark:bg-[#D97757]/[0.12]">
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl">
+            <Image src="/claude.svg" alt="Claude" width={30} height={30} className="h-[30px] w-[30px]" />
+          </span>
+          <div className="leading-tight">
+            <p className="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+              Opus {project.claudeVersion}
+            </p>
+            <p className="mt-0.5 text-[11px] font-medium uppercase tracking-wider text-slate-500 dark:text-neutral-400">
+              Built with Claude
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p className="mt-5 text-xs font-medium uppercase tracking-wider text-slate-400 dark:text-neutral-500">
         {project.tagline}
       </p>
       <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-neutral-400">
@@ -123,19 +162,10 @@ function InfoPanel({ project }: { project: Project }) {
         </p>
         <div className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-2 text-[13px] leading-relaxed text-slate-600 dark:text-neutral-400">
           <span>{project.tech.join(", ")}</span>
-          {project.ai.map((ai, aiIndex) => (
-            <span key={ai} className="inline-flex items-center gap-2">
-              <span
-                className="rounded-full border border-[#634196]/40 bg-[#634196]/[0.08] px-2.5 py-0.5 text-[11px] font-semibold text-[#634196] dark:border-purple/40 dark:bg-purple/[0.08] dark:text-purple"
-              >
-                {ai}
-              </span>
-            </span>
-          ))}
         </div>
       </div>
 
-      <div className="mt-auto pt-6">
+      <div className="mt-auto flex flex-wrap items-center gap-3 pt-6">
         <AnimatedButton
           title="Live Preview"
           href={project.link}
@@ -143,6 +173,20 @@ function InfoPanel({ project }: { project: Project }) {
           showArrow
           ariaLabel={`Open ${project.title} live site in a new tab`}
         />
+        <a
+          href={project.mvpLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Open ${project.title} MVP repository on GitHub`}
+          className="group inline-flex h-12 shrink-0 items-center justify-center gap-2.5 whitespace-nowrap rounded-full bg-slate-900 px-6 text-xs font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-slate-800 sm:text-sm dark:bg-white dark:text-slate-900 dark:hover:bg-neutral-200"
+        >
+          <FaGithub aria-hidden className="h-[30px] w-[30px]" />
+          View MVP
+          <FaArrowRight
+            aria-hidden
+            className="h-3 w-3 -rotate-45 transition-transform duration-300 group-hover:rotate-0"
+          />
+        </a>
       </div>
     </div>
   );
@@ -150,7 +194,7 @@ function InfoPanel({ project }: { project: Project }) {
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <article className="grid grid-cols-1 items-stretch gap-6 md:grid-cols-[1.15fr_1fr] md:gap-12 py-12">
+    <article className="grid grid-cols-1 items-center gap-6 md:grid-cols-[1.15fr_1fr] md:gap-12 py-12">
       <MediaCard project={project} />
       <InfoPanel project={project} />
     </article>
@@ -180,10 +224,18 @@ const RecentProjects = () => {
   };
 
   return (
-    <section className="py-20" id="projects">
-      <h1 className="heading dark:text-white text-black">
+    <section className="relative py-20 sm:py-32" id="projects">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background: "var(--tech-stack-glow)",
+        }}
+      />
+
+      <h1 className="heading relative dark:text-white text-black">
         Highlighting my recent{" "}
-        <span className="dark:text-purple text-[#634196]">success stories</span>
+        <SketchHighlight>success stories</SketchHighlight>
       </h1>
 
       <div className="relative mt-20">

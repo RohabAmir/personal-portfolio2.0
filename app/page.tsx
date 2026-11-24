@@ -11,6 +11,7 @@ import RecentProjects from "@/components/RecentProjects";
 import TechStack from "@/components/TechStack";
 import { FloatingNav } from "@/components/ui/FloatingNav";
 import { navItems } from "@/data";
+import Reveal from "@/components/ui/Reveal";
 
 export default function Home() {
   return (
@@ -21,13 +22,13 @@ export default function Home() {
         <Grid/>
       </div>
       <div className="max-w-7xl w-full">
-        <TechStack />
-        <RecentProjects/>
-        <Clients/>
-        <Experience/>
-        <ProfessionalExperience/>
-        <Approaches/>
-        <Contact/>
+        <Reveal><RecentProjects/></Reveal>
+        <Reveal><ProfessionalExperience/></Reveal>
+        <Reveal><Experience/></Reveal>
+        <Reveal><Clients/></Reveal>
+        <Reveal><TechStack /></Reveal>
+        <Reveal><Approaches/></Reveal>
+        <Reveal><Contact/></Reveal>
         <Footer/>
       </div>
     </main>

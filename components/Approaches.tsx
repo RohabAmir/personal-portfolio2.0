@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 import { CanvasRevealEffect } from "./ui/CanvasRevealEffect";
+import SketchHighlight from "./ui/SketchHighlight";
 
 const Approach = () => {
   const [activeCard, setActiveCard] = useState(0);
@@ -57,10 +58,10 @@ const Approach = () => {
   }, [cards.length]);
 
   return (
-    <section className="w-full py-20">
+    <section className="w-full py-20 sm:py-32">
       <h1 className="heading dark:text-white text-black">
         My workflow{" "} 
-        <span className="dark:text-purple text-[#634196]">process</span>
+        <SketchHighlight>process</SketchHighlight>
       </h1>
       <div className="my-20 flex flex-col lg:flex-row items-center justify-center w-full gap-4">
         {cards.map((card, index) => (

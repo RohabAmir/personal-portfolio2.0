@@ -42,7 +42,8 @@ export const gridItems = [
     id: 4,
     title: "My interests",
     description: "Technologies I love working with",
-    className: "lg:col-span-2 md:col-span-3 md:row-span-2 lg:min-h-[20vh] sm:min-h-[25vh] min-h-[40vh]",
+    className:
+      "lg:col-span-2 md:col-span-3 md:row-span-2 lg:min-h-[20vh] sm:min-h-[25vh] min-h-[40vh]",
     imgClassName: "",
     titleClassName: "align-center",
     img: "",
@@ -90,9 +91,12 @@ export type Project = {
   description: string;
   features: string[];
   tech: string[];
-  ai: string[];
+  mvpHours: number;
+  claudeVersion: string;
+  mvpLink: string;
   img: string;
   video?: string;
+  imgBg?: string;
   link: string;
 };
 
@@ -116,10 +120,13 @@ export const projects: Project[] = [
       "Redux Toolkit",
       "Material UI",
       "Formik",
-      'i18next',
+      "i18next",
     ],
-    ai: ["GLM 5.3 Flash", "GPT-5.6"],
+    mvpHours: 15,
+    claudeVersion: "5.5",
+    mvpLink: "https://github.com/RohabAmir/wateen-mvp",
     img: "/project-images/wateen-blueprint.webp",
+    imgBg: "#080c13",
     video: "/project-videos/wateen.mp4",
     link: "https://wateen.ai/en",
   },
@@ -137,14 +144,16 @@ export const projects: Project[] = [
     ],
     tech: [
       "React v16",
-      'JavaScript v17',
+      "JavaScript v17",
       "Redux v5.0",
       "Redux Thunk",
       "React Hook Form",
       "MUI Core",
       "google-map-react",
     ],
-    ai: ["Claude Opus 5.5", "Claude Sonnet 5"],
+    mvpHours: 48,
+    claudeVersion: "5.5",
+    mvpLink: "https://github.com/RohabAmir/dari-mvp",
     img: "/project-images/dari-blueprint.webp",
     link: "https://www.dari.ae",
   },
@@ -172,13 +181,41 @@ export const projects: Project[] = [
       "TanStack Query",
       "Motion v12",
     ],
-    ai: ["Claude Sonnet 5.5"],
+    mvpHours: 12,
+    claudeVersion: "5",
+    mvpLink: "https://github.com/RohabAmir/ai-headless-cms-mvp",
     img: "/project-images/AI-Powered-Dashboard-blueprint.webp",
     link: "https://jigsaw-dashboard.jigsawtech.co/login",
   },
   {
     id: 4,
-    title: "Dan (PIF)",
+    title: "PIF Admin Panel",
+    tagline: "MULTI-TENANT CMS ADMIN PANEL FOR SAUDI GOVERNMENT",
+    description:
+      "A production-grade admin panel to manage the pages, blogs, forms, leads, SEO and media of any number of websites from one dashboard, with secure two-step login and role-based access.",
+    features: [
+      "Multi-tenant architecture: one shared schema with per-website data isolation, and new websites can be added from the UI with no code changes",
+      "Role-based access control (Super Admin, Admin, Editor, Viewer) enforced by API guards and mirrored in the UI",
+      "CMS with drag-and-drop typed page sections, live preview, a Tiptap blog editor, a form builder, leads with CSV export, and a media library",
+      "Full activity logs with before/after diffs, plus CI/CD with 100+ automated tests",
+    ],
+    tech: [
+      "React.js v18",
+      "TypeScript v4.3",
+      "Tailwind CSS v4.0",
+      "Nestjs 11",
+      "Prisma",
+      "PostgreSQL 16",
+    ],
+    mvpHours: 24,
+    claudeVersion: "5.5",
+    mvpLink: "https://github.com/RohabAmir/PIF-AdminPanel-MVP",
+    img: "/project-images/pif-admin-panel.webp",
+    link: "https://dashboard.tuaja.com/",
+  },
+  {
+    id: 5,
+    title: "Dan Company",
     tagline: "Saudi Government Tourism Project",
     description:
       "A Saudi government (PIF) project contributing to the development of the tourism sector, with a full website and admin panel.",
@@ -195,12 +232,64 @@ export const projects: Project[] = [
       "Chakra UI",
       "Motion v11.13",
     ],
-    ai: ["Claude Opus 5", "Claude Sonnet 4.6"],
-    img: "/project-images/dan-blueprint.webp",
+    mvpHours: 24,
+    claudeVersion: "5.5",
+    mvpLink: "https://github.com/RohabAmir/PIF-AdminPanel-MVP",
+    img: "/project-images/dan-website-cover.png",
     link: "https://dancompany.sa/ar",
   },
   {
-    id: 5,
+    id: 6,
+    title: "Tuaja Resorts",
+    tagline: "Luxury Hospitality Platform",
+    description:
+      "A platform for a luxury hospitality brand in Saudi Arabia, developed end to end as one of two production Saudi tourism websites.",
+    features: [
+      "Luxury resorts platform developed end to end, from Figma designs to production",
+      "Multilingual RTL/LTR experience with a seamless booking journey",
+      "Pixel-perfect, fast and responsive web pages",
+      "Immersive visuals showcasing resort experiences and amenities",
+    ],
+    tech: [
+      "Next.js v15",
+      "TypeScript v4.3",
+      "Tailwind CSS v4.0",
+      "React Hook Form",
+      "Zod",
+    ],
+    mvpHours: 24,
+    claudeVersion: "4.8",
+    mvpLink: "https://github.com/RohabAmir/PIF-AdminPanel-MVP",
+    img: "/project-images/tuaja-blueprint.webp",
+    link: "https://tuaja.com/en",
+  },
+  {
+    id: 7,
+    title: "Tribaja",
+    tagline: "Talent Marketplace & Community",
+    description:
+      "A talent marketplace and community for undersupported tech talent, with a talent management portal and community platform.",
+    features: [
+      "Talent Management Portal dashboard with end-to-end responsiveness",
+      "Google & LinkedIn OAuth authentication",
+      "Efficient state management with Redux Toolkit and Redux-Saga",
+      "Community platform connecting underrepresented tech talent with employers",
+    ],
+    tech: [
+      "React v18",
+      "JavaScript",
+      "Sass v5.0",
+      "Redux Toolkit v5.0",
+      "Redux-Saga",
+    ],
+    mvpHours: 5,
+    claudeVersion: "5.5",
+    mvpLink: "https://github.com/RohabAmir/tribaja-mvp",
+    img: "/project-images/tribaja-blueprint.webp",
+    link: "https://www.tribaja.co/",
+  },
+  {
+    id: 8,
     title: "Jigsaw Digital Solutions",
     tagline: "All-in-One Ordering, Payment & Delivery",
     description:
@@ -212,67 +301,11 @@ export const projects: Project[] = [
       "Modular content workflows and social integrations",
     ],
     tech: ["Next.js v15", "TypeScript v4.3", "Tailwind CSS v4.0", "SSR/ISR"],
-    ai: ["Grok 4.6", "GLM 5.3 Flash"],
+    mvpHours: 8,
+    claudeVersion: "5",
+    mvpLink: "https://github.com/RohabAmir/ai-headless-cms-mvp",
     img: "/project-images/jigsaw-blueprint.webp",
     link: "https://www.jigsawme.io",
-  },
-  {
-    id: 6,
-    title: "Sharemundo",
-    tagline: "Energy Consultant — Project Management Platform",
-    description:
-      "A dashboard for a Germany-based Project Management Platform (EC-PMP) — a complete ecosystem to boost your projects.",
-    features: [
-      "40+ landing and milestone screens built with pixel perfection and best practices for backend integration",
-      "Secure authentication and authorization using Auth0 with streamlined user management",
-      "Document and asset handling with AWS S3 and SharePoint",
-      "Deployed on Vercel with RESTful API integrations",
-    ],
-    tech: [
-      "Vue.js v3.5",
-      "Nuxt v3.6",
-      "TypeScript v5.6",
-      "AWS S3",
-      "SharePoint v2019",
-      "Vercel",
-    ],
-    ai: ["Gemini 4 Argon"],
-    img: "/project-images/shermundo-blueprint.webp",
-    link: "https://sharemundo.com/en/",
-  },
-  {
-    id: 7,
-    title: "Tuaja Resorts",
-    tagline: "Luxury Hospitality Platform",
-    description:
-      "A platform for a luxury hospitality brand in Saudi Arabia, developed end to end as one of two production Saudi tourism websites.",
-    features: [
-      "Luxury resorts platform developed end to end, from Figma designs to production",
-      "Multilingual RTL/LTR experience with a seamless booking journey",
-      "Pixel-perfect, fast and responsive web pages",
-      "Immersive visuals showcasing resort experiences and amenities",
-    ],
-    tech: ["Next.js v15", "TypeScript v4.3", "Tailwind CSS v4.0", "Motion v11.13"],
-    ai: ["Claude Opus 5", "GPT-5.6"],
-    img: "/project-images/tuaja-blueprint.webp",
-    link: "https://tuaja.com/en",
-  },
-  {
-    id: 8,
-    title: "Tribaja",
-    tagline: "Talent Marketplace & Community",
-    description:
-      "A talent marketplace and community for undersupported tech talent, with a talent management portal and community platform.",
-    features: [
-      "Talent Management Portal dashboard with end-to-end responsiveness",
-      "Google & LinkedIn OAuth authentication",
-      "Efficient state management with Redux Toolkit and Redux-Saga",
-      "Community platform connecting underrepresented tech talent with employers",
-    ],
-    tech: ["React v18", "TypeScript v4.3", "Sass v5.0", "Redux Toolkit v5.0", "Redux-Saga"],
-    ai: ["Claude Opus 4.5", "Claude Sonnet 4.6", "OpenAI"],
-    img: "/project-images/tribaja-blueprint.webp",
-    link: "https://www.tribaja.co/",
   },
 ];
 
@@ -446,7 +479,11 @@ export const techStackRows: TechStackItem[][] = [
   ],
   [
     { name: "Redux", img: "/logos/tech/redux.svg", tint: "#764ABC" },
-    { name: "TanStack Query", img: "/logos/tech/tanstack.svg", tint: "#EF4154" },
+    {
+      name: "TanStack Query",
+      img: "/logos/tech/tanstack.svg",
+      tint: "#EF4154",
+    },
     { name: "Zod", img: "/logos/tech/zod.svg", tint: "#3E67B1" },
     { name: "Jest", img: "/logos/tech/jest.svg", tint: "#C21325" },
     { name: "Vitest", img: "/logos/tech/vitest.svg", tint: "#6E9F18" },
@@ -454,10 +491,14 @@ export const techStackRows: TechStackItem[][] = [
     { name: "Framer Motion", img: "/framer-motion.svg", tint: "" },
     { name: "Motion", img: "/logos/tech/motion.svg", tint: "#FFFFFF" },
     { name: "Highcharts", img: "/logos/tech/highcharts.svg", colored: true },
-    { name: "WebSockets", img: "/logos/tech/websocket.svg", tint: '#1d9605' },
+    { name: "WebSockets", img: "/logos/tech/websocket.svg", tint: "#1d9605" },
     { name: "WebRTC", img: "/logos/tech/webrtc.svg", colored: true },
     { name: "Cloudinary", img: "/cloud.svg", tint: "" },
-    { name: "React Hook Form", img: "/logos/tech/reacthookform.svg", colored: true },
+    {
+      name: "React Hook Form",
+      img: "/logos/tech/reacthookform.svg",
+      colored: true,
+    },
     { name: "Formik", img: "/logos/tech/formik.svg", tint: "#2563EB" },
     { name: "AG Grid", img: "/logos/tech/aggrid.png", colored: true },
   ],

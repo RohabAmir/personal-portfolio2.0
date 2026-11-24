@@ -2,13 +2,14 @@ import { workExperience } from "@/data";
 import React from "react";
 import { Button } from "./ui/MovingBorders";
 import Image from "next/image";
+import SketchHighlight from "./ui/SketchHighlight";
 
 const Experience = () => {
   return (
-    <div id="experiences" className="py-20">
+    <div id="experiences" className="py-20 sm:py-32">
       <h1 className="heading dark:text-white text-black">
         My career{" "}
-        <span className="dark:text-purple text-[#634196]">titles</span>
+        <SketchHighlight>titles</SketchHighlight>
       </h1>
       <div className="w-full mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-5">
         {workExperience.map((card) => (

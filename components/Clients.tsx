@@ -3,13 +3,14 @@ import React from "react";
 import { companies, testimonials } from "@/data";
 import { InfiniteMovingCards } from "./ui/InfiniteMovingCards";
 import Image from "next/image";
+import SketchHighlight from "./ui/SketchHighlight";
 
 const Clients = () => {
   return (
-    <section id="testimonials" className="py-20">
+    <section id="testimonials" className="py-20 sm:py-32">
       <h1 className="heading dark:text-white text-black">
         Reviews that speak{" "}
-        <span className="dark:text-purple text-[#634196]">volumes!</span>
+        <SketchHighlight>volumes!</SketchHighlight>
       </h1>
 
       <div className="flex flex-col items-center max-lg:mt-10">

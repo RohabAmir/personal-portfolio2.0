@@ -3,6 +3,7 @@ import MagicButton from "./ui/MagicButton";
 import { FaLocationArrow } from "react-icons/fa";
 import { socialMedia } from "@/data";
 import Image from "next/image";
+import SketchHighlight from "./ui/SketchHighlight";
 
 const Footer = () => {
   return (
@@ -13,7 +14,7 @@ const Footer = () => {
         <div className="flex items-center flex-col px-0">
           <h1 className="font-bold text-3xl sm:text-4xl md:text-6xl text-start sm:text-center  dark:text-white text-black  lg:mt-12 mt-16 sm:mt-20 md:mt-24 px-0 whitespace-normal">
             Ready to take{" "}
-            <span className="dark:text-purple text-[#634196]">your</span>{" "}
+            <SketchHighlight>your</SketchHighlight>{" "}
             digital presence to the next level?
           </h1>
           <p className="dark:text-white-200 text-slate-700 md:mt-10 mt-6 mb-8 sm:mb-10 text-start sm:text-center text-sm sm:text-base max-w-full sm:max-w-[600px] leading-relaxed">

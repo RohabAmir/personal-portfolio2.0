@@ -1,5 +1,6 @@
 import React from "react";
 import AnimatedButton from "./ui/AnimatedButton";
+import SketchHighlight from "./ui/SketchHighlight";
 
 const contactCards = [
   {
@@ -24,13 +25,13 @@ const contactCards = [
 
 const Contact = () => {
   return (
-    <section id="contact" className="relative w-full pt-0 sm:pt-28 pb-20 sm:pb-28 px-0">
+    <section id="contact" className="relative w-full py-20 sm:py-32 px-0">
       <div className="max-w-7xl mx-auto flex items-center flex-col">
         <h2 className="heading-2 dark:text-white text-black text-center leading-tight">
           Let&apos;s build
           <br />
           something{" "}
-          <span className="dark:text-purple text-[#634196]">fast</span>.
+          <SketchHighlight>fast</SketchHighlight>.
         </h2>
         <p className="dark:text-white-200 text-slate-600 md:mt-8 mt-6 text-center text-sm sm:text-base max-w-[90%] sm:max-w-[520px] leading-relaxed">
           Have a system to launch or a workflow to automate? I turn ideas into

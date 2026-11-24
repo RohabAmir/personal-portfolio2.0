@@ -1,71 +1,16 @@
 "use client";
 
-import React, { memo, useCallback, useEffect, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import Image from "next/image";
-
-const ChevronDown = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg
-    {...props}
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="m6 9 6 6 6-6" />
-  </svg>
-);
-
-const ExternalLink = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg
-    {...props}
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden
-  >
-    <path d="M15 3h6v6" />
-    <path d="M10 14 21 3" />
-    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-  </svg>
-);
-
-const Badge = ({
-  children,
-  className = "",
-  variant = "default",
-  ...props
-}: React.HTMLAttributes<HTMLSpanElement> & {
-  variant?: "default" | "secondary" | "outline";
-}) => {
-  const variants = {
-    default:
-      "bg-slate-900 text-slate-50 hover:bg-slate-900/90 dark:bg-slate-50 dark:text-slate-900 dark:hover:bg-slate-50/90",
-    secondary:
-      "bg-slate-100 text-slate-900 hover:bg-slate-100/80 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-800/80",
-    outline:
-      "border border-[#c6c3c4] bg-transparent hover:bg-slate-100 dark:border-slate-700 dark:hover:bg-slate-800",
-  };
-
-  return (
-    <span
-      className={`inline-flex items-center rounded-md px-2.5 py-0.5 text-xs font-semibold transition-colors ${variants[variant]} ${className}`}
-      {...props}
-    >
-      {children}
-    </span>
-  );
-};
+import { motion, useReducedMotion } from "framer-motion";
+import {
+  HiOutlineBuildingOffice2,
+  HiOutlineMapPin,
+  HiOutlineBriefcase,
+  HiOutlineCalendarDays,
+  HiArrowUpRight,
+} from "react-icons/hi2";
+import SketchHighlight from "./ui/SketchHighlight";
 
 interface TimelineItemData {
   id: string;
@@ -85,14 +30,6 @@ interface TimelineItemData {
   skills: string[];
 }
 
-type ExpandMode = "multi" | "single";
-
-interface ProfessionalTimelineProps {
-  data: TimelineItemData[];
-  defaultExpandedIds?: string[];
-  expandMode?: ExpandMode;
-}
-
 const timelineData: TimelineItemData[] = [
   {
     id: "prof-exp-1",
@@ -108,7 +45,6 @@ const timelineData: TimelineItemData[] = [
     logo: "/logos/nextbridge.png",
     current: true,
     responsibilities: [
-      "Designed scalable Node.js and MongoDB structures powering high-traffic, production-grade platforms.",
       "Built for ADREC (Abu Dhabi Real Estate Centre), managing their lease and PMA services end to end — from service initiation to checkout.",
       "Converted a legacy, fully manual property services builder into an intelligent, automated platform using AI automation.",
       "Led the launching of a project with 35% increase in user adoption and user engagement.",
@@ -138,7 +74,6 @@ const timelineData: TimelineItemData[] = [
     website: "https://trustangle.com",
     logo: "/logos/trustangle.png",
     responsibilities: [
-      "Architect scalable frontend solutions using Next.js / Nuxt.js and modern tooling.",
       "Developed two production Saudi tourism websites end to end, translating pixel-perfect Figma designs into fast, responsive, multilingual (RTL/LTR) web experiences.",
       "Built a Headless CMS dashboard product that manages the entire content, SEO, blogs, and theming of the company's tourism websites from a single platform.",
       "Implemented role-based user permissions, two-factor (2FA) authentication, and activity logs to secure and audit every operation across the dashboard.",
@@ -170,7 +105,6 @@ const timelineData: TimelineItemData[] = [
       "Collaborated with UI/UX designers to translate 300+ pixel perfect figma designs web application wire-frames to code.",
       "Developed the Golf Saudi platform from scratch with a cross-functional team, featuring six integrated pillars, online booking, and a CMS dashboard with analytics.",
       "Lead the development with cross-functional team for simple, scalable, and powerful architecture for building production-ready applications.",
-      "Implemented RTL and LTR layouts for multilingual applications.",
     ],
     skills: [
       "React",
@@ -196,10 +130,8 @@ const timelineData: TimelineItemData[] = [
     website: "https://folium.ai",
     logo: "/logos/folium.png",
     responsibilities: [
-      "Developed responsive web applications using React and Next.js.",
-      "Implemented pixel-perfect designs from Figma mockups.",
+      "Implemented pixel-perfect designs from figma mockups and developed responsive web applications with scalable Frontend architectures.",
       "Led a launch that boosted user adoption and engagement by 35% by integrating Onfido SDK (digital verification) and PubNub (real-time communication).",
-      "Optimized application performance and user experience.",
       "Developed 38+ Unit, Integration, and Cypress tests with Jest and Vitest for test-driven web development.",
     ],
     skills: [
@@ -288,216 +220,204 @@ const DurationLabel = memo(function DurationLabel({
 });
 DurationLabel.displayName = "DurationLabel";
 
-interface TimelineItemContentProps {
-  item: TimelineItemData;
-}
+/* ───────────────────────────────────────────────────────────────────────────
+ * Pieces
+ * ─────────────────────────────────────────────────────────────────────────── */
 
-const TimelineItemContent = memo(function TimelineItemContent({
-  item,
-}: TimelineItemContentProps) {
-  return (
-    <div className="mt-6 space-y-6 animate-in slide-in-from-top-1 duration-200">
-      <div className="space-y-3">
-        {item.responsibilities.map((responsibility, idx) => (
-          <div
-            key={`${item.id}-resp-${idx}`}
-            className="flex items-start gap-3 group"
-          >
-            <div className="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2 flex-shrink-0 group-hover:bg-[#492C74] dark:group-hover:bg-purple transition-colors duration-200 dark:bg-slate-500" />
-            <p className="text-sm text-slate-600 dark:text-white-100 leading-relaxed">
-              {responsibility}
-            </p>
-          </div>
-        ))}
-      </div>
-
-      <div className="flex flex-wrap gap-2 pt-2 border-t border-[#c6c3c4] dark:border-slate-800">
-        {item.skills.map((skill, skillIdx) => (
-          <Badge key={`${item.id}-skill-${skillIdx}`} variant="secondary">
-            {skill}
-          </Badge>
-        ))}
-      </div>
+/** Logo on a frosted-glass squircle with a soft gradient edge. */
+const CompanyLogo = ({ src, company }: { src: string; company: string }) => (
+  <div className="relative shrink-0 rounded-2xl bg-gradient-to-br from-[#634196]/40 via-slate-300/40 to-transparent p-px dark:from-purple/40 dark:via-white/10 dark:to-white/[0.02]">
+    <div className="flex h-12 w-12 items-center justify-center rounded-[15px] bg-gradient-to-br from-white to-slate-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] dark:from-[#16163a] dark:to-[#0a0b1f] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] sm:h-14 sm:w-14">
+      <Image
+        src={src}
+        alt={`${company} logo`}
+        width={40}
+        height={40}
+        className="h-8 w-8 rounded-[10px] object-contain sm:h-9 sm:w-9"
+      />
     </div>
-  );
-});
-TimelineItemContent.displayName = "TimelineItemContent";
+  </div>
+);
 
-interface TimelineItemProps {
-  item: TimelineItemData;
-  expanded: boolean;
-  onToggle: (id: string) => void;
-  index: number;
-}
+/** Emerald "Current" pill with a live dot and a radiating pulse ring. */
+const CurrentPill = () => (
+  <span className="relative inline-flex rounded-full animate-[pill-pulse_2s_ease-out_infinite]">
+    <span className="relative inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-2.5 py-0.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-emerald-600 ring-1 ring-emerald-500/40 dark:bg-emerald-400/10 dark:text-emerald-400">
+      <span className="relative flex h-1.5 w-1.5">
+        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75 dark:bg-emerald-400" />
+        <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400" />
+      </span>
+      Current
+    </span>
+  </span>
+);
+
+const MetaItem = ({
+  icon: Icon,
+  children,
+}: {
+  icon: React.ComponentType<{ className?: string }>;
+  children: React.ReactNode;
+}) => (
+  <span className="inline-flex items-center gap-1.5">
+    <Icon className="h-3.5 w-3.5 shrink-0 text-[#634196] dark:text-purple" />
+    {children}
+  </span>
+);
+
+/* ───────────────────────────────────────────────────────────────────────────
+ * Timeline entry
+ * ─────────────────────────────────────────────────────────────────────────── */
 
 const TimelineItem = memo(function TimelineItem({
   item,
-  expanded,
-  onToggle,
-}: TimelineItemProps) {
-  const headerId = `timeline-header-${item.id}`;
-  const contentId = `timeline-content-${item.id}`;
-  const textIndent = "ml-[52px] sm:ml-[64px]";
+  isLast,
+}: {
+  item: TimelineItemData;
+  isLast: boolean;
+}) {
+  const reduce = useReducedMotion();
 
   return (
-    <div className="relative group">
-      <div className="absolute left-4 sm:left-6 top-14 bottom-0 w-[2px] bg-gradient-to-b from-slate-900 via-slate-500 to-transparent dark:from-white dark:via-slate-400 dark:to-transparent" />
+    <motion.li
+      className="relative pl-8 sm:pl-12"
+      initial={reduce ? false : { opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.25 }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+    >
+      {/* rail */}
+      {!isLast && (
+        <span
+          aria-hidden
+          className="absolute left-[7px] top-6 -bottom-2 w-px bg-gradient-to-b from-slate-300 to-slate-200 dark:from-white/15 dark:to-white/5 sm:left-[11px]"
+        />
+      )}
 
-      <div className="absolute left-2 sm:left-4 top-6 w-4 h-4 bg-white dark:bg-black-100 border-2 border-[#c6c3c4] dark:border-slate-700 rounded-full flex items-center justify-center transform transition-all duration-200 z-10">
-        <div className="w-2 h-2 bg-[#634196] dark:bg-purple rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-      </div>
+      {/* node */}
+      <span aria-hidden className="absolute left-0 top-[18px] flex h-[15px] w-[15px] items-center justify-center sm:left-1 sm:top-[22px]">
+        {item.current ? (
+          <>
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500/40" />
+            <span className="relative h-[15px] w-[15px] rounded-full border-2 border-emerald-500 bg-white shadow-[0_0_12px_rgba(16,185,129,0.6)] dark:bg-black-100">
+              <span className="absolute inset-[3px] rounded-full bg-emerald-500" />
+            </span>
+          </>
+        ) : (
+          <span className="h-[9px] w-[9px] rounded-full bg-slate-300 ring-4 ring-[#F3F3F3] dark:bg-slate-600 dark:ring-black-100" />
+        )}
+      </span>
 
-      <div className="ml-8 sm:ml-12 mb-8">
-        <div
-          className={`
-          bg-white dark:bg-[rgb(4,7,29)]
-          rounded-lg border border-[#c6c3c4] dark:border-white/[0.2]
-          transition-all duration-200
-          ${expanded ? "shadow-sm" : "shadow-none hover:shadow-sm"}
-        `}
-        >
-          <div className="p-4 sm:p-5 sm:px-6">
-            <div className="flex items-start justify-between gap-3">
-              <button
-                id={headerId}
-                type="button"
-                onClick={() => onToggle(item.id)}
-                aria-expanded={expanded}
-                aria-controls={contentId}
-                className="flex flex-1 min-w-0 items-center gap-3 sm:gap-4 text-left cursor-pointer group/button"
-              >
-                <Image
-                  src={item.logo}
-                  alt={`${item.company} logo`}
-                  width={48}
-                  height={48}
-                  className="h-10 w-10 sm:h-12 sm:w-12 shrink-0 rounded-lg object-contain bg-white border border-[#c6c3c4] dark:border-white/10 p-0.5"
-                />
-                <div className="min-w-0 space-y-1">
-                  <h3 className="text-sm sm:text-base font-semibold text-[#634196] dark:text-purple truncate">
-                    {item.role}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 dark:text-neutral-300 truncate">
-                    <span className="font-medium">{item.company}</span>
-                    <span className="text-slate-400 dark:text-neutral-500">
-                      {" "}
-                      · {item.employmentType} · {item.workMode}
-                    </span>
-                  </p>
-                  <p className="text-xs text-slate-500 dark:text-neutral-400">
-                    {item.dateRange} · <DurationLabel item={item} />
-                  </p>
-                </div>
-              </button>
+      <article className="pb-12 sm:pb-14">
+        {/* header */}
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
+          <div className="flex min-w-0 items-start gap-4">
+            <CompanyLogo src={item.logo} company={item.company} />
+            <div className="min-w-0">
+              <h3 className="text-base font-bold leading-snug text-slate-900 dark:text-white sm:text-lg">
+                {item.role}
+                <span className="mx-2 text-slate-300 dark:text-white/25">·</span>
+                <span className="text-[#634196] dark:text-purple">{item.company}</span>
+              </h3>
 
-              <button
-                type="button"
-                onClick={() => onToggle(item.id)}
-                aria-label={expanded ? "Collapse details" : "Expand details"}
-                aria-expanded={expanded}
-                aria-controls={contentId}
-                className={`
-                  shrink-0 mt-1 p-1.5 rounded-full text-slate-400 dark:text-slate-600
-                  hover:bg-slate-100 hover:text-slate-600
-                  dark:hover:bg-white/[0.06] dark:hover:text-slate-300
-                  transition-all duration-200 cursor-pointer
-                  ${expanded ? "rotate-180" : ""}
-                `}
-              >
-                <ChevronDown className="w-4 h-4" />
-              </button>
+              <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs text-slate-500 dark:text-neutral-400 sm:text-[13px]">
+                <a
+                  href={item.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={`Visit ${item.company} website`}
+                  className="group/link inline-flex items-center gap-1.5 transition-colors hover:text-[#634196] dark:hover:text-purple"
+                >
+                  <HiOutlineBuildingOffice2 className="h-3.5 w-3.5 shrink-0 text-[#634196] dark:text-purple" />
+                  {item.website.replace(/^https?:\/\/(www\.)?/, "")}
+                  <HiArrowUpRight className="h-3 w-3 transition-transform group-hover/link:-translate-y-px group-hover/link:translate-x-px" />
+                </a>
+                <MetaItem icon={HiOutlineMapPin}>{item.location}</MetaItem>
+                <MetaItem icon={HiOutlineBriefcase}>
+                  {item.employmentType} · {item.workMode}
+                </MetaItem>
+              </div>
             </div>
-
-            {/* location + company website link (LinkedIn-style) */}
-            <a
-              href={item.website}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`group/link mt-2 inline-flex max-w-full items-center gap-1.5 text-xs text-slate-500 dark:text-neutral-400 hover:text-[#634196] dark:hover:text-purple transition-colors duration-200 ${textIndent}`}
-              title={`Visit ${item.company} website`}
-            >
-              <span className="truncate">{item.location}</span>
-              <ExternalLink className="w-3 h-3 shrink-0 text-[#634196] dark:text-purple" />
-            </a>
           </div>
 
-          {expanded && (
-            <div
-              id={contentId}
-              role="region"
-              aria-labelledby={headerId}
-              className="px-4 sm:px-6 pb-4 sm:pb-6 border-t border-[#c6c3c4] dark:border-slate-700"
-            >
-              <TimelineItemContent item={item} />
+          <div className="flex shrink-0 items-center gap-2.5 pl-16 sm:flex-col sm:items-end sm:gap-1.5 sm:pl-0 sm:pt-1">
+            <div className="flex items-center gap-2.5">
+              <span className="inline-flex items-center gap-1.5 whitespace-nowrap font-mono text-xs text-slate-500 dark:text-neutral-400">
+                <HiOutlineCalendarDays className="h-3.5 w-3.5 sm:hidden" />
+                {item.dateRange}
+              </span>
+              {item.current && <CurrentPill />}
             </div>
-          )}
+            <span className="font-mono text-[11px] text-slate-400 dark:text-neutral-500">
+              <DurationLabel item={item} />
+            </span>
+          </div>
         </div>
-      </div>
-    </div>
+
+        {/* responsibilities */}
+        <ul className="mt-5 space-y-2.5 sm:pl-[72px]">
+          {item.responsibilities.map((r, idx) => (
+            <li
+              key={`${item.id}-resp-${idx}`}
+              className="flex gap-3 text-sm leading-relaxed text-slate-600 dark:text-neutral-300"
+            >
+              <span
+                aria-hidden
+                className="mt-[9px] h-1 w-1 shrink-0 rounded-full bg-slate-400 dark:bg-neutral-500"
+              />
+              {r}
+            </li>
+          ))}
+        </ul>
+
+        {/* skills */}
+        <div className="mt-5 flex flex-wrap gap-2 sm:pl-[72px]">
+          {item.skills.map((skill) => (
+            <span
+              key={`${item.id}-${skill}`}
+              className="rounded-md border border-slate-200 bg-white px-2 py-1 text-[11px] font-medium text-slate-700 dark:border-white/10 dark:bg-white/[0.04] dark:text-neutral-300"
+            >
+              {skill}
+            </span>
+          ))}
+        </div>
+      </article>
+    </motion.li>
   );
 });
 TimelineItem.displayName = "TimelineItem";
 
-export function ProfessionalTimeline({
-  data,
-  defaultExpandedIds,
-  expandMode = "single",
-}: ProfessionalTimelineProps) {
-  const initial =
-    defaultExpandedIds ?? data.filter((item) => item.current).map((i) => i.id);
-  const [expanded, setExpanded] = useState<Set<string>>(() => new Set(initial));
-
-  const onToggle = useCallback(
-    (id: string) => {
-      setExpanded((prev) => {
-        const next = new Set(prev);
-        if (expandMode === "single") {
-          return prev.has(id) ? new Set() : new Set([id]);
-        }
-        if (next.has(id)) {
-          next.delete(id);
-        } else {
-          next.add(id);
-        }
-        return next;
-      });
-    },
-    [expandMode],
-  );
-
+export function ProfessionalTimeline({ data }: { data: TimelineItemData[] }) {
   return (
-    <div className="relative">
+    <ol className="relative">
       {data.map((item, index) => (
-        <TimelineItem
-          key={item.id}
-          item={item}
-          expanded={expanded.has(item.id)}
-          onToggle={onToggle}
-          index={index}
-        />
+        <TimelineItem key={item.id} item={item} isLast={index === data.length - 1} />
       ))}
-    </div>
+    </ol>
   );
 }
 
 const ProfessionalExperience = () => {
   return (
-    <div className="py-20" id="professional-experience">
+    <div className="py-20 sm:py-32" id="professional-experience">
       <div className="flex flex-col items-center justify-center">
         <h1 className="heading dark:text-white text-black">
-          My Professional{" "} 
-          <span className="dark:text-purple text-[#634196]">
-            Experience
-          </span>
+          My Professional <SketchHighlight>Experience</SketchHighlight>
         </h1>
         <p className="dark:text-white-200 text-slate-600 mt-8 text-center text-sm sm:text-base leading-relaxed">
-          A comprehensive overview of my career journey and professional
-          achievements.
+          Roles across government, tourism, SaaS, and CMS.
         </p>
       </div>
-      <div className="max-w-3xl mx-auto px-0 sm:px-6 lg:px-8 mt-10">
-        <ProfessionalTimeline data={timelineData} expandMode="single" />
+      <div className="mx-auto mt-24 px-0 sm:px-6 lg:px-0">
+        <ProfessionalTimeline data={timelineData} />
       </div>
+      <style>{`
+        @keyframes pill-pulse {
+          0%   { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.45); }
+          70%  { box-shadow: 0 0 0 7px rgba(16, 185, 129, 0); }
+          100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+      `}</style>
     </div>
   );
 };
