@@ -31,7 +31,9 @@ export default function Home() {
         <Reveal><TechStack /></Reveal>
         <Reveal><Approaches/></Reveal>
         <Reveal><Contact/></Reveal>
-        <Footer/>
+      </div>
+      <div className="relative -mx-5 w-[calc(100%+2.5rem)] sm:-mx-10 sm:w-[calc(100%+5rem)]">
+        <Footer />
       </div>
     </main>
   );
