@@ -1,5 +1,6 @@
 
 import Approaches from "@/components/Approaches";
+import Certifications from "@/components/Certifications";
 import Clients from "@/components/Clients";
 import Contact from "@/components/Contact";
 import Experience from "@/components/Experience";
@@ -26,6 +27,7 @@ export default function Home() {
         <Reveal><ProfessionalExperience/></Reveal>
         <Reveal><Experience/></Reveal>
         <Reveal><Clients/></Reveal>
+        <Reveal><Certifications/></Reveal>
         <Reveal><TechStack /></Reveal>
         <Reveal><Approaches/></Reveal>
         <Reveal><Contact/></Reveal>

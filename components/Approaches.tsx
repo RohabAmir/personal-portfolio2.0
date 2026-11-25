@@ -10,7 +10,7 @@ const Approach = () => {
   const cards = [
     {
       title: "Planning & Strategy",
-      icon: <AceternityIcon order="Phase 1" />,
+      icon: <AceternityIcon />,
       des: "We'll collaborate to map out your website's goals, target audience, and key functionalities. We'll discuss things like site structure, navigation, and content requirements.",
       effect: (
         <CanvasRevealEffect
@@ -21,7 +21,7 @@ const Approach = () => {
     },
     {
       title: "Development & Progress Update",
-      icon: <AceternityIcon order="Phase 2" />,
+      icon: <AceternityIcon />,
       des: "Once we agree on the plan, I cue my lofi playlist and dive into coding. From initial sketches to polished code, I keep you updated every step of the way.",
       effect: (
         <CanvasRevealEffect
@@ -37,7 +37,7 @@ const Approach = () => {
     },
     {
       title: "Deployment & Launch",
-      icon: <AceternityIcon order="Phase 3" />,
+      icon: <AceternityIcon />,
       des: "This is where the magic happens! Based on the approved design, I'll translate everything into functional code, building your website from the ground up.",
       effect: (
         <CanvasRevealEffect
@@ -157,27 +157,27 @@ const Card = ({
     </div>
   );
 };
-// add order prop for the Phase number change
-const AceternityIcon = ({ order }: { order: string }) => {
+// Chevron arrow: points down on mobile (cards stack top to bottom),
+// points right on desktop (cards sit side by side)
+const AceternityIcon = () => {
   return (
-    <div>
-      <button className="relative inline-flex overflow-hidden rounded-full p-[1px] bg-[#634196] dark:bg-transparent">
-        <span
-          className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] hidden dark:block
-         bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]"
-        />
-        <span
-            style={{
-              backdropFilter: 'blur(16px)',
-              WebkitBackdropFilter: 'blur(16px)',
-            }}
-          className="inline-flex h-full w-full cursor-pointer items-center 
-        justify-center rounded-full dark:bg-slate-950 bg-[#634196] px-5 py-2 dark:text-purple text-white font-bold text-2xl"
-        >
-          {order}
-        </span>
-      </button>
-    </div>
+    <svg
+      width="66"
+      height="65"
+      viewBox="0 0 66 65"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-10 w-10 rotate-90 lg:rotate-0 text-black dark:text-white group-hover/canvas-card:text-white"
+    >
+      <path
+        d="M8 8.05571C8 8.05571 54.9009 18.1782 57.8687 30.062C60.8365 41.9458 9.05432 57.4696 9.05432 57.4696"
+        stroke="currentColor"
+        strokeWidth="15"
+        strokeMiterlimit="3.86874"
+        strokeLinecap="round"
+        style={{ mixBlendMode: "darken" }}
+      />
+    </svg>
   );
 };
 

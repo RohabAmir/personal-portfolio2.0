@@ -3,6 +3,7 @@ export const navItems = [
   { name: "About", link: "#about" },
   { name: "Projects", link: "#projects" },
   { name: "Testimonials", link: "#testimonials" },
+  { name: "Certifications", link: "#certifications" },
   { name: "Experience", link: "#professional-experience" },
   { name: "Contact", link: "#contact" },
 ];
@@ -503,3 +504,55 @@ export const techStackRows: TechStackItem[][] = [
     { name: "AG Grid", img: "/logos/tech/aggrid.png", colored: true },
   ],
 ];
+
+/* ── Anthropic certifications (Certifications section) ─────────────────── */
+export type Certification = {
+  id: number;
+  title: string;
+  description: string;
+  link: string;
+  icon: "gear" | "window" | "mcp" | "abacus";
+  /** accent drawn from the site's gradient palette (r, g, b) */
+  accent: "violet" | "blue" | "magenta" | "cyan";
+};
+
+export const certifications: Certification[] = [
+  {
+    id: 1,
+    title: "Claude Code 101",
+    description:
+      "Learn how to use Claude Code effectively in your daily development workflow.",
+    link: "https://verify.skilljar.com/c/78vku7vh6zn6",
+    icon: "gear",
+    accent: "violet",
+  },
+  {
+    id: 2,
+    title: "Claude Code in Action",
+    description:
+      "Run long, hands-off Claude Code sessions you can trust: steer, configure, automate, and verify.",
+    link: "https://verify.skilljar.com/c/wsfayke59un4",
+    icon: "window",
+    accent: "blue",
+  },
+  {
+    id: 3,
+    title: "Introduction to Model Context Protocol",
+    description:
+      "Learn to build Model Context Protocol servers and clients from scratch using Python. Master MCP's three core primitives — tools, resources, and prompts — to connect Claude with external services.",
+    link: "https://verify.skilljar.com/c/yjjwthwxcrpc",
+    icon: "mcp",
+    accent: "magenta",
+  },
+  {
+    id: 4,
+    title: "AI Capabilities and Limitations",
+    description: "An introductory course about how AI works.",
+    link: "https://verify.skilljar.com/c/zcc8j956xtfs",
+    icon: "abacus",
+    accent: "cyan",
+  },
+];
+
+export const certificationsAllLink =
+  "https://www.linkedin.com/in/rohab-aamir2/details/certifications/";

@@ -7,7 +7,7 @@ import SketchHighlight from "./ui/SketchHighlight";
 
 const Footer = () => {
   return (
-    <footer className="w-full pb-10  relative px-4 sm:px-6" id="footer">
+    <footer className="w-full pb-10 relative px-4 sm:px-6" id="footer">
       <div className="h-screen w-screen border-t-[#634196] border-t-2 absolute left-1/2 -translate-x-1/2"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto">
