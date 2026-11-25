@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import {
   motion,
@@ -150,7 +150,6 @@ const Slab = ({
   total,
   nextRef,
   selfRef,
-  minHeight,
 }: {
   cert: Certification;
   index: number;
@@ -158,8 +157,6 @@ const Slab = ({
   /** wrapper of the slab that will slide over this one */
   nextRef: React.RefObject<HTMLDivElement> | null;
   selfRef: React.RefObject<HTMLDivElement>;
-  /** shared height so the folded stack lines up exactly */
-  minHeight?: number;
 }) => {
   const reduce = useReducedMotion();
   const palette = SLABS[cert.accent];
@@ -190,8 +187,8 @@ const Slab = ({
         aria-label={`${cert.title} — view certificate`}
         style={
           reduce
-            ? { minHeight }
-            : { scale, transformOrigin: "50% 0%", minHeight }
+            ? undefined
+            : { scale, transformOrigin: "50% 0%" }
         }
         className={cn(
           "group/slab relative block overflow-hidden rounded-[18px] shadow-[0_-8px_30px_-12px_rgba(3,6,25,0.55),0_1px_0_rgba(255,255,255,0.6)_inset] ring-1 ring-black/[0.06] dark:ring-white/10",
@@ -215,7 +212,7 @@ const Slab = ({
           />
         )}
 
-        <div className="relative grid gap-6 p-6 sm:p-8 md:grid-cols-[minmax(0,280px)_minmax(0,1fr)_auto] md:gap-10 lg:px-11 lg:py-10">
+        <div data-slab-content className="relative grid gap-6 p-6 sm:p-8 md:grid-cols-[minmax(0,280px)_minmax(0,1fr)_auto] md:gap-10 lg:px-11 lg:py-10">
           {/* left: identity */}
           <div className="min-w-0">
             <div className="flex items-start justify-between gap-4 md:block">
@@ -302,20 +299,29 @@ const Certifications = () => {
 
   // Equalise slab heights: sticky slabs are released by their own bottom
   // edge, so uneven heights would make taller ones poke out of the stack.
-  const [slabH, setSlabH] = useState<number | undefined>(undefined);
+  // Measure each slab's *content* (unaffected by the min-height we set) and
+  // write min-height straight to the DOM. Re-measures on any content size
+  // change (fonts loading, rotation, mobile URL-bar resizes).
   useEffect(() => {
-    const measure = () => {
-      const slabs = refs
+    const slabs = () =>
+      refs
         .map((r) => r.current?.firstElementChild as HTMLElement | null)
         .filter(Boolean) as HTMLElement[];
-      slabs.forEach((el) => (el.style.minHeight = "0px"));
-      const max = Math.max(...slabs.map((el) => el.offsetHeight));
-      slabs.forEach((el) => (el.style.minHeight = ""));
-      setSlabH(max);
+    const contents = () =>
+      slabs()
+        .map((el) => el.querySelector<HTMLElement>("[data-slab-content]"))
+        .filter(Boolean) as HTMLElement[];
+
+    const measure = () => {
+      const max = Math.max(...contents().map((el) => el.offsetHeight));
+      if (!Number.isFinite(max) || max <= 0) return;
+      slabs().forEach((el) => (el.style.minHeight = `${max}px`));
     };
+
     measure();
-    window.addEventListener("resize", measure);
-    return () => window.removeEventListener("resize", measure);
+    const ro = new ResizeObserver(measure);
+    contents().forEach((el) => ro.observe(el));
+    return () => ro.disconnect();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -351,7 +357,6 @@ const Certifications = () => {
             total={shown.length}
             selfRef={refs[i]}
             nextRef={refs[i + 1] ?? null}
-            minHeight={slabH}
           />
         ))}
       </div>

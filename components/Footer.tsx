@@ -40,15 +40,15 @@ const Footer = () => {
             <a
               href="/resume/Rohab-Aamir.pdf"
               download="Rohab-Aamir-Resume"
-              className="w-full sm:w-auto px-0"
+              className="w-auto px-0"
             >
               <span
-                className="relative inline-flex h-12 w-full overflow-hidden rounded-full p-[1px] md:w-60 md:mt-10"
+                className="relative inline-flex h-12 w-auto overflow-hidden rounded-full p-[1px] md:w-60 md:mt-10"
                 style={{ background: "var(--magic-btn-bg)" }}
               >
                 <span className="absolute inset-0 hidden dark:block bg-[linear-gradient(110deg,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
                 <span
-                  className="relative inline-flex h-full w-full text-sm sm:text-base cursor-pointer items-center justify-center rounded-full dark:bg-slate-950 bg-[#634196] px-5 sm:px-0 font-medium text-white transition-colors duration-300 hover:bg-[#543680] dark:hover:bg-slate-900 gap-2"
+                  className="relative inline-flex h-full w-full text-sm sm:text-base cursor-pointer items-center justify-center rounded-full dark:bg-slate-950 bg-[#634196] px-7 md:px-0 font-medium text-white transition-colors duration-300 hover:bg-[#543680] dark:hover:bg-slate-900 gap-2"
                   style={{
                     backdropFilter: "blur(16px)",
                     WebkitBackdropFilter: "blur(16px)",

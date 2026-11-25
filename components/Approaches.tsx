@@ -175,7 +175,6 @@ const AceternityIcon = () => {
         strokeWidth="15"
         strokeMiterlimit="3.86874"
         strokeLinecap="round"
-        style={{ mixBlendMode: "darken" }}
       />
     </svg>
   );
