@@ -496,7 +496,7 @@ const CtaCard = () => {
   return (
     <Card tone="ink" className="md:col-span-2 lg:col-span-12 min-h-[220px] lg:min-h-0">
       <BackgroundGradientAnimation containerClassName="rounded-[22px]" />
-      <div className="relative z-10 flex h-full flex-col items-start justify-between gap-6 p-7 sm:p-10 lg:flex-row lg:items-center">
+      <div className="relative z-10 flex h-full flex-col  justify-between gap-6 p-7 sm:p-10 lg:flex-row lg:items-center">
         <div>
           <Eyebrow tone="ink">Let&apos;s talk</Eyebrow>
           <Title tone="ink" className="max-w-xl lg:text-4xl">

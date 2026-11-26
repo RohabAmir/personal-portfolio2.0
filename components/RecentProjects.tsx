@@ -9,12 +9,12 @@ import SketchHighlight from "./ui/SketchHighlight";
 
 
 function usePerView() {
-  const [perView, setPerView] = useState(1);
+  const [perView, setPerView] = useState(2);
 
   useEffect(() => {
     const compute = () => {
       const w = window.innerWidth;
-      setPerView(w < 768 ? 1 : w < 1024 ? 2 : 3);
+      setPerView(w < 768 ? 2 : 4);
     };
     compute();
     window.addEventListener("resize", compute);

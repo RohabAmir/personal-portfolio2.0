@@ -207,10 +207,22 @@ const Hero = () => {
                 <motion.div {...appear(0, { scale: 0.92 })} className="relative">
                   <div
                     aria-hidden
-                    className="pointer-events-none absolute -inset-6 rounded-full bg-[#634196]/15 blur-2xl dark:hidden"
+                    className="pointer-events-none absolute -inset-6 rounded-full bg-[#634196]/15 blur-2xl dark:bg-[#8b5cf6]/20"
                   />
 
-                  <div className="relative h-32 w-32 xs:h-36 xs:w-36 sm:h-48 sm:w-48 md:h-52 md:w-52 lg:h-56 lg:w-56 xl:h-72 xl:w-72 overflow-hidden rounded-full border border-black/10 shadow-[0_0_0_30px_rgba(99,65,150,0.06),0_24px_60px_-15px_rgba(99,65,150,0.4)] dark:shadow-[0_0_0_30px_rgba(255,255,255,0.06)]">
+                  {/* slow dashed orbit */}
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute -inset-4 sm:-inset-6 rounded-full border border-dashed border-[#634196]/30 motion-safe:animate-[spin_40s_linear_infinite] dark:border-purple/25"
+                  />
+
+                  <div className="relative h-32 w-32 xs:h-36 xs:w-36 sm:h-48 sm:w-48 md:h-52 md:w-52 lg:h-56 lg:w-56 xl:h-72 xl:w-72 overflow-hidden rounded-full shadow-[0_30px_70px_-22px_rgba(99,65,150,0.6),0_8px_20px_-10px_rgba(99,65,150,0.35)] dark:shadow-[0_30px_70px_-24px_rgba(139,92,246,0.35),0_8px_20px_-12px_rgba(203,172,249,0.15)]">
+                    {/* slowly turning gradient ring */}
+                    <div
+                      aria-hidden
+                      className="absolute inset-0 rounded-full bg-[conic-gradient(from_0deg,#634196,#b89be0,#f3ecfc,#8b65c7,#634196)] motion-safe:animate-[spin_10s_linear_infinite] dark:hidden"
+                    />
+                    <div className="absolute inset-[4px] overflow-hidden rounded-full ring-[3px] ring-white dark:ring-white/20">
                     <Image
                       src="/myProfile-light.webp"
                       alt="Rohab Aamir"
@@ -219,6 +231,15 @@ const Hero = () => {
                       priority
                       sizes="(max-width: 640px) 128px, (max-width: 768px) 144px, (max-width: 1024px) 208px, (max-width: 1280px) 224px, 288px"
                       className="h-full w-full object-cover object-center rounded-full dark:hidden"
+                    />
+                    {/* theme tint + top gloss so the grey backdrop blends in */}
+                    <div
+                      aria-hidden
+                      className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-t from-[#634196]/30 via-[#b89be0]/10 to-white/10 mix-blend-soft-light dark:from-[#393BB2]/40 dark:via-[#CBACF9]/10 dark:to-transparent"
+                    />
+                    <div
+                      aria-hidden
+                      className="pointer-events-none absolute inset-0 rounded-full bg-[radial-gradient(circle_at_30%_18%,rgba(255,255,255,0.28),transparent_45%)] dark:bg-[radial-gradient(circle_at_30%_18%,rgba(255,255,255,0.12),transparent_45%)]"
                     />
                     <Image
                       src="/myProfile-hd.webp"
@@ -229,6 +250,7 @@ const Hero = () => {
                       sizes="(max-width: 640px) 128px, (max-width: 768px) 144px, (max-width: 1024px) 208px, (max-width: 1280px) 224px, 288px"
                       className="hidden h-full w-full object-cover object-center rounded-full dark:block"
                     />
+                    </div>
                   </div>
                 </motion.div>
               </div>
@@ -247,13 +269,13 @@ const Hero = () => {
               </motion.p>
               <motion.div
                 {...appear(3)}
-                className="mt-4 sm:mt-6 md:mt-12 flex flex-col items-stretch gap-3 min-[361px]:flex-row min-[361px]:flex-wrap min-[361px]:items-center sm:gap-4 w-full">
-                <a href="#projects">
+                className="mt-4 sm:mt-6 md:mt-12 grid w-full grid-cols-1 gap-3 min-[361px]:grid-cols-2 sm:flex sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+                <a href="#projects" className="block w-full sm:w-auto">
                   <MagicButton
                     title="View my work"
                     icon={<FaLocationArrow />}
                     position="right"
-                    otherClasses="!mt-0 min-[361px]:!w-40 sm:!w-44 md:!w-52"
+                    otherClasses="!mt-0 !w-full sm:!w-44 md:!w-52"
                   />
                 </a>
                 <AnimatedButton
@@ -261,7 +283,7 @@ const Hero = () => {
                   href="#contact"
                   variant="outline"
                   showArrow={false}
-                  className="w-full min-[361px]:!w-40 sm:!w-44 md:!w-52"
+                  className="!w-full sm:!w-44 md:!w-52"
                 />
               </motion.div>
             </div>

@@ -241,11 +241,11 @@ const CompanyLogo = ({ src, company }: { src: string; company: string }) => (
 
 /** Emerald "Current" pill with a live dot and a radiating pulse ring. */
 const CurrentPill = () => (
-  <span className="relative inline-flex rounded-full animate-[pill-pulse_2s_ease-out_infinite]">
-    <span className="relative inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-2.5 py-0.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-emerald-600 ring-1 ring-emerald-500/40 dark:bg-emerald-400/10 dark:text-emerald-400">
+  <span className="relative inline-flex rounded-full text-[#634196] dark:text-purple animate-[pill-pulse_2s_ease-out_infinite]">
+    <span className="relative inline-flex items-center gap-1.5 rounded-full bg-[#634196]/10 px-2.5 py-0.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-[#634196] ring-1 ring-[#634196]/40 dark:bg-purple/10 dark:text-purple dark:ring-purple/40">
       <span className="relative flex h-1.5 w-1.5">
-        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75 dark:bg-emerald-400" />
-        <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400" />
+        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#634196] opacity-75 dark:bg-purple" />
+        <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#634196] dark:bg-purple" />
       </span>
       Current
     </span>
@@ -298,9 +298,9 @@ const TimelineItem = memo(function TimelineItem({
       <span aria-hidden className="absolute left-0 top-[18px] flex h-[15px] w-[15px] items-center justify-center sm:left-1 sm:top-[22px]">
         {item.current ? (
           <>
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500/40" />
-            <span className="relative h-[15px] w-[15px] rounded-full border-2 border-emerald-500 bg-white shadow-[0_0_12px_rgba(16,185,129,0.6)] dark:bg-black-100">
-              <span className="absolute inset-[3px] rounded-full bg-emerald-500" />
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#634196]/40 dark:bg-purple/40" />
+            <span className="relative h-[15px] w-[15px] rounded-full border-2 border-[#634196] dark:border-purple bg-white shadow-[0_0_12px_rgba(99,65,150,0.6)] dark:shadow-[0_0_12px_rgba(203,172,249,0.6)] dark:bg-black-100">
+              <span className="absolute inset-[3px] rounded-full bg-[#634196] dark:bg-purple" />
             </span>
           </>
         ) : (
@@ -413,9 +413,9 @@ const ProfessionalExperience = () => {
       </div>
       <style>{`
         @keyframes pill-pulse {
-          0%   { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.45); }
-          70%  { box-shadow: 0 0 0 7px rgba(16, 185, 129, 0); }
-          100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+          0%   { box-shadow: 0 0 0 0 color-mix(in srgb, currentColor 45%, transparent); }
+          70%  { box-shadow: 0 0 0 7px transparent; }
+          100% { box-shadow: 0 0 0 0 transparent; }
         }
       `}</style>
     </div>

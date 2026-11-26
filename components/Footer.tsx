@@ -35,27 +35,35 @@ const Footer = () => {
               Reach out to me today and I hope I can help you out in your talent
               hunt.
             </p>
-            {/* MagicButton look, but the border is static — the vortex
-                already provides the motion in this section */}
+            {/* Same look as MagicButton, but the border is static in both
+                themes — the vortex already
+                provides the motion in this section. */}
             <a
               href="/resume/Rohab-Aamir.pdf"
               download="Rohab-Aamir-Resume"
-              className="w-auto px-0"
+              className="group w-auto px-0"
             >
               <span
-                className="relative inline-flex h-12 w-auto overflow-hidden rounded-full p-[1px] md:w-60 md:mt-10"
+                className="relative inline-flex h-12 w-auto overflow-hidden rounded-full p-[1.5px] md:w-60 md:mt-10 transition-all duration-300 shadow-[0_10px_28px_-14px_rgba(99,65,150,0.55)] group-hover:-translate-y-0.5 group-hover:shadow-[0_16px_36px_-14px_rgba(99,65,150,0.65)] dark:shadow-none dark:group-hover:translate-y-0 dark:group-hover:shadow-none dark:p-[1px]"
                 style={{ background: "var(--magic-btn-bg)" }}
               >
+                <span className="absolute inset-0 dark:hidden bg-[linear-gradient(110deg,#634196_0%,#E2CBFF_50%,#634196_100%)]" />
                 <span className="absolute inset-0 hidden dark:block bg-[linear-gradient(110deg,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
                 <span
-                  className="relative inline-flex h-full w-full text-sm sm:text-base cursor-pointer items-center justify-center rounded-full dark:bg-slate-950 bg-[#634196] px-7 md:px-0 font-medium text-white transition-colors duration-300 hover:bg-[#543680] dark:hover:bg-slate-900 gap-2"
+                  className="relative inline-flex h-full w-full overflow-hidden text-sm sm:text-base cursor-pointer items-center justify-center rounded-full bg-white/95 text-[#634196] shadow-[inset_0_1px_0_rgba(255,255,255,1)] group-hover:bg-[#f6f1fc] dark:bg-slate-950 dark:text-white dark:shadow-none dark:group-hover:bg-slate-900 px-7 md:px-0 font-semibold tracking-wide transition-colors duration-300 gap-2"
                   style={{
                     backdropFilter: "blur(16px)",
                     WebkitBackdropFilter: "blur(16px)",
                   }}
                 >
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute inset-y-0 left-0 w-1/3 -translate-x-full skew-x-[-20deg] bg-gradient-to-r from-transparent via-[#634196]/10 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-[400%] dark:hidden"
+                  />
                   Download Resume
-                  <FaLocationArrow />
+                  <span className="inline-flex transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                    <FaLocationArrow />
+                  </span>
                 </span>
               </span>
             </a>

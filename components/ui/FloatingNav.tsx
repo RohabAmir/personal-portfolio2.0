@@ -25,6 +25,7 @@ export const FloatingNav = ({
   const { scrollYProgress } = useScroll();
   const [visible, setVisible] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState(navItems[0]?.link ?? "#home");
   const rootRef = useRef<HTMLDivElement | null>(null);
 
@@ -34,6 +35,7 @@ export const FloatingNav = ({
     }
 
     const previous = scrollYProgress.getPrevious();
+    setScrolled(window.scrollY > 40);
 
     if (current <= 0.05) {
       setVisible(true);
@@ -143,11 +145,30 @@ export const FloatingNav = ({
         }}
         className={cn(
           "fixed top-3 sm:top-4 inset-x-3 z-[5000]",
-          "sm:inset-x-0 sm:mx-auto sm:w-full sm:max-w-7xl px-0",
+          "sm:inset-x-0 sm:mx-auto sm:w-full px-0 transition-[max-width] duration-500 ease-out",
+          scrolled ? "sm:max-w-7xl lg:max-w-[64rem]" : "sm:max-w-7xl",
           className,
         )}
       >
-        <div className="flex items-center justify-between gap-2 sm:gap-3 rounded-full border border-[#c6c3c4] dark:border-white/[0.12] bg-white dark:bg-[#000319]/50 backdrop-blur-2xl py-2.5 px-4 shadow-[0_10px_40px_-12px_rgba(0,0,0,0.25)] transition-colors duration-300">
+        <div
+          className={cn(
+            "relative flex items-center justify-between gap-2 sm:gap-3 rounded-full border px-4 backdrop-blur-2xl backdrop-saturate-150 transition-all duration-500",
+            "border-white/70 bg-white/80 shadow-[0_10px_40px_-14px_rgba(99,65,150,0.35),inset_0_1px_0_rgba(255,255,255,0.9)]",
+            "dark:border-white/[0.08] dark:bg-[#07081c]/60 dark:shadow-[0_10px_40px_-12px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.06)]",
+            scrolled ? "py-2" : "py-2.5",
+          )}
+        >
+          {/* top hairline glow */}
+          <span
+            aria-hidden
+            className="pointer-events-none absolute inset-x-12 -top-px h-px bg-gradient-to-r from-transparent via-[#634196]/60 to-transparent dark:via-purple/70"
+          />
+          {/* scroll progress hairline */}
+          <motion.span
+            aria-hidden
+            style={{ scaleX: scrollYProgress }}
+            className="pointer-events-none absolute inset-x-8 -bottom-px hidden h-px origin-left lg:block bg-gradient-to-r from-[#634196]/0 via-[#634196] to-[#b89be0] dark:from-purple/0 dark:via-purple dark:to-[#E2CBFF]"
+          />
           <Link
             href="#home"
             onClick={() => setMenuOpen(false)}
@@ -181,11 +202,18 @@ export const FloatingNav = ({
                   className={cn(
                     "relative flex shrink-0 items-center justify-center whitespace-nowrap rounded-full px-3 py-2 text-sm xl:px-4 font-medium transition-colors duration-200",
                     isActive
-                      ? "rounded-full border border-[#c6c3c4] dark:border-white/35  bg-slate-100 text-slate-900 shadow-[inset_0_0_0_1px_rgba(2,6,23,0.06)] dark:bg-white/[0.09] dark:text-white"
-                      : "text-slate-600 hover:bg-slate-100/70 hover:text-slate-900 dark:text-neutral-300 dark:hover:bg-white/[0.06] dark:hover:text-white",
+                      ? "text-[#634196] dark:text-white"
+                      : "text-slate-600 hover:text-slate-900 dark:text-neutral-400 dark:hover:text-white",
                   )}
                 >
-                  <span className="!cursor-pointer">{navItem.name}</span>
+                  {isActive && (
+                    <motion.span
+                      layoutId="nav-active-pill"
+                      transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                      className="absolute inset-0 rounded-full bg-[#634196]/[0.08] ring-1 ring-[#634196]/20 dark:bg-gradient-to-b dark:from-white/[0.10] dark:to-white/[0.03] dark:ring-purple/30 dark:shadow-[0_0_18px_-4px_rgba(203,172,249,0.45),inset_0_1px_0_rgba(255,255,255,0.1)]"
+                    />
+                  )}
+                  <span className="relative z-10 !cursor-pointer">{navItem.name}</span>
                 </Link>
               );
             })}

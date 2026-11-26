@@ -1,4 +1,5 @@
 
+import AIEcosystem from "@/components/AIEcosystem";
 import Approaches from "@/components/Approaches";
 import Certifications from "@/components/Certifications";
 import Clients from "@/components/Clients";
@@ -25,6 +26,7 @@ export default function Home() {
       <div className="max-w-7xl w-full">
         <Reveal><RecentProjects/></Reveal>
         <Reveal><ProfessionalExperience/></Reveal>
+        <Reveal><AIEcosystem/></Reveal>
         <Reveal><Experience/></Reveal>
         <Reveal><Clients/></Reveal>
         <Reveal><Certifications/></Reveal>

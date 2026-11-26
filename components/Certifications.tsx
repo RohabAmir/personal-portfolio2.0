@@ -212,7 +212,7 @@ const Slab = ({
           />
         )}
 
-        <div data-slab-content className="relative grid gap-6 p-6 sm:p-8 md:grid-cols-[minmax(0,280px)_minmax(0,1fr)_auto] md:gap-10 lg:px-11 lg:py-10">
+        <div data-slab-content className="relative grid gap-4 p-5 sm:gap-6 sm:p-8 md:grid-cols-[minmax(0,280px)_minmax(0,1fr)_auto] md:gap-10 lg:px-11 lg:py-10">
           {/* left: identity */}
           <div className="min-w-0">
             <div className="flex items-start justify-between gap-4 md:block">
@@ -230,18 +230,18 @@ const Slab = ({
                       className="h-[20px] w-[20px] transition-transform duration-700 ease-out group-hover/slab:rotate-[60deg] sm:h-[22px] sm:w-[22px]"
                     />
                   </span>
-                  <h3 className="text-[22px] font-medium leading-[1.15] tracking-[-0.02em] sm:text-[26px]">
+                  <h3 className="text-[19px] font-medium leading-[1.15] tracking-[-0.02em] sm:text-[26px]">
                     {cert.title}
                   </h3>
                 </div>
               </div>
               {/* icon sits beside the title on mobile */}
-              <div className="h-16 w-16 shrink-0 md:hidden">
+              <div className="h-12 w-12 shrink-0 sm:h-16 sm:w-16 md:hidden">
                 <CourseIcon icon={cert.icon} fillClass={palette.iconFill} />
               </div>
             </div>
-            <div className="mt-5 flex items-baseline gap-2.5">
-              <span className="text-[34px] font-light leading-none tracking-tight text-[#634196]">
+            <div className="mt-3 flex items-baseline gap-2.5 sm:mt-5">
+              <span className="text-[28px] sm:text-[34px] font-light leading-none tracking-tight text-[#634196]">
                 {num}
               </span>
               <span className="text-[13px] text-[#0b1a3a]/60">
@@ -253,13 +253,19 @@ const Slab = ({
 
           {/* middle: description + link */}
           <div className="min-w-0 md:pt-6">
-            <p className="text-[15px] leading-[1.75] text-[#0b1a3a]/75">
+            <p className="line-clamp-3 text-sm leading-relaxed text-[#0b1a3a]/75 sm:text-[15px] sm:leading-[1.75] md:line-clamp-none">
               {cert.description}
             </p>
-            <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[#634196]">
-              View certificate
-              <HiArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover/slab:-translate-y-0.5 group-hover/slab:translate-x-0.5" />
-            </span>
+            <div className="mt-4 flex items-center justify-between gap-3 sm:mt-5">
+              <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#634196]">
+                View certificate
+                <HiArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover/slab:-translate-y-0.5 group-hover/slab:translate-x-0.5" />
+              </span>
+              {/* badge shares the link row on mobile */}
+              <span className="md:hidden">
+                <CertifiedBadge />
+              </span>
+            </div>
           </div>
 
           {/* right: badge + icon (desktop) */}
@@ -268,9 +274,6 @@ const Slab = ({
             <div className="h-24 w-24 transition-transform duration-500 group-hover/slab:-rotate-3 group-hover/slab:scale-105 lg:h-28 lg:w-28">
               <CourseIcon icon={cert.icon} fillClass={palette.iconFill} />
             </div>
-          </div>
-          <div className="md:hidden">
-            <CertifiedBadge />
           </div>
         </div>
       </motion.a>
